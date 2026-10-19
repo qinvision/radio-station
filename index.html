@@ -1,0 +1,3036 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)file:///D:/Users/Admin/Desktop/deepseek_html_20261018_be2391.html -->
+<html lang="zh-CN" data-theme="night" style="--topbar-h: 111.70000457763672px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>全国广播电台在线收听</title>
+<style>
+:root { --topbar-h: 120px; }
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+html[data-theme="night"]{
+  --bg:#0d1017; --card:#161c28; --card-2:#1c2433;
+  --text:#e8ecf4; --text-2:#8b96ab; --border:rgba(255,255,255,.08);
+  --accent:#4f8cff; --accent-2:#7aa9ff; --accent-soft:rgba(79,140,255,.15);
+  --shadow:0 8px 28px rgba(0,0,0,.45); --glass:rgba(22,28,40,.82);
+}
+html[data-theme="day"]{
+  --bg:#f2f5fa; --card:#ffffff; --card-2:#f4f7fc;
+  --text:#161a22; --text-2:#6b7488; --border:rgba(0,0,0,.08);
+  --accent:#2563eb; --accent-2:#3b82f6; --accent-soft:rgba(37,99,235,.10);
+  --shadow:0 8px 24px rgba(24,40,80,.10); --glass:rgba(255,255,255,.86);
+}
+html[data-theme="green"]{
+  --bg:#e6efe3; --card:#f7fbf5; --card-2:#eef5ea;
+  --text:#26331f; --text-2:#5f7355; --border:rgba(40,70,30,.12);
+  --accent:#4a8c3f; --accent-2:#63a854; --accent-soft:rgba(74,140,63,.13);
+  --shadow:0 8px 24px rgba(40,70,30,.12); --glass:rgba(247,251,245,.88);
+}
+html[data-theme="red"]{
+  --bg:#171012; --card:#241a1d; --card-2:#2e2125;
+  --text:#f6e9ea; --text-2:#b09094; --border:rgba(255,255,255,.09);
+  --accent:#e0364b; --accent-2:#ff5f72; --accent-soft:rgba(224,54,75,.16);
+  --shadow:0 8px 28px rgba(0,0,0,.5); --glass:rgba(36,26,29,.84);
+}
+html[data-theme="ocean"]{
+  --bg:#07131c; --card:#0e2230; --card-2:#143040;
+  --text:#dff0f8; --text-2:#7ba3b7; --border:rgba(255,255,255,.09);
+  --accent:#17a8cf; --accent-2:#3cc9ea; --accent-soft:rgba(23,168,207,.16);
+  --shadow:0 8px 28px rgba(0,0,0,.5); --glass:rgba(14,34,48,.84);
+}
+html[data-theme="violet"]{
+  --bg:#120e1c; --card:#1c1630; --card-2:#261e40;
+  --text:#ece6f9; --text-2:#9d92b8; --border:rgba(255,255,255,.09);
+  --accent:#9b6dff; --accent-2:#b892ff; --accent-soft:rgba(155,109,255,.16);
+  --shadow:0 8px 28px rgba(0,0,0,.5); --glass:rgba(28,22,48,.84);
+}
+
+body{
+  margin:0; min-height:100vh;
+  background:var(--bg); color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC",sans-serif;
+  transition:background .3s,color .3s;
+}
+
+::-webkit-scrollbar{ width:10px; height:10px; }
+::-webkit-scrollbar-track{ background:transparent; }
+::-webkit-scrollbar-thumb{ background:rgba(128,140,160,.35); border-radius:6px; }
+::-webkit-scrollbar-thumb:hover{ background:rgba(128,140,160,.55); }
+
+/* ===== 顶部栏（两行） ===== */
+.topbar{
+  position:fixed; top:0; left:0; right:0; z-index:95;
+  display:flex; flex-direction:column;
+  background:var(--glass); border-bottom:1px solid var(--border);
+  box-shadow:0 4px 22px rgba(0,0,0,.14);
+  backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  padding-top:env(safe-area-inset-top);
+}
+
+.topbar-row{
+  display:flex; align-items:center; gap:12px;
+  padding:8px 18px; min-width:0;
+}
+.topbar-row-1{ padding-bottom:6px; }
+.topbar-row-2{
+  padding-top:8px; padding-bottom:10px;
+  flex-wrap:wrap;
+  border-top:1px solid var(--border);
+}
+
+/* 时钟 */
+.clock{
+  display:flex; align-items:baseline; gap:10px; flex:none;
+  user-select:none;
+}
+.clock-time{
+  font-size:20px; font-weight:700; letter-spacing:.5px;
+  font-variant-numeric:tabular-nums; white-space:nowrap; color:var(--text);
+}
+.clock-date{ font-size:12px; color:var(--text-2); white-space:nowrap; }
+
+/* 品牌标题 */
+.brand{
+  flex:1; min-width:0;
+  text-align:center;
+  line-height:1.15;
+  padding:0 8px;
+}
+.brand h1{
+  font-size:18px; font-weight:700; margin:0;
+  letter-spacing:2px;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  color:var(--text);
+}
+.brand p{
+  font-size:12px; margin:2px 0 0;
+  color:var(--text-2); letter-spacing:1.5px;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+
+/* 右上工具 */
+.topbar-right{
+  margin-left:auto; display:flex; align-items:center; gap:10px; flex:none;
+}
+.lock-btn{
+  width:36px; height:36px; flex:none; border-radius:11px;
+  display:flex; align-items:center; justify-content:center;
+  border:1px solid var(--border); background:var(--card-2);
+  color:var(--accent); cursor:pointer; font-family:inherit; line-height:1;
+  transition:all .18s;
+}
+.lock-btn svg{ width:16px; height:16px; display:block; }
+.lock-btn:hover{ border-color:var(--accent); filter:brightness(1.12); }
+.lock-btn:active{ transform:scale(.94); }
+.lock-btn.locked{ color:var(--text-2); }
+
+.theme-switch{
+  display:flex; align-items:center; gap:8px;
+  padding:7px 11px; border-radius:999px;
+  background:var(--card-2); border:1px solid var(--border);
+}
+.theme-dot{
+  width:17px; height:17px; border-radius:50%; cursor:pointer;
+  border:2px solid transparent;
+  transition:transform .18s, border-color .18s;
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.18);
+}
+.theme-dot:hover{ transform:scale(1.18); }
+.theme-dot.on{ border-color:var(--text); transform:scale(1.12); }
+
+/* 第二行：tabs + 搜索 */
+.tabs{
+  display:flex; gap:6px; padding:5px; border-radius:14px;
+  background:var(--card); border:1px solid var(--border);
+}
+.tabs-right{ margin-left:auto; }
+.tab{
+  padding:8px 16px; border-radius:10px; border:none; background:transparent;
+  color:var(--text-2); font-size:16px; cursor:pointer;
+  font-family:inherit; white-space:nowrap; transition:all .2s;
+}
+.tab:hover{ color:var(--text); }
+.tab.on{ background:var(--accent); color:#fff; font-weight:600; }
+
+.search{
+  flex:0 1 220px; min-width:120px;
+  padding:10px 16px; border-radius:12px;
+  border:1px solid var(--border); background:var(--card); color:var(--text);
+  font-size:16px; outline:none; font-family:inherit; transition:border-color .2s;
+}
+.search:focus{ border-color:var(--accent); }
+.search::placeholder{ color:var(--text-2); }
+
+.topbar-row-2 .tabs{ padding:4px; border-radius:12px; }
+.topbar-row-2 .tab{ padding:6px 14px; font-size:15px; border-radius:8px; }
+.topbar-row-2 .search{ padding:8px 14px; font-size:15px; border-radius:10px; }
+
+/* 锁定时：编辑入口可见但灰显，点击由 JS 提示解锁 */
+body.locked .btn-add,
+body.locked .btn-add-station,
+body.locked .btn-edit-st,
+body.locked .sort-wrap,
+body.locked .cactions {
+  opacity: .35;
+  filter: grayscale(1);
+}
+body.locked .btn-add,
+body.locked .btn-add-station,
+body.locked .btn-edit-st,
+body.locked .btn-sort,
+body.locked .cactions button {
+  cursor: not-allowed !important;
+}
+body.locked .cactions button:hover {
+  color: var(--text-2) !important;
+  background: transparent !important;
+  transform: none !important;
+}
+/* 锁定状态下编辑按钮显示锁图标提示 */
+body.locked .cactions button {
+  position: relative;
+}
+body.locked .cactions button::after {
+  content: '\f023';
+  font-family: 'Font Awesome 5 Free', sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 9px;
+  opacity: .5;
+  pointer-events: none;
+  color: var(--text-2);
+}
+body.locked .btn-add:hover,
+body.locked .btn-add-station:hover,
+body.locked .btn-edit-st:hover,
+body.locked .btn-sort:hover {
+  color: var(--text-2) !important;
+  border-color: var(--border) !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* ===== 内容区 ===== */
+.wrap{
+  max-width:1200px; margin:0 auto;
+  padding:calc(var(--topbar-h) + 24px) 20px 130px;
+}
+
+.layout{
+  display:grid;
+  grid-template-columns:280px minmax(0,1fr);
+  gap:18px;
+  align-items:stretch;
+}
+.main-col{ min-width:0; }
+.side-col{ min-width:0; }
+
+.now-card{
+  position:sticky;
+  top:calc(var(--topbar-h) + 12px);
+  z-index:5;
+  max-height:calc(100vh - var(--topbar-h) - 36px);
+  display:flex; flex-direction:column;
+  background:var(--card); border:1px solid var(--border); border-radius:16px;
+  padding:16px 16px 18px; box-shadow:var(--shadow);
+  transition:background .3s,border-color .3s;
+}
+.now-head{
+  display:flex; align-items:center; gap:8px; flex:none;
+  font-size:13px; font-weight:600; letter-spacing:1px;
+  color:var(--text-2); margin-bottom:13px;
+}
+.now-dot{
+  width:8px; height:8px; border-radius:50%;
+  background:var(--accent);
+  animation:pulse 1.8s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%{ transform:scale(1); opacity:1; }
+  50%{ transform:scale(1.45); opacity:.55; }
+  100%{ transform:scale(1); opacity:1; }
+}
+.now-name{ flex:none; font-size:19px; font-weight:700; line-height:1.35; word-break:break-word; }
+.now-sub{
+  flex:none; font-size:13px; color:var(--text-2); margin-top:5px;
+  word-break:break-word; line-height:1.5;
+}
+.now-freq{
+  flex:none; align-self:flex-start;
+  display:inline-block; margin-top:11px;
+  font-size:13px; font-weight:700; color:var(--accent);
+  background:var(--accent-soft); padding:2px 10px; border-radius:6px;
+  white-space:nowrap;
+}
+.now-freq.hide{ display:none; }
+.now-desc{
+  flex:1 1 auto; min-height:0;
+  margin-top:14px; padding-top:14px;
+  border-top:1px dashed var(--border);
+  font-size:14px; line-height:1.75; color:var(--text);
+  white-space:pre-wrap; word-break:break-word;
+  overflow-y:auto; overscroll-behavior:contain;
+}
+.now-desc::-webkit-scrollbar{ width:6px; }
+.now-desc::-webkit-scrollbar-thumb{ background:var(--border); border-radius:3px; }
+.now-desc.muted{ color:var(--text-2); }
+
+.list-head{
+  display:flex; align-items:center; gap:10px;
+  margin:0 0 14px; padding:0 4px;
+  font-size:14px; color:var(--text-2); flex-wrap:wrap;
+}
+.list-head-title{ flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.btn-add-station{
+  flex:none; font-size:14px; padding:5px 12px; border-radius:8px;
+  border:1px dashed var(--border); background:transparent; color:var(--text-2);
+  cursor:pointer; font-family:inherit; transition:all .2s; white-space:nowrap;
+}
+.btn-add-station:hover{ color:var(--accent); border-color:var(--accent); }
+
+.station{
+  background:var(--card); border:1px solid var(--border); border-radius:16px;
+  padding:14px 16px; margin-bottom:14px; box-shadow:var(--shadow);
+  transition:background .3s,border-color .3s;
+}
+.station-head{ display:flex; align-items:center; gap:10px; margin-bottom:12px; flex-wrap:wrap; }
+.tag{
+  font-size:13px; padding:3px 9px; border-radius:999px; white-space:nowrap;
+  background:var(--accent-soft); color:var(--accent-2);
+  border:1px solid var(--accent-soft);
+}
+.station-head h3{ font-size:17px; margin:0; font-weight:600; }
+.cnt{ font-size:14px; color:var(--text-2); }
+.st-head-actions{ margin-left:auto; display:flex; align-items:center; gap:6px; flex:none; }
+
+.btn-add{
+  font-size:14px; padding:5px 12px; border-radius:8px;
+  border:1px dashed var(--border); background:transparent; color:var(--text-2);
+  cursor:pointer; font-family:inherit; transition:all .2s;
+}
+.btn-add:hover{ color:var(--accent); border-color:var(--accent); }
+
+.btn-edit-st{
+  font-size:13px; padding:5px 10px; border-radius:8px; line-height:1;
+  border:1px dashed var(--border); background:transparent; color:var(--text-2);
+  cursor:pointer; font-family:inherit; transition:all .2s;
+}
+.btn-edit-st:hover{ color:var(--accent); border-color:var(--accent); }
+
+.sort-wrap{ position:relative; flex:none; }
+.btn-sort{
+  font-size:13px; padding:5px 10px; border-radius:8px; line-height:1;
+  border:1px dashed var(--border); background:transparent; color:var(--text-2);
+  cursor:pointer; font-family:inherit; transition:all .2s; white-space:nowrap;
+}
+.btn-sort:hover, .sort-wrap.open .btn-sort{ color:var(--accent); border-color:var(--accent); }
+.sort-menu{
+  position:absolute; top:calc(100% + 6px); right:0; z-index:40;
+  min-width:140px; padding:5px; border-radius:11px;
+  background:var(--card); border:1px solid var(--border);
+  box-shadow:var(--shadow);
+  display:none; flex-direction:column; gap:2px;
+}
+.sort-wrap.open .sort-menu{ display:flex; }
+.sort-menu button{
+  text-align:left; width:100%; font-size:13px; padding:7px 10px;
+  border:none; border-radius:7px; background:transparent; color:var(--text-2);
+  cursor:pointer; font-family:inherit; white-space:nowrap; transition:all .15s;
+}
+.sort-menu button:hover{ background:var(--accent-soft); color:var(--accent); }
+
+.channels{ display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:8px; }
+
+.channel{
+  display:flex; align-items:center; gap:8px;
+  padding:9px 10px; border-radius:10px; cursor:pointer;
+  background:var(--card-2); border:1px solid transparent;
+  transition:all .18s; outline:none;
+}
+.channel:hover{ border-color:var(--accent); transform:translateY(-1px); }
+.channel:focus-visible{ border-color:var(--accent); box-shadow:0 0 0 2px var(--accent-soft); }
+.channel.active{ border-color:var(--accent); background:var(--accent-soft); }
+.play-ico{
+  width:14px; flex:none; text-align:center; font-size:11px; color:var(--accent);
+  display:flex; align-items:center; justify-content:center;
+}
+.eq{ display:inline-flex; align-items:flex-end; gap:2px; height:12px; }
+.eq i{
+  width:3px; border-radius:1px; background:var(--accent);
+  transform-origin:bottom;
+  animation:eqBar .9s ease-in-out infinite;
+}
+.eq i:nth-child(1){ height:6px;  animation-delay:0s; }
+.eq i:nth-child(2){ height:12px; animation-delay:.2s; }
+.eq i:nth-child(3){ height:8px;  animation-delay:.4s; }
+@keyframes eqBar{
+  0%,100%{ transform:scaleY(.35); }
+  50%{ transform:scaleY(1); }
+}
+.cname{ flex:1; min-width:0; display:flex; align-items:center; font-size:15px; }
+.ctxt{ min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.bulb{
+  flex:none; width:8px; height:8px; border-radius:50%;
+  margin-left:6px; background:#22c55e;
+  box-shadow:0 0 6px rgba(34,197,94,.85);
+  transition:background .25s, box-shadow .25s;
+}
+.bulb.bad{ background:#ef4444; box-shadow:0 0 6px rgba(239,68,68,.85); }
+
+.cactions{ display:flex; gap:2px; opacity:.65; transition:opacity .18s; flex:none; }
+.channel:hover .cactions{ opacity:1; }
+/* 编辑按钮始终可见，未解锁时灰显提示 */
+.cactions button{ position:relative; }
+.cactions button{
+  border:none; background:transparent; color:var(--text-2);
+  cursor:pointer; font-size:14px; padding:2px 5px; border-radius:6px;
+  font-family:inherit; transition:all .18s;
+}
+.cactions button:hover{ color:var(--accent); background:var(--accent-soft); }
+
+.empty{ text-align:center; padding:60px 20px; color:var(--text-2); font-size:16px; line-height:2; }
+.empty small{ font-size:14px; opacity:.85; }
+
+/* 清除搜索按钮 */
+.btn-clear-search{
+  margin-top:4px; padding:6px 16px; border-radius:8px;
+  border:1px solid var(--accent); background:var(--accent-soft); color:var(--accent);
+  font-size:14px; font-family:inherit; cursor:pointer; transition:all .2s;
+}
+.btn-clear-search:hover{ filter:brightness(1.1); transform:translateY(-1px); }
+
+/* ===== 播放器 ===== */
+.player{
+  position:fixed; left:0; right:0; bottom:0; z-index:80;
+  display:flex; align-items:center; gap:12px; padding:10px 18px;
+  padding-bottom:calc(10px + env(safe-area-inset-bottom));
+  background:var(--glass); border-top:1px solid var(--border);
+  box-shadow:0 -6px 24px rgba(0,0,0,.18);
+  backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+}
+.p-ico{
+  width:38px; height:38px; flex:none; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  background:var(--accent-soft); color:var(--accent); font-size:18px;
+}
+.player.playing .p-ico{ animation:picoPulse 1.8s ease-in-out infinite; }
+@keyframes picoPulse{
+  0%,100%{ box-shadow:0 0 0 0 var(--accent-soft); }
+  50%{ box-shadow:0 0 0 7px transparent; }
+}
+.p-text{ flex:1; min-width:0; }
+.p-name{ font-size:16px; font-weight:600; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.p-sub{
+  display:flex; align-items:center; gap:9px;
+  font-size:13px; color:var(--text-2); margin-top:2px;
+  overflow:hidden; min-width:0;
+}
+.p-sub-txt{ flex:0 1 auto; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.p-freq{
+  flex:none; white-space:nowrap;
+  font-size:13px; font-weight:700; color:var(--accent);
+  padding:1px 8px; border-radius:6px;
+  background:var(--accent-soft);
+}
+.p-freq.hide{ display:none; }
+
+.p-url-row{
+  display:flex; align-items:center; gap:7px;
+  margin-top:5px; min-width:0;
+}
+.p-url-row.hide{ display:none; }
+.p-url{
+  flex:1; min-width:0;
+  font-size:12px; color:var(--text-2);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+}
+.p-copy{
+  flex:none; width:24px; height:24px; padding:0; border-radius:7px;
+  display:flex; align-items:center; justify-content:center;
+  border:1px solid var(--border); background:var(--card-2);
+  color:var(--text-2); cursor:pointer; transition:all .18s;
+}
+.p-copy svg{ width:13px; height:13px; display:block; }
+.p-copy:hover{ color:var(--accent); border-color:var(--accent); }
+.p-copy:active{ transform:scale(.9); }
+.p-copy.done{ color:#22c55e; border-color:#22c55e; }
+
+.p-right{ display:flex; align-items:center; gap:12px; flex:none; }
+#vol{ width:80px; accent-color:var(--accent); cursor:pointer; }
+.p-play{
+  width:40px; height:40px; border-radius:50%; border:none; cursor:pointer;
+  background:var(--accent); color:#fff; font-size:17px;
+  display:flex; align-items:center; justify-content:center;
+  transition:transform .15s, filter .2s;
+}
+.p-play:hover{ transform:scale(1.06); filter:brightness(1.1); }
+
+/* 播放器内联编辑 */
+.p-url.editable, .p-freq.editable{ cursor:pointer; }
+.p-url.editable:hover{ color:var(--accent); text-decoration:underline dotted; }
+.p-freq.editable:hover{ filter:brightness(1.15); }
+
+.p-url-input{
+  flex:1; min-width:0;
+  padding:2px 8px; border-radius:7px;
+  border:1px solid var(--accent); background:var(--card-2); color:var(--text);
+  font-size:12px; outline:none;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+.p-freq-input{
+  flex:0 0 auto; width:92px;
+  padding:2px 8px; border-radius:6px;
+  border:1px solid var(--accent); background:var(--card-2); color:var(--accent);
+  font-size:13px; font-weight:700; outline:none; font-family:inherit;
+}
+.p-url.hide, .p-freq.hide, .p-url-input.hide,
+.p-freq-input.hide, .p-copy.hide{ display:none !important; }
+
+/* ===== 回到顶部 ===== */
+.to-top{
+  position:fixed; right:20px; bottom:100px; z-index:85;
+  width:44px; height:44px; border-radius:50%; cursor:pointer;
+  border:1px solid var(--border); background:var(--glass); color:var(--text);
+  font-size:20px; box-shadow:var(--shadow);
+  backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  opacity:0; pointer-events:none; transform:translateY(10px);
+  transition:all .25s;
+}
+.to-top.show{ opacity:1; pointer-events:auto; transform:translateY(0); }
+.to-top:hover{ color:var(--accent); border-color:var(--accent); }
+
+/* ===== 弹窗 ===== */
+.modal-mask{
+  position:fixed; inset:0; z-index:200; display:none;
+  align-items:center; justify-content:center; padding:20px;
+  background:rgba(0,0,0,.55); backdrop-filter:blur(3px);
+}
+.modal-mask.show{ display:flex; }
+.modal{
+  width:100%; max-width:420px; max-height:88vh; overflow-y:auto;
+  padding:22px; border-radius:18px;
+  background:var(--card); border:1px solid var(--border); box-shadow:var(--shadow);
+  animation:pop .2s ease;
+}
+@keyframes pop{ from{ transform:scale(.94); opacity:0; } to{ transform:scale(1); opacity:1; } }
+.modal h3{ margin:0 0 18px; font-size:18px; }
+.modal label{ display:block; font-size:14px; color:var(--text-2); margin-bottom:14px; }
+.modal input, .modal textarea, .modal select{
+  width:100%; margin-top:6px; padding:10px 13px; border-radius:10px;
+  border:1px solid var(--border); background:var(--card-2); color:var(--text);
+  font-size:16px; outline:none; font-family:inherit; transition:border-color .2s;
+}
+.modal textarea{ resize:vertical; min-height:58px; line-height:1.5; }
+.modal select{ cursor:pointer; }
+.modal input:focus, .modal textarea:focus, .modal select:focus{ border-color:var(--accent); }
+.modal input::placeholder, .modal textarea::placeholder{ color:var(--text-2); }
+
+.modal-btns{ display:flex; gap:10px; justify-content:flex-end; margin-top:6px; }
+.modal-btns button{
+  padding:9px 20px; border-radius:10px; border:none; cursor:pointer;
+  font-size:16px; font-family:inherit; transition:all .2s;
+}
+#mCancel, #sCancel{ background:var(--card-2); color:var(--text-2); border:1px solid var(--border); }
+#mCancel:hover, #sCancel:hover{ color:var(--text); }
+#mOk, #sOk{ background:var(--accent); color:#fff; font-weight:600; }
+#mOk:hover, #sOk:hover{ filter:brightness(1.1); }
+#mDel, #sDel{ margin-right:auto; background:transparent; color:#e0364b; border:1px solid rgba(224,54,75,.45); }
+#mDel:hover, #sDel:hover{ background:rgba(224,54,75,.12); }
+#mDel.hide, #sDel.hide{ display:none; }
+
+.toast{
+  position:fixed; left:50%; bottom:130px; z-index:300;
+  transform:translateX(-50%) translateY(12px);
+  padding:10px 20px; border-radius:999px; font-size:15px; max-width:90vw;
+  background:var(--card); color:var(--text); border:1px solid var(--border);
+  box-shadow:var(--shadow); opacity:0; pointer-events:none;
+  transition:all .25s; text-align:center;
+}
+.toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+
+/* ===== 响应式 ===== */
+@media (max-width:900px){
+  .layout{ grid-template-columns:minmax(0,1fr); align-items:start; }
+  .now-card{ z-index:9; max-height:46vh; }
+  .now-desc{ max-height:24vh; }
+}
+@media (max-width:640px){
+  .topbar-row{ padding:6px 12px; gap:8px; }
+  .topbar-row-1{ padding-bottom:4px; }
+  .topbar-row-2{ padding-top:6px; padding-bottom:8px; gap:6px; }
+  .brand h1{ font-size:15px; letter-spacing:1px; }
+  .brand p{ display:none; }
+  .clock{ gap:6px; }
+  .clock-time{ font-size:16px; }
+  .clock-date{ display:none; }
+  .topbar-right{ gap:6px; }
+  .lock-btn{ width:30px; height:30px; border-radius:9px; }
+  .lock-btn svg{ width:14px; height:14px; }
+  .theme-switch{ padding:5px 8px; gap:5px; }
+  .theme-dot{ width:14px; height:14px; }
+
+  .topbar-row-2 .tab{ padding:5px 10px; font-size:13px; }
+  .topbar-row-2 .search{ flex:1 1 100%; padding:7px 12px; font-size:14px; }
+  .tabs-right{ margin-left:0; }
+
+  .wrap{ padding:calc(var(--topbar-h) + 16px) 12px 140px; }
+  .channels{ grid-template-columns:1fr 1fr; }
+  #vol{ display:none; }
+  .to-top{ bottom:112px; right:12px; }
+  .now-card{ max-height:42vh; }
+  .now-desc{ max-height:20vh; }
+}
+@media (max-width:420px){
+  .clock-date{ display:none; }
+}
+
+/* ===== 美化增强层 ===== */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: 
+    radial-gradient(ellipse at 20% 20%, var(--accent-soft) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, var(--accent-soft) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, var(--accent-soft) 0%, transparent 70%);
+  opacity: 0.5;
+  animation: bgShift 20s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+@keyframes bgShift {
+  0% { transform: scale(1) rotate(0deg); }
+  33% { transform: scale(1.1) rotate(2deg); }
+  66% { transform: scale(0.95) rotate(-2deg); }
+  100% { transform: scale(1.05) rotate(1deg); }
+}
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.03;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+.topbar {
+  border-bottom-width: 1px;
+  border-bottom-color: rgba(255,255,255,0.1);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.1);
+}
+html[data-theme="night"] .topbar,
+html[data-theme="red"] .topbar,
+html[data-theme="ocean"] .topbar,
+html[data-theme="violet"] .topbar {
+  border-bottom-color: rgba(255,255,255,0.08);
+}
+html[data-theme="day"] .topbar,
+html[data-theme="green"] .topbar {
+  border-bottom-color: rgba(0,0,0,0.08);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.5);
+}
+.brand h1 {
+  text-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+.theme-dot {
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.2), 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.2s;
+}
+.theme-dot:hover { transform: scale(1.25); }
+.theme-dot.on {
+  border-color: var(--accent);
+  transform: scale(1.15);
+  box-shadow: 0 0 12px var(--accent-soft), inset 0 1px 2px rgba(0,0,0,0.2);
+}
+.search {
+  background: var(--card);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.04);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.search:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft), inset 0 2px 4px rgba(0,0,0,0.06);
+  transform: translateY(-1px);
+}
+.tab {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.tab::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.tab:hover::after { opacity: 1; }
+.tab.on {
+  box-shadow: 0 4px 12px var(--accent-soft), 0 2px 4px rgba(0,0,0,0.1);
+  transform: translateY(-1px);
+}
+.station {
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,0.05);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+.station::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent));
+  background-size: 200% 100%;
+  opacity: 0;
+  transition: opacity 0.3s;
+  animation: shimmer 3s ease-in-out infinite;
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.station:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.1);
+  border-color: var(--accent);
+}
+.station:hover::before { opacity: 1; }
+.channel {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid transparent;
+}
+.channel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--accent-soft) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+.channel:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+.channel:hover::before { opacity: 1; }
+.channel.active {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  box-shadow: 0 0 0 2px var(--accent-soft), inset 0 1px 3px rgba(0,0,0,0.1);
+}
+.channel.active .play-ico .eq i { animation: eqBar 0.8s ease-in-out infinite; }
+.channel.active .play-ico .eq i:nth-child(1) { animation-delay: 0s; }
+.channel.active .play-ico .eq i:nth-child(2) { animation-delay: 0.15s; }
+.channel.active .play-ico .eq i:nth-child(3) { animation-delay: 0.3s; }
+.bulb {
+  transition: all 0.3s ease;
+  box-shadow: 0 0 6px currentColor;
+}
+.bulb.bad { animation: pulseRed 2s ease-in-out infinite; }
+@keyframes pulseRed {
+  0%, 100% { box-shadow: 0 0 6px rgba(239,68,68,0.85); }
+  50% { box-shadow: 0 0 12px rgba(239,68,68,0.5); }
+}
+.now-card {
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,0.08);
+  position: relative;
+  overflow: hidden;
+}
+.now-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent));
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+.now-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, var(--accent-soft) 0%, transparent 70%);
+  opacity: 0.3;
+  pointer-events: none;
+}
+.now-freq {
+  background: linear-gradient(135deg, var(--accent-soft) 0%, var(--accent-soft) 100%);
+  border: 1px solid var(--accent);
+  box-shadow: 0 2px 8px var(--accent-soft);
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+.btn-add, .btn-add-station, .btn-edit-st, .btn-sort {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+.btn-add:hover, .btn-add-station:hover, .btn-edit-st:hover, .btn-sort:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.btn-add:active, .btn-add-station:active, .btn-edit-st:active, .btn-sort:active {
+  transform: translateY(0) scale(0.98);
+}
+.player {
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -8px 32px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.05);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+.p-ico {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+  box-shadow: 0 4px 12px var(--accent-soft);
+  color: #fff;
+  font-size: 20px;
+}
+.player.playing .p-ico { animation: picoPulse 2s ease-in-out infinite; }
+@keyframes picoPulse {
+  0%, 100% { box-shadow: 0 0 0 0 var(--accent-soft); }
+  50% { box-shadow: 0 0 0 10px transparent; }
+}
+.p-play {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+  box-shadow: 0 4px 16px var(--accent-soft);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.p-play:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 24px var(--accent-soft);
+  filter: brightness(1.15);
+}
+.p-play:active { transform: scale(0.95); }
+.to-top {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.to-top:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+.to-top:active { transform: translateY(-1px) scale(0.95); }
+.modal-mask {
+  backdrop-filter: blur(8px) saturate(150%);
+  -webkit-backdrop-filter: blur(8px) saturate(150%);
+  background: rgba(0,0,0,0.6);
+}
+.modal {
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow), 0 0 0 1px rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.1);
+  animation: pop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+@keyframes pop {
+  from { transform: scale(0.92) translateY(20px); opacity: 0; }
+  to { transform: scale(1) translateY(0); opacity: 1; }
+}
+.modal-btns button {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+.modal-btns button:hover { transform: translateY(-1px); }
+#mOk:hover, #sOk:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px var(--accent-soft);
+}
+#mCancel:hover, #sCancel:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+#mDel:hover, #sDel:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(224,54,75,0.2);
+}
+.toast {
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow), 0 0 0 1px rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  animation: toastIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes toastIn {
+  from { transform: translateX(-50%) translateY(20px) scale(0.95); opacity: 0; }
+  to { transform: translateX(-50%) translateY(0) scale(1); opacity: 1; }
+}
+.toast.show {
+  animation: toastIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), toastOut 0.3s ease-in 1.9s;
+}
+@keyframes toastOut {
+  from { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+  to { opacity: 0; transform: translateX(-50%) translateY(-10px) scale(0.95); }
+}
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { 
+  background: rgba(128,140,160,0.3); 
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover { 
+  background: rgba(128,140,160,0.5); 
+  background-clip: content-box;
+}
+.tag {
+  background: linear-gradient(135deg, var(--accent-soft) 0%, var(--accent-soft) 100%);
+  border: 1px solid var(--accent);
+  box-shadow: 0 2px 6px var(--accent-soft);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.station-head h3 { text-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+.list-head {
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 12px;
+  margin-bottom: 18px;
+}
+.empty {
+  background: var(--card);
+  border: 2px dashed var(--border);
+  border-radius: 20px;
+  padding: 80px 20px;
+  backdrop-filter: blur(10px);
+}
+.sort-menu {
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  animation: sortMenuIn 0.2s ease;
+}
+@keyframes sortMenuIn {
+  from { opacity: 0; transform: translateY(-8px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.sort-menu button:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+  transform: translateX(4px);
+}
+#vol {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--card-2);
+  border: 1px solid var(--border);
+  outline: none;
+  transition: all 0.2s;
+}
+#vol::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  box-shadow: 0 2px 8px var(--accent-soft);
+  transition: all 0.2s;
+}
+#vol::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 12px var(--accent-soft);
+}
+#vol::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 8px var(--accent-soft);
+}
+.modal input:focus, .modal textarea:focus, .modal select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+.lock-btn { transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
+.lock-btn:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 4px 12px var(--accent-soft);
+}
+.lock-btn:active { transform: scale(0.9) rotate(-5deg); }
+.lock-btn.locked { opacity: 0.7; }
+
+@media (max-width: 900px) {
+  .now-card {
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+  }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.station { animation: fadeInUp 0.5s ease backwards; }
+.station:nth-child(1) { animation-delay: 0.05s; }
+.station:nth-child(2) { animation-delay: 0.1s; }
+.station:nth-child(3) { animation-delay: 0.15s; }
+.station:nth-child(4) { animation-delay: 0.2s; }
+.station:nth-child(5) { animation-delay: 0.25s; }
+.station:nth-child(6) { animation-delay: 0.3s; }
+.station:nth-child(7) { animation-delay: 0.35s; }
+.station:nth-child(8) { animation-delay: 0.4s; }
+.station:nth-child(9) { animation-delay: 0.45s; }
+.station:nth-child(10) { animation-delay: 0.5s; }
+
+.deco-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: -1;
+}
+.deco-orb-1 {
+  width: 400px; height: 400px;
+  background: var(--accent);
+  top: -100px; right: -100px;
+  animation: floatOrb 25s ease-in-out infinite;
+}
+.deco-orb-2 {
+  width: 300px; height: 300px;
+  background: var(--accent-2);
+  bottom: -50px; left: -50px;
+  animation: floatOrb 30s ease-in-out infinite reverse;
+}
+.deco-orb-3 {
+  width: 250px; height: 250px;
+  background: var(--accent);
+  top: 50%; left: 50%;
+  animation: floatOrb 35s ease-in-out infinite 5s;
+}
+@keyframes floatOrb {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(50px, -80px) rotate(90deg); }
+  50% { transform: translate(-30px, 60px) rotate(180deg); }
+  75% { transform: translate(80px, 40px) rotate(270deg); }
+}
+@media (max-width: 768px) {
+  .deco-orb { opacity: 0.2; }
+  .deco-orb-1 { width: 250px; height: 250px; }
+  .deco-orb-2 { width: 200px; height: 200px; }
+  .deco-orb-3 { width: 180px; height: 180px; }
+}
+
+/* ============================================================
+   文字配色增强层 —— 为 6 套主题各定义四级文字色阶
+   ============================================================ */
+
+/* ---------- 1. 每个主题的四级文字色阶 ---------- */
+html[data-theme="night"]{
+  --text-strong:#f6f9ff;   /* 主标题 / 正在播放名称 */
+  --text:#dbe2ee;          /* 正文 / 频道名 */
+  --text-2:#9aa5ba;        /* 次级说明 */
+  --text-3:#6b7488;        /* 最弱 / 占位符 */
+}
+html[data-theme="day"]{
+  --text-strong:#0f1420;
+  --text:#1e2634;
+  --text-2:#5a6478;
+  --text-3:#8a94a6;
+}
+html[data-theme="green"]{
+  --text-strong:#1b2a14;
+  --text:#2b3a22;
+  --text-2:#586b4c;
+  --text-3:#7e8f72;
+}
+html[data-theme="red"]{
+  --text-strong:#fff5f6;
+  --text:#f2e2e4;
+  --text-2:#c3a0a6;
+  --text-3:#8f7076;
+}
+html[data-theme="ocean"]{
+  --text-strong:#f2fbff;
+  --text:#d2e9f5;
+  --text-2:#90b6c9;
+  --text-3:#6b8b9d;
+}
+html[data-theme="violet"]{
+  --text-strong:#f7f2ff;
+  --text:#e2daf7;
+  --text-2:#aa9fc6;
+  --text-3:#80769b;
+}
+
+/* ---------- 2. 品牌标题：主色 → 强调色渐变 ---------- */
+.brand h1{
+  background:linear-gradient(135deg,var(--text-strong) 0%,var(--accent) 65%,var(--accent-2) 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow:none;
+  filter:none;
+}
+.brand p{ color:var(--text-3); }
+
+/* ---------- 3. 时钟 ---------- */
+.clock-time{ color:var(--text-strong); }
+.clock-date{ color:var(--text-3); }
+
+/* ---------- 4. 电台标题与统计 ---------- */
+.station-head h3{ color:var(--text-strong); }
+.list-head-title{ color:var(--text-2); }
+.cnt{ color:var(--text-2); }
+.tag{ color:var(--accent-2); }
+
+/* ---------- 5. 频道名：正文色，悬停/播放时强调 ---------- */
+.ctxt{ color:var(--text); transition:color .2s; }
+.channel:hover .ctxt{ color:var(--accent-2); }
+.channel.active .ctxt{ color:var(--accent); font-weight:600; }
+
+/* ---------- 6. 正在播放卡片 ---------- */
+.now-head{ color:var(--text-2); }
+.now-name{
+  background:linear-gradient(135deg,var(--text-strong) 0%,var(--accent) 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.now-sub{ color:var(--text-2); }
+.now-desc{ color:var(--text); }
+.now-desc.muted{ color:var(--text-3); }
+
+/* ---------- 7. 播放器 ---------- */
+.p-name{ color:var(--text-strong); }
+.p-sub-txt{ color:var(--text-2); }
+.p-url{ color:var(--text-3); }
+.p-url.editable:hover{ color:var(--accent); }
+.p-freq{ color:var(--accent); }
+
+/* ---------- 8. 其它辅助文字 ---------- */
+.empty{ color:var(--text-2); }
+.empty small{ color:var(--text-3); }
+.modal h3{ color:var(--text-strong); }
+.modal label{ color:var(--text-2); }
+.toast{ color:var(--text); }
+.search::placeholder,
+.modal input::placeholder,
+.modal textarea::placeholder{ color:var(--text-3); }
+
+/* ---------- 9. 平滑过渡，切换主题不突兀 ---------- */
+body,.brand h1,.station-head h3,.ctxt,.now-name,.p-name{
+  transition:color .3s, background .3s, -webkit-text-fill-color .3s;
+}
+</style>
+</head>
+<body class="locked">
+<!-- 装饰性浮动光球 -->
+<div class="deco-orb deco-orb-1"></div>
+<div class="deco-orb deco-orb-2"></div>
+<div class="deco-orb deco-orb-3"></div>
+
+
+<header class="topbar">
+  <div class="topbar-row topbar-row-1">
+    <div class="clock">
+      <div class="clock-time" id="clockTime">20:57:53</div>
+      <div class="clock-date" id="clockDate">2026年10月19日 星期一</div>
+    </div>
+    <div class="brand">
+      <h1>全国广播电台在线收听</h1>
+      <p>杜绝加密 倾情打造</p>
+    </div>
+    <div class="topbar-right">
+      <button class="lock-btn locked" id="lockBtn" title="编辑已锁定，点击解锁">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="4" y="10.5" width="16" height="10" rx="2.5"></rect>
+    <path d="M7.8 10.5V7.4a4.2 4.2 0 0 1 8.4 0v3.1"></path>
+    <path d="M12 14.6v2.2"></path>
+  </svg></button>
+      <div class="theme-switch" id="themeSwitch">
+        <span class="theme-dot on" data-theme="night" style="background:#4f8cff" title="墨夜"></span>
+        <span class="theme-dot" data-theme="day" style="background:#ffffff" title="晨光"></span>
+        <span class="theme-dot" data-theme="green" style="background:#4a8c3f" title="护眼"></span>
+        <span class="theme-dot" data-theme="red" style="background:#e0364b" title="赤霞"></span>
+        <span class="theme-dot" data-theme="ocean" style="background:#17a8cf" title="沧海"></span>
+        <span class="theme-dot" data-theme="violet" style="background:#9b6dff" title="紫夜"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="topbar-row topbar-row-2">
+    <div class="tabs" id="tabs"><button class="tab" data-cat="国家">国家</button><button class="tab" data-cat="直辖市省级">直辖市省级</button><button class="tab" data-cat="地市级">地市级</button><button class="tab on" data-cat="网络电台">网络电台</button></div>
+    <input class="search" id="search" type="text" placeholder="搜索电台或频道…">
+    <div class="tabs tabs-right" id="tabsRight"><button class="tab" data-cat="XG">XG</button><button class="tab" data-cat="AM">AM</button><button class="tab" data-cat="TW">TW</button><button class="tab" data-cat="HW">HW</button></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="layout">
+    <aside class="side-col">
+      <div class="now-card">
+        <div class="now-head"><span class="now-dot"></span><span>正在播放</span></div>
+        <div class="now-name" id="nowName">中国之声</div>
+        <div class="now-sub" id="nowSub">中央广播电视总台 · 中央</div>
+        <div class="now-freq" id="nowFreq">FM 106.1 / AM 639</div>
+        <div class="now-desc" id="nowDesc">中央人民广播电台中国之声，别名中央广播电视总台中国之声，简称中国之声。是中华人民共和国发展最早、影响力最大的广播频率之一。</div>
+      </div>
+    </aside>
+
+    <main class="main-col">
+      <div id="list">
+    <div class="list-head">
+      <span class="list-head-title">网络电台 · 共 1 个电台 · 23 个广播频率</span>
+      <button class="btn-add-station" data-add-station="">＋ 添加电台</button>
+    </div>
+      <section class="station" data-sid="c1_asmju">
+        <div class="station-head">
+          <span class="tag">网络电台</span>
+          <h3>网络音乐台</h3>
+          <span class="cnt">23 个频率</span>
+          <div class="st-head-actions">
+            <div class="sort-wrap">
+              <button class="btn-sort" data-act="sort-toggle" title="频道排序">⇅ 排序</button>
+              <div class="sort-menu">
+                <button data-act="sort" data-sort="name-asc">名称 A→Z</button>
+                <button data-act="sort" data-sort="name-desc">名称 Z→A</button>
+                <button data-act="sort" data-sort="freq-asc">频率 低→高</button>
+                <button data-act="sort" data-sort="freq-desc">频率 高→低</button>
+              </div>
+            </div>
+            <button class="btn-edit-st" data-act="edit-station" title="编辑电台名称 / 标签">✎ 编辑电台</button>
+            <button class="btn-add" data-act="add">＋ 添加频道</button>
+          </div>
+        </div>
+        <div class="channels">
+          
+            <div class="channel" data-cid="c2_vrks8" role="button" tabindex="0" aria-label="891线上音乐台">
+              <span class="play-ico">▶</span>
+              <span class="cname"><span class="ctxt">891线上音乐台</span><i class="bulb" title="流地址有效"></i></span>
+              <span class="cactions">
+                <button data-act="edit" title="编辑">✎</button>
+              </span>
+            </div>
+            <div class="channel" data-cid="c9_6srma" role="button" tabindex="0" aria-label="动听音乐台">
+              <span class="play-ico">▶</span>
+              <span class="cname"><span class="ctxt">动听音乐台</span><i class="bulb" title="流地址有效"></i></span>
+              <span class="cactions">
+                <button data-act="edit" title="编辑">✎</button>
+              </span>
+            </div>
+            <div class="channel" data-cid="c5_mgm14" role="button" tabindex="0" aria-label="怀集音乐之声">
+              <span class="play-ico">▶</span>
+              <span class="cname"><span class="ctxt">怀集音乐之声</span><i class="bulb" title="流地址有效"></i></span>
+              <span class="cactions">
+                <button data-act="edit" title="编辑">✎</button>
+              </span>
+            </div>
+            <div class="channel" data-cid="c4_6pkzd" role="button" tabindex="0" aria-label="两广之声音乐台">
+              <span class="play-ico">▶</span>
+              <span class="cname"><span class="ctxt">两广之声音乐台</span><i class="bulb" title="流地址有效"></i></span>
+              <span class="cactions">
+                <button data-act="edit" title="编辑">✎</button>
+              </span>
+            </div>
+            <div class="channel" data-cid="c6_pg5tj" role="button" tabindex="0" aria-label="清晨音乐台">
+              <span class="play-ico">▶</span>
+              <span class="cname"><span class="ctxt">清晨音乐台</span><i class="bulb" title="流地址有效"></i></span>
+              <span class="cactions">
+                <button data-act="edit" title="编辑">✎</button>
+              </span>
+            </div>
+            <div class="channel" data-cid="c8_2319o" role="button" tabindex="0" aria-label="顺德音乐之声">
+              <span class="play-ico">▶</span>
+              <span class="cname"><span class="ctxt">顺德音乐之声</span><i class="bulb" title="流地址有效"></i></span>
+              <span class="cactions">
+                <button data-act="edit" title="编辑">✎</button>
+              </span>
+            </div>
+            <div class="channel" data-cid="c3_cqgdz" role="button" tabindex="0" aria-label="湾区音乐台">
+              <span class="play-ico">▶</span>
+              <span class="cname"><span class="ctxt">湾区音乐台</span><i class="bulb" title="流地址有效"></i></span>
+              <span class="cactions">
+                <button data-act="edit" title="编辑">✎</button>
+              </span>
+            </div>
+            <div class="channel" data-cid="c10_37l75" role="button" tabindex="0" aria-label="星河音乐台">
+              <span class="play-ico">▶</span>
+              <span class="cname"><span class="ctxt">星河音乐台</span><i class="bulb" title="流地址有效"></i></span>
+              <span class="cactions">
+                <button data-act="edit" title="编辑">✎</button>
+              </span>
+            </div>
+            <div class="channel" data-cid="c12_f16iv" role="button" tabindex="0" aria-label="云梦音乐台">
+              <span class="play-ico">▶</span>
+              <span class="cname"><span class="ctxt">云梦音乐台</span><i class="bulb" title="流地址有效"></i></span>
+              <span class="cactions">
+                <button data-act="edit" title="编辑">✎</button>
+              </span>
+            </div>
+            <div class="channel" data-cid="c2_8izl9" role="button" tabindex="0" aria-label="AsiaFM 亚洲经典台">
+              <span class="play-ico">▶</span>
+              <span class="cname"><span class="ctxt">AsiaFM 亚洲经典台</span><i class="bulb" title="流地址有效"></i></span>
+              <span class="cactions">
+                <button data-act="edit" title="编辑">✎</button>
+              </span>
+            </div>
+            <div class="channel" data-cid="c1_4fihv" role="button" tabindex="0" aria-label="AsiaFM 亚洲热歌台">
+              <span class="play-ico">▶</span>
+              <span class="cname"><span class="ctxt">AsiaFM 亚洲热歌台</span><i class="bulb" title="流地址有效"></i></span>
+              <span class="cactions">
+                <button data-act="edit" title="编辑">✎</button>
+              </span>
+            </div>
+            <div class="channel" data-cid="c11_evn4h" role="button" tabindex="0" aria-label="AsiaFM 亚洲天空台">
+              <span class="play-ico">▶</span>
+              <span class="cname"><span class="ctxt">AsiaFM 亚洲天空台</span><i class="bulb" title="流地址有效"></i></span>
+              <span class="cactions">
+                <button data-act="edit" title="编辑">✎</button>
+              </span>
+            </div>
+            <div class="channel" data-cid="c13_b34rc" role="button" tabindex="0" aria-label="AsiaFM 亚洲音乐台">
+              <span class="play-ico">▶</span>
+              <span class="cname"><span class="ctxt">AsiaFM 亚洲音乐台</span><i class="bulb" title="流地址有效"></i></span>
+              <span class="cactions">
+                <button data-act="edit" title="编辑">✎</button>
+              </span>
+            </div>
+            <div class="channel" data-cid="c7_w2kv3" role="button" tabindex="0" aria-label="AsiaFM 粤语台">
+              <span class="play-ico">▶</span>
+              <span class="cname"><span class="ctxt">AsiaFM 粤语台</span><i class="bulb" title="流地址有效"></i></span>
+              <span class="cactions">
+                <button data-act="edit" title="编辑">✎</button>
+              </span>
+            </div>
+            <div class="channel" data-cid="c3_zt0gv" role="button" tabindex="0" aria-label="AsiaFM HD音乐台">
+              <span class="play-ico">▶</span>
+              <span class="cname"><span class="ctxt">AsiaFM HD音乐台</span><i class="bulb" title="流地址有效"></i></span>
+              <span class="cactions">
+                <button data-act="edit" title="编辑">✎</button>
+              </span>
+            </div>
+            <div class="channel" data-cid="c4_rvyb4" role="button" tabindex="0" aria-label="CityFM城市音乐台">
+              <span class="play-ico">▶</span>
+              <span class="cname"><span class="ctxt">CityFM城市音乐台</span><i class="bulb" title="流地址有效"></i></span>
+              <span class="cactions">
+                <button data-act="edit" title="编辑">✎</button>
+              </span>
+            </div>
+            <div class="channel" data-cid="c5_nepeq" role="button" tabindex="0" aria-label="西江之声">
+              <span class="play-ico">▶</span>
+              <span class="cname"><span class="ctxt">西江之声</span><i class="bulb" title="流地址有效"></i></span>
+              <span class="cactions">
+                <button data-act="edit" title="编辑">✎</button>
+              </span>
+            </div>
+            <div class="channel" data-cid="c6_02lzf" role="button" tabindex="0" aria-label="郁南音乐台">
+              <span class="play-ico">▶</span>
+              <span class="cname"><span class="ctxt">郁南音乐台</span><i class="bulb" title="流地址有效"></i></span>
+              <span class="cactions">
+                <button data-act="edit" title="编辑">✎</button>
+              </span>
+            </div>
+            <div class="channel" data-cid="c7_qide2" role="button" tabindex="0" aria-label="听*越剧">
+              <span class="play-ico">▶</span>
+              <span class="cname"><span class="ctxt">听*越剧</span><i class="bulb" title="流地址有效"></i></span>
+              <span class="cactions">
+                <button data-act="edit" title="编辑">✎</button>
+              </span>
+            </div>
+            <div class="channel" data-cid="c8_mi2jo" role="button" tabindex="0" aria-label="听*梦想">
+              <span class="play-ico">▶</span>
+              <span class="cname"><span class="ctxt">听*梦想</span><i class="bulb" title="流地址有效"></i></span>
+              <span class="cactions">
+                <button data-act="edit" title="编辑">✎</button>
+              </span>
+            </div>
+            <div class="channel" data-cid="c9_zfcc0" role="button" tabindex="0" aria-label="乐享音乐">
+              <span class="play-ico">▶</span>
+              <span class="cname"><span class="ctxt">乐享音乐</span><i class="bulb" title="流地址有效"></i></span>
+              <span class="cactions">
+                <button data-act="edit" title="编辑">✎</button>
+              </span>
+            </div>
+            <div class="channel" data-cid="c10_izchd" role="button" tabindex="0" aria-label="卷卷猫电台【儿童音乐故事】">
+              <span class="play-ico">▶</span>
+              <span class="cname"><span class="ctxt">卷卷猫电台【儿童音乐故事】</span><i class="bulb" title="流地址有效"></i></span>
+              <span class="cactions">
+                <button data-act="edit" title="编辑">✎</button>
+              </span>
+            </div>
+            <div class="channel" data-cid="c11_jlj3i" role="button" tabindex="0" aria-label="声音控电台">
+              <span class="play-ico">▶</span>
+              <span class="cname"><span class="ctxt">声音控电台</span><i class="bulb" title="流地址有效"></i></span>
+              <span class="cactions">
+                <button data-act="edit" title="编辑">✎</button>
+              </span>
+            </div>
+        </div>
+      </section></div>
+    </main>
+  </div>
+</div>
+
+<div class="player playing" id="player">
+  <div class="p-ico">♪</div>
+  <div class="p-text">
+    <div class="p-name" id="pName">中国之声</div>
+    <div class="p-sub">
+      <span class="p-sub-txt" id="pSub">中央广播电视总台 · 中央</span>
+      <span class="p-freq" id="pFreq" title="">FM 106.1 / AM 639</span>
+      <input class="p-freq-input hide" id="pFreqInput" type="text" autocomplete="off" spellcheck="false" placeholder="FM 98.4">
+    </div>
+    <div class="p-url-row" id="pUrlRow">
+      <span class="p-url" id="pUrl" title="https://ngcdn001.cnr.cn/live/zgzs/index.m3u8">https://ngcdn001.cnr.cn/live/zgzs/index.m3u8</span>
+      <input class="p-url-input hide" id="pUrlInput" type="text" autocomplete="off" spellcheck="false" placeholder="http:// 或 https:// 开头的流地址">
+      <button class="p-copy" id="pCopy" title="复制流地址" aria-label="复制流地址">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="9" y="9" width="12" height="12" rx="2.5"></rect>
+          <path d="M5 15V5a2 2 0 0 1 2-2h8"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div class="p-right">
+    <input type="range" id="vol" min="0" max="1" step="0.01" value="1">
+    <button class="p-play" id="pPlay">❚❚</button>
+  </div>
+</div>
+
+<button class="to-top show" id="toTop" title="回到顶部">↑</button>
+
+<div class="modal-mask" id="modal">
+  <div class="modal">
+    <h3 id="modalTitle">编辑频道</h3>
+    <label>频道名称
+      <input type="text" id="mName" placeholder="例如：中国之声" autocomplete="off">
+    </label>
+    <label id="mStationWrap" style="">所属电台
+      <select id="mStation"><optgroup label="国家"><option value="c1337_lgje1">中央 · 中央广播电视总台</option></optgroup><optgroup label="直辖市省级"><option value="c1357_9x6bo">北京 · 北京广播电视台</option><option value="c1364_ympeb">天津 · 天津广播电视台</option><option value="c1375_b72ci">河北 · 河北广播电视台</option><option value="c1383_kqi18">山西 · 山西广播电视台</option><option value="c1392_10hzv">内蒙古 · 内蒙古广播电视台</option><option value="c1399_6b8qj">辽宁 · 辽宁广播电视台</option><option value="c1409_4ep6y">吉林 · 吉林广播电视台</option><option value="c1418_4g773">黑龙江 · 黑龙江广播电视台</option><option value="c1427_b37eb">上海 · 上海广播电视台</option><option value="c1436_gtv62">江苏 · 江苏人民广播电台</option><option value="c1447_efxwb">浙江 · 浙江人民广播电台</option><option value="c1456_e0m0q">安徽 · 安徽广播电视台</option><option value="c1466_vtg1f">福建 · 福建人民广播电台</option><option value="c1472_5s4a8">江西 · 江西广播电视台</option><option value="c1479_sv65z">山东 · 山东广播电视台</option><option value="c1486_4xg76">河南 · 河南广播电视台</option><option value="c1497_ifbj8">湖北 · 湖北广播电视台</option><option value="c1502_wevk0">湖南 · 湖南广播电视台</option><option value="c1509_p5m77">广东 · 广东广播电视台</option><option value="c1518_t0yo1">广西 · 广西广播电视台</option><option value="c1525_rxpfv">海南 · 海南广播电视台</option><option value="c1531_70m9m">重庆 · 重庆人民广播电台</option><option value="c1536_98dxf">四川 · 四川广播电视台</option><option value="c1542_aj5vt">贵州 · 贵州广播电视台</option><option value="c1547_sxdkk">云南 · 云南广播电视台</option><option value="c1554_oqqgq">西藏 · 西藏广播电视台</option><option value="c1559_kgd2d">陕西 · 陕西广播电视台</option><option value="c1566_iilzt">甘肃 · 甘肃人民广播电台</option><option value="c1570_x6bze">青海 · 青海广播电视台</option><option value="c1575_5nu1a">宁夏 · 宁夏广播电视台</option><option value="c1579_1iklo">新疆 · 新疆广播电视台</option><option value="c1590_xd0cn">兵团 · 新疆生产建设兵团广播电视台</option></optgroup><optgroup label="地市级"><option value="c1592_i0ia0">河北 · 石家庄广播电视台</option><option value="c1597_vhakt">河北 · 保定广播电视台</option><option value="c1600_o4hbp">河北 · 张家口广播电视台</option><option value="c1605_s80iy">河北 · 承德广播电视台</option><option value="c1609_ujk02">河北 · 邯郸广播电视台</option><option value="c1613_az4wk">河北 · 唐山广播电视台</option><option value="c1619_fmub1">河北 · 秦皇岛广播电视台</option><option value="c1624_8dgoc">河北 · 沧州广播电视台</option><option value="c1628_6dv81">河北 · 衡水广播电视台</option><option value="c1632_hb4wv">河北 · 廊坊广播电视台</option><option value="c1636_qilsa">河北 · 邢台广播电视台</option><option value="c1640_43abo">山西 · 太原广播电视台</option><option value="c1646_g5lq0">山西 · 阳泉广播电视台</option><option value="c1650_1v8qt">山西 · 大同广播电视台</option><option value="c1654_7kw4x">山西 · 朔州广播电视台</option><option value="c1658_bckej">山西 · 晋城广播电视台</option><option value="c1661_pd7um">山西 · 长治广播电视台</option><option value="c1664_bkl70">山西 · 吕梁广播电视台</option><option value="c1668_gpdgq">山西 · 晋中广播电视台</option><option value="c1671_fdc5l">山西 · 忻州广播电视台</option><option value="c1674_gsaiz">山西 · 临汾广播电视台</option><option value="c1678_6qbt8">山西 · 运城广播电视台</option><option value="c1681_rbnai">内蒙古 · 呼和浩特广播电视台</option><option value="c1685_1hjxs">内蒙古 · 包头广播电视台</option><option value="c1690_fwwgs">内蒙古 · 乌海广播电视台</option><option value="c1694_a655i">内蒙古 · 赤峰广播电视台</option><option value="c1699_z9dgv">内蒙古 · 通辽广播电视台</option><option value="c1703_qxxke">内蒙古 · 鄂尔多斯广播电视台</option><option value="c1707_dmdtc">内蒙古 · 呼伦贝尔广播电视台</option><option value="c1711_rrw2z">内蒙古 · 巴彦淖尔广播电视台</option><option value="c1714_zb9tn">内蒙古 · 乌兰察布广播电视台</option><option value="c1718_sboqx">内蒙古 · 兴安盟广播电视台</option><option value="c1722_ax9tx">内蒙古 · 锡林郭勒盟广播电视台</option><option value="c1726_cg1e5">内蒙古 · 阿拉善盟广播电视台</option><option value="c1729_oul0s">辽宁 · 沈阳广播电视台</option><option value="c1731_sdtgn">辽宁 · 大连广播电视台</option><option value="c1738_06poc">辽宁 · 鞍山广播电视台</option><option value="c1743_m5ysl">辽宁 · 抚顺广播电视台</option><option value="c1747_o9i4k">辽宁 · 本溪广播电视台</option><option value="c1751_8qdve">辽宁 · 丹东广播电视台</option><option value="c1754_d77fa">辽宁 · 锦州广播电视台</option><option value="c1758_jvrtd">辽宁 · 营口广播电视台</option><option value="c1762_hh14d">辽宁 · 阜新广播电视台</option><option value="c1766_1khhc">辽宁 · 辽阳广播电视台</option><option value="c1770_32zt2">辽宁 · 盘锦广播电视台</option><option value="c1774_6mxa4">辽宁 · 铁岭人民广播电台</option><option value="c1778_7vgc3">辽宁 · 朝阳广播电视台</option><option value="c1781_a7gm2">辽宁 · 葫芦岛广播电视台</option><option value="c1785_42041">吉林 · 长春广播电视台</option><option value="c1790_4mwub">吉林 · 吉林市广播电视台</option><option value="c1796_i1bph">吉林 · 四平广播电视台</option><option value="c1799_ekgef">吉林 · 辽源广播电视台</option><option value="c1802_eqkgy">吉林 · 通化广播电视台</option><option value="c1806_0fs0v">吉林 · 白山广播电视台</option><option value="c1810_ndt3k">吉林 · 松原广播电视台</option><option value="c1814_rtehx">吉林 · 白城广播电视台</option><option value="c1818_989gp">吉林 · 延边朝鲜族自治州广播电视台</option><option value="c1824_m2oqk">黑龙江 · 哈尔滨广播电视台</option><option value="c1831_qzhd9">黑龙江 · 齐齐哈尔广播电视台</option><option value="c1835_5x5xv">黑龙江 · 牡丹江广播电视台</option><option value="c1838_7z5ic">黑龙江 · 佳木斯广播电视台</option><option value="c1840_i07l5">黑龙江 · 大庆广播电视台</option><option value="c1844_r7w16">黑龙江 · 鸡西广播电视台</option><option value="c1847_6r2ge">黑龙江 · 双鸭山广播电视台</option><option value="c1849_j4ox0">黑龙江 · 伊春广播电视台</option><option value="c1852_reuae">黑龙江 · 七台河广播电视台</option><option value="c1854_oka84">黑龙江 · 鹤岗广播电视台</option><option value="c1857_y06s8">黑龙江 · 黑河广播电视台</option><option value="c1859_97wl3">黑龙江 · 绥化广播电视台</option><option value="c1863_p7j25">黑龙江 · 大兴安岭地区广播电视台</option><option value="c1865_12izs">江苏 · 南京人民广播电台</option><option value="c1871_9gxl7">江苏 · 无锡广播电视台</option><option value="c1877_iuysz">江苏 · 徐州广播电视台</option><option value="c1882_iys5x">江苏 · 常州广播电视台</option><option value="c1887_32ul1">江苏 · 苏州人民广播电台</option><option value="c1893_2ztga">江苏 · 南通广播电视台</option><option value="c1898_tdppe">江苏 · 连云港广播电视台</option><option value="c1902_avdjp">江苏 · 淮安广播电视台</option><option value="c1907_k6vf2">江苏 · 盐城广播电视台</option><option value="c1911_1s887">江苏 · 扬州广播电视台</option><option value="c1917_2yvc9">江苏 · 镇江广播电视台</option><option value="c1921_qnwwm">江苏 · 泰州广播电视台</option><option value="c1925_nhaw0">江苏 · 宿迁人民广播电台</option><option value="c1929_h8o8l">浙江 · 杭州广播电视台</option><option value="c1934_brzsx">浙江 · 宁波人民广播电台</option><option value="c1939_phull">浙江 · 温州广播电视台</option><option value="c1945_ck7v3">浙江 · 嘉兴广播电视台</option><option value="c1949_857m4">浙江 · 湖州广播电视台</option><option value="c1953_1uln1">浙江 · 绍兴广播电视台</option><option value="c1957_aiudj">浙江 · 金华广播电视台</option><option value="c1961_tqe22">浙江 · 衢州广播电视台</option><option value="c1964_uwkh7">浙江 · 舟山广播电视台</option><option value="c1967_j5kk1">浙江 · 台州广播电视台</option><option value="c1971_7xg2s">浙江 · 丽水广播电视台</option><option value="c1974_s747y">安徽 · 合肥广播电视台</option><option value="c1979_pwzlv">安徽 · 芜湖广播电视台</option><option value="c1983_4uwge">安徽 · 蚌埠广播电视台</option><option value="c1986_77dm7">安徽 · 淮南广播电视台</option><option value="c1989_okujb">安徽 · 马鞍山广播电视台</option><option value="c1993_2jnc9">安徽 · 淮北广播电视台</option><option value="c1996_3ier9">安徽 · 铜陵广播电视台</option><option value="c1999_ceb0e">安徽 · 安庆广播电视台</option><option value="c2002_5l1aa">安徽 · 黄山广播电视台</option><option value="c2005_8k1if">安徽 · 滁州广播电视台</option><option value="c2008_ywpzw">安徽 · 阜阳广播电视台</option><option value="c2012_rqb4h">安徽 · 宿州广播电视台</option><option value="c2015_eeq9d">安徽 · 六安广播电视台</option><option value="c2018_dmltr">安徽 · 亳州广播电视台</option><option value="c2021_vfdta">安徽 · 池州广播电视台</option><option value="c2023_orhhg">安徽 · 宣城广播电视台</option><option value="c2026_61hz4">福建 · 福州广播电视台</option><option value="c2030_1qli7">福建 · 厦门人民广播电台</option><option value="c2034_ys9di">福建 · 莆田广播电视台</option><option value="c2037_5zyqs">福建 · 三明广播电视台</option><option value="c2039_s7xhj">福建 · 泉州广播电视台</option><option value="c2043_upabi">福建 · 漳州人民广播电台</option><option value="c2046_v4w09">福建 · 南平广播电视台</option><option value="c2048_sh33c">福建 · 龙岩广播电视台</option><option value="c2050_hx6z4">福建 · 宁德广播电视台</option><option value="c2052_i7qo2">江西 · 南昌广播电视台</option><option value="c2055_z6533">江西 · 景德镇广播电视台</option><option value="c2057_9ni9k">江西 · 萍乡广播电视台</option><option value="c2059_fifcv">江西 · 九江广播电视台</option><option value="c2063_v6km1">江西 · 新余广播电视台</option><option value="c2066_8fdbm">江西 · 鹰潭广播电视台</option><option value="c2069_5tsbg">江西 · 赣州广播电视台</option><option value="c2072_upstv">江西 · 吉安广播电视台</option><option value="c2074_j9mr6">江西 · 宜春广播电视台</option><option value="c2077_u50y5">江西 · 抚州广播电视台</option><option value="c2080_lnfxe">江西 · 上饶广播电视台</option><option value="c2083_8zcn7">山东 · 济南广播电视台</option><option value="c2091_trhk4">山东 · 青岛广播电视台</option><option value="c2097_zipvx">山东 · 淄博广播电视台</option><option value="c2101_rw2jw">山东 · 枣庄广播电视台</option><option value="c2105_omes9">山东 · 东营广播电视台</option><option value="c2109_ps0kj">山东 · 烟台广播电视台</option><option value="c2113_veo8a">山东 · 潍坊广播电视台</option><option value="c2117_9sshp">山东 · 济宁广播电视台</option><option value="c2121_h7ite">山东 · 泰安广播电视台</option><option value="c2124_j8vn4">山东 · 威海广播电视台</option><option value="c2128_bn1ms">山东 · 日照广播电视台</option><option value="c2132_9skxi">山东 · 临沂广播电视台</option><option value="c2136_u4mzs">山东 · 德州广播电视台</option><option value="c2140_40qu8">山东 · 聊城广播电视台</option><option value="c2144_io60c">山东 · 滨州广播电视台</option><option value="c2148_nuyjb">山东 · 菏泽广播电视台</option><option value="c2151_nrw93">河南 · 郑州广播电视台</option><option value="c2157_ashqu">河南 · 开封广播电视台</option><option value="c2161_2t2fq">河南 · 洛阳广播电视台</option><option value="c2165_d5ch7">河南 · 平顶山广播电视台</option><option value="c2168_95fx3">河南 · 安阳广播电视台</option><option value="c2172_bhf8q">河南 · 鹤壁广播电视台</option><option value="c2175_ibxuh">河南 · 新乡广播电视台</option><option value="c2178_21fei">河南 · 焦作广播电视台</option><option value="c2181_njxbf">河南 · 濮阳广播电视台</option><option value="c2184_k4c3j">河南 · 许昌广播电视台</option><option value="c2187_1smqs">河南 · 漯河广播电视台</option><option value="c2190_jw63q">河南 · 三门峡广播电视台</option><option value="c2193_jz1yz">河南 · 南阳广播电视台</option><option value="c2196_zqtv8">河南 · 商丘广播电视台</option><option value="c2200_693f7">河南 · 信阳广播电视台</option><option value="c2203_2pjfs">河南 · 周口广播电视台</option><option value="c2206_ezwyj">河南 · 驻马店广播电视台</option><option value="c2209_t80pq">湖北 · 武汉广播电视台</option><option value="c2214_xjz6u">湖北 · 黄石广播电视台</option><option value="c2217_r4xs7">湖北 · 十堰广播电视台</option><option value="c2220_xspfn">湖北 · 宜昌人民广播电台</option><option value="c2224_lk513">湖北 · 襄阳广播电视台</option><option value="c2228_1wkht">湖北 · 鄂州广播电视台</option><option value="c2230_uk7o7">湖北 · 荆门广播电视台</option><option value="c2232_zry02">湖北 · 孝感广播电视台</option><option value="c2235_f1ooo">湖北 · 荆州广播电视台</option><option value="c2238_sakgl">湖北 · 黄冈广播电视台</option><option value="c2241_69558">湖北 · 咸宁广播电视台</option><option value="c2244_ahu2c">湖北 · 随州广播电视台</option><option value="c2247_ppjar">湖北 · 恩施土家族苗族自治州广播电视台</option><option value="c2250_tuln6">湖南 · 长沙广播电视台</option><option value="c2253_axwrn">湖南 · 株洲广播电视台</option><option value="c2255_84nth">湖南 · 湘潭广播电视台</option><option value="c2258_4sppa">湖南 · 衡阳广播电视台</option><option value="c2261_ys2am">湖南 · 邵阳广播电视台</option><option value="c2264_q6en6">湖南 · 岳阳广播电视台</option><option value="c2268_edzr4">湖南 · 常德广播电视台</option><option value="c2271_n8ick">湖南 · 张家界广播电视台</option><option value="c2273_ktriu">湖南 · 益阳广播电视台</option><option value="c2276_rng4w">湖南 · 郴州广播电视台</option><option value="c2279_krch8">湖南 · 永州广播电视台</option><option value="c2281_gxrlk">湖南 · 怀化广播电视台</option><option value="c2284_fx1qb">湖南 · 娄底广播电视台</option><option value="c2287_bl2w9">湖南 · 湘西土家族苗族自治州广播电视台</option><option value="c2289_2s2ig">广东 · 广州广播电视台</option><option value="c2294_n7rps">广东 · 深圳人民广播电台</option><option value="c2300_jyns7">广东 · 珠海广播电视台</option><option value="c2303_6afgm">广东 · 汕头广播电视台</option><option value="c2306_vyes2">广东 · 佛山人民广播电台</option><option value="c2310_r49bl">广东 · 韶关广播电视台</option><option value="c2312_dwoqh">广东 · 湛江广播电视台</option><option value="c2314_agmhz">广东 · 肇庆广播电视台</option><option value="c2316_mtxc5">广东 · 江门广播电视台</option><option value="c2319_9pnmy">广东 · 茂名广播电视台</option><option value="c2321_q51ne">广东 · 惠州广播电视台</option><option value="c2324_nyr5u">广东 · 梅州广播电视台</option><option value="c2326_i15mg">广东 · 汕尾广播电视台</option><option value="c2328_p8t45">广东 · 河源广播电视台</option><option value="c2331_42p7y">广东 · 阳江广播电视台</option><option value="c2333_x977i">广东 · 清远广播电视台</option><option value="c2335_4fsy7">广东 · 东莞广播电视台</option><option value="c2338_ouj7i">广东 · 中山广播电视台</option><option value="c2341_m97aa">广东 · 潮州广播电视台</option><option value="c2345_fccbb">广东 · 揭阳广播电视台</option><option value="c2347_q5q32">广东 · 云浮广播电视台</option><option value="c2349_l3q6k">广西 · 南宁广播电视台</option><option value="c2352_mjgae">广西 · 柳州广播电视台</option><option value="c2355_0gigb">广西 · 桂林广播电视台</option><option value="c2358_25ofh">广西 · 梧州广播电视台</option><option value="c2361_vvcod">广西 · 北海广播电视台</option><option value="c2364_qp21e">广西 · 防城港广播电视台</option><option value="c2366_v7hml">广西 · 钦州广播电视台</option><option value="c2369_ulisf">广西 · 贵港广播电视台</option><option value="c2371_5fjxa">广西 · 玉林广播电视台</option><option value="c2373_5l069">广西 · 百色广播电视台</option><option value="c2376_cbo70">广西 · 贺州广播电视台</option><option value="c2378_ar2q0">广西 · 河池广播电视台</option><option value="c2380_bigs1">广西 · 来宾广播电视台</option><option value="c2382_zxjp7">广西 · 崇左广播电视台</option><option value="c2384_uqz0a">海南 · 海口广播电视台</option><option value="c2389_cd235">海南 · 三亚广播电视台</option><option value="c2392_5tuj2">海南 · 儋州广播电视台</option><option value="c2394_6elo3">重庆 · 万州区广播电视台</option><option value="c2397_ualoj">重庆 · 涪陵区人民广播电台</option><option value="c2399_pr684">重庆 · 黔江区人民广播电台</option><option value="c2401_1cl5i">四川 · 成都广播电视台</option><option value="c2406_1uib8">四川 · 自贡广播电视台</option><option value="c2408_3k9lr">四川 · 攀枝花广播电视台</option><option value="c2411_b7lg3">四川 · 泸州广播电视台</option><option value="c2414_e06o7">四川 · 德阳广播电视台</option><option value="c2417_4fhmg">四川 · 绵阳广播电视台</option><option value="c2420_tu8i3">四川 · 广元广播电视台</option><option value="c2423_xb0wb">四川 · 遂宁广播电视台</option><option value="c2426_8aywh">四川 · 内江广播电视台</option><option value="c2428_t8wf1">四川 · 乐山广播电视台</option><option value="c2431_7cpne">四川 · 南充广播电视台</option><option value="c2434_s24pn">四川 · 眉山广播电视台</option><option value="c2437_bbaeg">四川 · 宜宾广播电视台</option><option value="c2440_am6i9">四川 · 广安广播电视台</option><option value="c2442_end8v">四川 · 达州广播电视台</option><option value="c2444_ylpa3">四川 · 雅安广播电视台</option><option value="c2447_nkhq9">四川 · 巴中广播电视台</option><option value="c2450_8r3if">四川 · 资阳广播电视台</option><option value="c2452_7o01a">四川 · 阿坝藏族羌族自治州广播电视台</option><option value="c2454_dbepg">四川 · 甘孜藏族自治州广播电视台</option><option value="c2456_gpqbw">四川 · 凉山彝族自治州广播电视台</option><option value="c2458_y1n2u">贵州 · 贵阳广播电视台</option><option value="c2460_w9166">贵州 · 六盘水广播电视台</option><option value="c2462_272nf">贵州 · 遵义广播电视台</option><option value="c2464_eqja4">贵州 · 安顺广播电视台</option><option value="c2466_et6w5">贵州 · 毕节广播电视台</option><option value="c2468_necju">贵州 · 铜仁广播电视台</option><option value="c2470_r2a7n">贵州 · 黔西南布依族苗族自治州广播电视台</option><option value="c2472_yr3u7">贵州 · 黔东南苗族侗族自治州广播电视台</option><option value="c2474_qzjfi">贵州 · 黔南布依族苗族自治州广播电视台</option><option value="c2476_jg3i0">云南 · 昆明广播电视台</option><option value="c2480_k4o3a">云南 · 曲靖广播电视台</option><option value="c2483_oy7ro">云南 · 玉溪广播电视台</option><option value="c2486_u91dq">云南 · 保山广播电视台</option><option value="c2488_oas0o">云南 · 昭通广播电视台</option><option value="c2490_ycaye">云南 · 丽江广播电视台</option><option value="c2493_5xmel">云南 · 普洱广播电视台</option><option value="c2495_oes23">云南 · 临沧广播电视台</option><option value="c2497_56brf">云南 · 楚雄彝族自治州广播电视台</option><option value="c2499_793qp">云南 · 红河哈尼族彝族自治州广播电视台</option><option value="c2501_4rjky">云南 · 文山壮族苗族自治州广播电视台</option><option value="c2504_n22t3">云南 · 西双版纳傣族自治州广播电视台</option><option value="c2507_rs7jw">云南 · 大理白族自治州广播电视台</option><option value="c2509_rapvx">云南 · 德宏傣族景颇族自治州广播电视台</option><option value="c2512_9ytgn">云南 · 怒江傈僳族自治州广播电视台</option><option value="c2514_4dg9o">云南 · 迪庆藏族自治州广播电视台</option><option value="c2517_enexn">西藏 · 拉萨广播电视台</option><option value="c2519_adjy1">西藏 · 日喀则广播电视台</option><option value="c2521_a1oh1">西藏 · 昌都广播电视台</option><option value="c2523_e4c3j">西藏 · 林芝广播电视台</option><option value="c2525_3ekx8">西藏 · 山南广播电视台</option><option value="c2527_1mqh6">西藏 · 那曲广播电视台</option><option value="c2529_uxhxk">西藏 · 阿里地区广播电视台</option><option value="c2531_6b6od">陕西 · 西安广播电视台</option><option value="c2536_q35qa">陕西 · 铜川广播电视台</option><option value="c2538_zizh4">陕西 · 宝鸡广播电视台</option><option value="c2541_rr858">陕西 · 咸阳广播电视台</option><option value="c2543_krcar">陕西 · 渭南广播电视台</option><option value="c2546_9j33e">陕西 · 延安广播电视台</option><option value="c2549_qi7dk">陕西 · 汉中广播电视台</option><option value="c2552_hsiik">陕西 · 榆林广播电视台</option><option value="c2556_l2ucn">陕西 · 安康广播电视台</option><option value="c2559_y84de">陕西 · 商洛广播电视台</option><option value="c2561_25uyv">甘肃 · 兰州广播电视台</option><option value="c2565_4zwl5">甘肃 · 嘉峪关广播电视台</option><option value="c2568_hjblz">甘肃 · 金昌广播电视台</option><option value="c2571_a7jca">甘肃 · 白银广播电视台</option><option value="c2573_nz5p5">甘肃 · 天水广播电视台</option><option value="c2575_uh7jb">甘肃 · 武威广播电视台</option><option value="c2577_7vexw">甘肃 · 张掖广播电视台</option><option value="c2579_8lyj9">甘肃 · 平凉广播电视台</option><option value="c2582_5js33">甘肃 · 酒泉广播电视台</option><option value="c2584_heck7">甘肃 · 庆阳广播电视台</option><option value="c2586_2xuaj">甘肃 · 定西广播电视台</option><option value="c2589_qrwod">甘肃 · 陇南广播电视台</option><option value="c2591_nk4k0">甘肃 · 临夏回族自治州广播电视台</option><option value="c2593_jcu69">甘肃 · 甘南藏族自治州广播电视台</option><option value="c2596_7ehg4">青海 · 西宁广播电视台</option><option value="c2599_8wf3r">青海 · 海东广播电视台</option><option value="c2601_noktz">青海 · 海北藏族自治州广播电视台</option><option value="c2603_xnpuh">青海 · 黄南藏族自治州广播电视台</option><option value="c2605_cdamd">青海 · 海南藏族自治州广播电视台</option><option value="c2607_a7skj">青海 · 玉树藏族自治州广播电视台</option><option value="c2609_hiehx">青海 · 海西蒙古族藏族自治州广播电视台</option><option value="c2611_wkbut">宁夏 · 银川广播电视台</option><option value="c2615_us96z">宁夏 · 石嘴山广播电视台</option><option value="c2617_s8apu">宁夏 · 吴忠广播电视台</option><option value="c2619_rbb9a">宁夏 · 固原广播电视台</option><option value="c2621_tsmv8">宁夏 · 中卫广播电视台</option><option value="c2624_esl23">新疆 · 乌鲁木齐广播电视台</option><option value="c2631_k21nb">新疆 · 克拉玛依广播电视台</option><option value="c2635_vywiv">新疆 · 吐鲁番广播电视台</option><option value="c2638_iejpx">新疆 · 哈密广播电视台</option><option value="c2642_5de59">新疆 · 昌吉回族自治州广播电视台</option><option value="c2644_i6rq6">新疆 · 博尔塔拉蒙古自治州广播电视台</option><option value="c2647_rku09">新疆 · 巴音郭楞蒙古自治州广播电视台</option><option value="c2652_gl3ky">新疆 · 阿克苏地区广播电视台</option><option value="c2655_dzwag">新疆 · 克孜勒苏柯尔克孜自治州广播电视台</option><option value="c2657_4zupd">新疆 · 喀什地区广播电视台</option><option value="c2659_0adwm">新疆 · 和田地区广播电视台</option><option value="c2662_o5omu">新疆 · 伊犁哈萨克自治州广播电视台</option><option value="c2667_h56w7">新疆 · 塔城地区广播电视台</option><option value="c2670_89h2c">新疆 · 阿勒泰地区广播电视台</option></optgroup><optgroup label="XG"><option value="c1_djdoe">XG · 香港电台</option><option value="c8_hcz45">XG · 香港新城电台</option><option value="c12_i4j6e">XG · 香港商业电台</option><option value="c15_x3ovz">XG · 网络电台</option></optgroup><optgroup label="HW"><option value="c21_bjioe">HW · 国际广播电台</option><option value="c23_3ota5">HW · 天堂电台</option></optgroup><optgroup label="网络电台"><option value="c1_asmju">网络电台 · 网络音乐台</option></optgroup><optgroup label="TW"><option value="c1_ez6rx">台湾 · 网络电台</option></optgroup></select>
+    </label>
+    <label>频率
+      <input type="text" id="mFreq" placeholder="FM 106.1" autocomplete="off">
+    </label>
+    <label>频道简介
+      <textarea id="mDesc" placeholder="例如：中央广播电视总台第一套广播节目，24小时新闻资讯"></textarea>
+    </label>
+    <label>流地址（须以 http:// 或 https:// 开头）
+      <input type="text" id="mUrl" placeholder="例如：http://example.com/stream.mp3" autocomplete="off">
+    </label>
+    <div class="modal-btns">
+      <button id="mDel" class="">删除频道</button>
+      <button id="mCancel">取消</button>
+      <button id="mOk">确定</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-mask" id="stModal">
+  <div class="modal">
+    <h3 id="stModalTitle">添加电台</h3>
+    <label>标签 / 省份
+      <input type="text" id="sProvince" placeholder="例如：XG" autocomplete="off">
+    </label>
+    <label>电台名称
+      <input type="text" id="sStation" placeholder="例如：某某广播电台" autocomplete="off">
+    </label>
+    <div class="modal-btns">
+      <button id="sDel" class="hide">删除电台</button>
+      <button id="sCancel">取消</button>
+      <button id="sOk">确定</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">正在播放：中国之声</div>
+
+<audio id="audio" preload="none" src="https://ngcdn001.cnr.cn/live/zgzs/index.m3u8"></audio>
+
+<script>
+/* =========================================================
+   一、数据源
+   ========================================================= */
+const DATA = {
+  "国家": [
+    ["中央","中央广播电视总台",[
+      "中国之声","经济之声","音乐之声","经典音乐广播","台海之声","神州之声",
+      "粤港澳大湾区之声","民族之声","文艺之声","老年之声","新闻综合广播（藏语）",
+      "维吾尔语广播","香港之声","中国交通广播","对农广播","哈萨克语广播",
+      "环球资讯广播","英语资讯广播","南海之声广播"
+    ]]
+  ],
+
+  "直辖市省级": [
+    ["北京","北京广播电视台",["新闻广播","城市广播","音乐广播","文艺广播","交通广播","京津冀之声"]],
+    ["天津","天津广播电视台",["新闻广播","经济广播","文艺广播","交通广播","音乐广播","生活广播","滨海广播","相声广播","小说广播","经典音乐广播"]],
+    ["河北","河北广播电视台",["综合广播","交通广播","生活广播","音乐广播","三农广播","旅游文化广播","新闻广播"]],
+    ["山西","山西广播电视台",["综合广播","经济广播","文艺广播","交通广播","健康之声","农村广播","音乐广播","故事广播"]],
+    ["内蒙古","内蒙古广播电视台",["蒙语新闻综合广播","汉语新闻综合广播","交通之声","文艺之声广播","城乡生活广播","蒙语对外广播"]],
+    ["辽宁","辽宁广播电视台",["综合广播","经济广播（辽沈合作）","乡村广播（辽沈合作）","都市广播（辽沈合作）","经典音乐广播（辽沈合作）","音乐广播（辽沈合作）","交通广播（辽沈合作）","生活广播（辽沈合作）","资讯广播（辽沈合作）"]],
+    ["吉林","吉林广播电视台",["新闻综合广播","经济广播","音乐广播","交通广播","健康娱乐广播","资讯广播","乡村广播","旅游广播"]],
+    ["黑龙江","黑龙江广播电视台",["新闻广播","生活广播","朝鲜语广播","交通广播","音乐广播","都市女性广播","老年少儿广播","高校广播"]],
+    ["上海","上海广播电视台",["新闻广播","交通广播","戏剧曲艺广播","长三角之声广播","流行音乐广播","第一财经","经典音乐广播","经典金曲广播"]],
+    ["江苏","江苏人民广播电台",["新闻综合广播","新闻广播","金陵之声","交通广播网","经典流行音乐广播","音乐广播","故事广播","健康广播","文艺广播","财经广播"]],
+    ["浙江","浙江人民广播电台",["综合广播","经济广播","民生资讯广播","音乐调频","交通之声","城市之声","旅游之声","新闻广播"]],
+    ["安徽","安徽广播电视台",["综合广播","经济广播","音乐广播","生活广播","交通广播","农村广播","老年广播","戏曲广播","旅游广播"]],
+    ["福建","福建人民广播电台",["新闻综合广播","经济广播","交通广播","东南广播公司","都市生活广播"]],
+    ["江西","江西广播电视台",["综合新闻广播","文艺音乐广播","信息交通广播","旅游广播","财经广播","故事广播"]],
+    ["山东","山东广播电视台",["综合广播","经济广播","文艺广播","经典音乐广播","交通广播","音乐广播"]],
+    ["河南","河南广播电视台",["新闻广播","经济广播","交通广播","戏曲广播","信息广播","农村广播","音乐广播","旅游广播","影视广播","教育广播"]],
+    ["湖北","湖北广播电视台",["新闻综合广播","经济广播","经典音乐广播","楚天交通广播"]],
+    ["湖南","湖南广播电视台",["综合广播","经济广播","交通广播","金鹰之声","乡村之声广播","音乐之声广播"]],
+    ["广东","广东广播电视台",["新闻广播","珠江经济台","音乐之声","南方生活广播","交通之声","文体广播","股市广播","珠江之声"]],
+    ["广西","广西广播电视台",["综合广播","经济广播","教育广播","文艺广播","交通广播","北部湾之声"]],
+    ["海南","海南广播电视台",["新闻广播","旅游广播","音乐广播","交通广播","民生广播"]],
+    ["重庆","重庆人民广播电台",["综合广播","交通广播","音乐广播","都市广播"]],
+    ["四川","四川广播电视台",["综合广播","民族广播","音乐广播","交通广播","新闻广播"]],
+    ["贵州","贵州广播电视台",["综合广播","经济广播","音乐广播","交通广播"]],
+    ["云南","云南广播电视台",["新闻广播","经济广播","国际广播","音乐广播","交通之声","民族广播"]],
+    ["西藏","西藏广播电视台",["汉语广播","藏语广播","交通文旅广播","康巴语广播"]],
+    ["陕西","陕西广播电视台",["新闻广播","经济广播","交通广播","音乐广播","农村广播","青少广播"]],
+    ["甘肃","甘肃人民广播电台",["新闻综合广播","交通广播","农村广播"]],
+    ["青海","青海广播电视台",["新闻综合广播","交通音乐广播","藏语广播","经济生活广播"]],
+    ["宁夏","宁夏广播电视台",["新闻广播","交通广播","音乐广播"]],
+    ["新疆","新疆广播电视台",["汉语综合广播","维语综合广播","哈语综合广播","蒙语综合广播","交通广播","文化旅游广播","维吾尔语交通文艺广播","新闻广播","音乐广播","柯语综合广播"]],
+    ["兵团","新疆生产建设兵团广播电视台",["综合广播"]]
+  ],
+
+  "地市级": [
+    ["河北","石家庄广播电视台",["综合广播","音乐广播","交通广播","健康之声广播"]],
+    ["河北","保定广播电视台",["新闻广播","民生广播"]],
+    ["河北","张家口广播电视台",["综合广播","综艺广播","旅游广播","城市生活广播"]],
+    ["河北","承德广播电视台",["综合广播","交通文艺广播","旅游生活广播"]],
+    ["河北","邯郸广播电视台",["新闻综合广播","音乐广播","交通广播"]],
+    ["河北","唐山广播电视台",["综合广播","经济广播","交通文艺广播","音乐广播","曹妃甸之声广播"]],
+    ["河北","秦皇岛广播电视台",["综合广播","旅游经济广播","交通广播","体育音乐广播"]],
+    ["河北","沧州广播电视台",["综合广播","音乐广播","交通广播"]],
+    ["河北","衡水广播电视台",["综合广播","文艺广播","交通评书广播"]],
+    ["河北","廊坊广播电视台",["综合广播","交通长书广播","戏曲广播"]],
+    ["河北","邢台广播电视台",["综合广播","经济生活广播","交通音乐广播"]],
+    ["山西","太原广播电视台",["综合广播","交通广播","经济广播","音乐广播","老年之声"]],
+    ["山西","阳泉广播电视台",["综合广播","经济广播","交通广播"]],
+    ["山西","大同广播电视台",["新闻综合广播","经济文艺广播","交通广播"]],
+    ["山西","朔州广播电视台",["综合广播","交通音乐广播","农村广播"]],
+    ["山西","晋城广播电视台",["综合广播","交通广播"]],
+    ["山西","长治广播电视台",["综合广播","交通广播"]],
+    ["山西","吕梁广播电视台",["综合广播","交通广播","音乐广播"]],
+    ["山西","晋中广播电视台",["综合广播","交通文艺广播"]],
+    ["山西","忻州广播电视台",["综合广播","交通广播"]],
+    ["山西","临汾广播电视台",["综合广播","交通文艺广播","音乐广播"]],
+    ["山西","运城广播电视台",["综合广播","文艺广播"]],
+    ["内蒙古","呼和浩特广播电视台",["综合广播","交通广播","蒙古语综合广播"]],
+    ["内蒙古","包头广播电视台",["综合广播","蒙语广播","交通广播","城乡广播"]],
+    ["内蒙古","乌海广播电视台",["综合广播","交通音乐广播","蒙语综合广播"]],
+    ["内蒙古","赤峰广播电视台",["综合广播","蒙语广播","交通广播","农村牧区广播"]],
+    ["内蒙古","通辽广播电视台",["汉语综合广播","蒙语综合广播","交通文艺广播"]],
+    ["内蒙古","鄂尔多斯广播电视台",["蒙语综合广播","汉语综合广播","文体交通广播"]],
+    ["内蒙古","呼伦贝尔广播电视台",["蒙语综合广播","汉语综合广播","交通文艺广播"]],
+    ["内蒙古","巴彦淖尔广播电视台",["综合广播","交通广播"]],
+    ["内蒙古","乌兰察布广播电视台",["蒙语综合广播","汉语综合广播","交通文艺广播"]],
+    ["内蒙古","兴安盟广播电视台",["蒙语综合广播","汉语综合广播","交通之声"]],
+    ["内蒙古","锡林郭勒盟广播电视台",["蒙语综合广播","汉语综合广播","交通广播（蒙、汉语）"]],
+    ["内蒙古","阿拉善盟广播电视台",["综合广播","蒙语综合广播"]],
+    ["辽宁","沈阳广播电视台",["新闻综合广播"]],
+    ["辽宁","大连广播电视台",["新闻综合广播","老友之声","体育广播","交通广播","少儿广播","都市之声广播"]],
+    ["辽宁","鞍山广播电视台",["新闻综合广播","都市生活广播","评书故事广播","交通广播"]],
+    ["辽宁","抚顺广播电视台",["综合广播","经济交通广播","音乐广播"]],
+    ["辽宁","本溪广播电视台",["综合广播","经济广播","生活广播"]],
+    ["辽宁","丹东广播电视台",["综合广播","交通广播"]],
+    ["辽宁","锦州广播电视台",["新闻广播","经济广播","交通广播"]],
+    ["辽宁","营口广播电视台",["综合广播","交通文艺广播","音乐之声广播"]],
+    ["辽宁","阜新广播电视台",["综合广播","蒙古语广播","交通广播"]],
+    ["辽宁","辽阳广播电视台",["综合广播","评书广播","交通文艺广播"]],
+    ["辽宁","盘锦广播电视台",["综合广播","经济生活广播","交通文艺广播"]],
+    ["辽宁","铁岭人民广播电台",["综合广播","乡村广播","交通广播"]],
+    ["辽宁","朝阳广播电视台",["综合广播","交通广播"]],
+    ["辽宁","葫芦岛广播电视台",["综合广播","交通文旅广播","故事广播"]],
+    ["吉林","长春广播电视台",["新闻综合广播","经济广播","交通之声","城市生活广播"]],
+    ["吉林","吉林市广播电视台",["综合广播","经济广播","大众生活广播","音乐广播","交通广播"]],
+    ["吉林","四平广播电视台",["综合广播","交通文艺广播"]],
+    ["吉林","辽源广播电视台",["综合广播","交通文艺广播"]],
+    ["吉林","通化广播电视台",["综合广播","交通文艺广播","大众生活广播"]],
+    ["吉林","白山广播电视台",["综合广播","经济广播","交通广播"]],
+    ["吉林","松原广播电视台",["新闻综合广播","交通文艺广播","大众生活广播"]],
+    ["吉林","白城广播电视台",["综合广播","交通文艺广播","长书广播"]],
+    ["吉林","延边朝鲜族自治州广播电视台",["汉语新闻综合广播","朝鲜语新闻综合广播","交通文艺广播","旅游广播","朝鲜语文艺生活广播"]],
+    ["黑龙江","哈尔滨广播电视台",["综合广播","经济广播","文艺广播","交通广播","音乐广播","古典音乐广播"]],
+    ["黑龙江","齐齐哈尔广播电视台",["综合广播","交通广播","乡村广播"]],
+    ["黑龙江","牡丹江广播电视台",["综合广播","交通广播"]],
+    ["黑龙江","佳木斯广播电视台",["综合广播"]],
+    ["黑龙江","大庆广播电视台",["综合广播","交通广播","音乐广播"]],
+    ["黑龙江","鸡西广播电视台",["综合广播","交通广播"]],
+    ["黑龙江","双鸭山广播电视台",["综合广播"]],
+    ["黑龙江","伊春广播电视台",["综合广播","交通广播"]],
+    ["黑龙江","七台河广播电视台",["综合广播"]],
+    ["黑龙江","鹤岗广播电视台",["综合广播","交通文艺广播"]],
+    ["黑龙江","黑河广播电视台",["综合广播"]],
+    ["黑龙江","绥化广播电视台",["综合广播","交通广播","评书广播"]],
+    ["黑龙江","大兴安岭地区广播电视台",["综合广播"]],
+    ["江苏","南京人民广播电台",["新闻综合广播","经济广播","体育广播","交通广播","音乐广播"]],
+    ["江苏","无锡广播电视台",["新闻综合广播","经济广播","音乐广播","交通广播","生活广播"]],
+    ["江苏","徐州广播电视台",["新闻综合广播","音乐广播","交通广播","农村广播"]],
+    ["江苏","常州广播电视台",["新闻综合广播","经济广播","交通广播","音乐广播"]],
+    ["江苏","苏州人民广播电台",["综合广播","交通经济广播","儿童广播","都市音乐广播","生活广播"]],
+    ["江苏","南通广播电视台",["综合广播","经济广播","交通广播","生活广播"]],
+    ["江苏","连云港广播电视台",["综合广播","交通广播","新农村广播"]],
+    ["江苏","淮安广播电视台",["综合广播","经济广播","交通文艺广播","农村广播"]],
+    ["江苏","盐城广播电视台",["综合广播","交通广播","农村广播"]],
+    ["江苏","扬州广播电视台",["新闻广播","经济音乐广播","交通广播","邗江广播","江都广播"]],
+    ["江苏","镇江广播电视台",["综合广播","文艺广播","交通广播"]],
+    ["江苏","泰州广播电视台",["新闻综合广播","文艺广播","交通广播"]],
+    ["江苏","宿迁人民广播电台",["综合广播","交通广播","新农村广播"]],
+    ["浙江","杭州广播电视台",["综合广播","西湖之声","交通经济广播","城市资讯广播"]],
+    ["浙江","宁波人民广播电台",["综合广播","经济广播","交通广播","音乐广播"]],
+    ["浙江","温州广播电视台",["综合广播","经济广播","音乐之声","交通广播","对农广播"]],
+    ["浙江","嘉兴广播电视台",["综合广播","交通经济广播","对农广播"]],
+    ["浙江","湖州广播电视台",["综合广播","交通文艺广播","经济广播"]],
+    ["浙江","绍兴广播电视台",["综合广播","交通广播","戏曲广播"]],
+    ["浙江","金华广播电视台",["综合广播","交通音乐广播","对农广播"]],
+    ["浙江","衢州广播电视台",["综合广播","交通音乐广播"]],
+    ["浙江","舟山广播电视台",["新闻综合广播","交通音乐广播"]],
+    ["浙江","台州广播电视台",["综合广播","音乐广播","交通广播"]],
+    ["浙江","丽水广播电视台",["综合广播","交通音乐广播"]],
+    ["安徽","合肥广播电视台",["综合广播","文艺广播","交通信息广播","文旅广播"]],
+    ["安徽","芜湖广播电视台",["综合广播","交通经济广播","音乐故事广播"]],
+    ["安徽","蚌埠广播电视台",["综合广播","交通文艺广播"]],
+    ["安徽","淮南广播电视台",["综合广播","交通广播"]],
+    ["安徽","马鞍山广播电视台",["综合广播","生活故事广播","交通音乐广播"]],
+    ["安徽","淮北广播电视台",["综合广播","交通广播"]],
+    ["安徽","铜陵广播电视台",["综合广播","交通生活广播"]],
+    ["安徽","安庆广播电视台",["综合广播","农村广播"]],
+    ["安徽","黄山广播电视台",["综合广播","交通旅游之声广播"]],
+    ["安徽","滁州广播电视台",["综合广播","旅游交通广播"]],
+    ["安徽","阜阳广播电视台",["综合广播","经济广播","交通广播"]],
+    ["安徽","宿州广播电视台",["综合广播","交通音乐广播"]],
+    ["安徽","六安广播电视台",["综合广播","交通音乐广播"]],
+    ["安徽","亳州广播电视台",["综合广播","交通音乐广播"]],
+    ["安徽","池州广播电视台",["综合广播"]],
+    ["安徽","宣城广播电视台",["综合广播","交通文艺广播"]],
+    ["福建","福州广播电视台",["新闻广播","交通之声","左海之声"]],
+    ["福建","厦门人民广播电台",["综合广播","交通旅游广播","音乐广播"]],
+    ["福建","莆田广播电视台",["综合广播","地方文艺广播"]],
+    ["福建","三明广播电视台",["综合广播"]],
+    ["福建","泉州广播电视台",["新闻综合广播","交通广播","刺桐之声广播（闽南语）"]],
+    ["福建","漳州人民广播电台",["综合广播","交通广播"]],
+    ["福建","南平广播电视台",["综合广播"]],
+    ["福建","龙岩广播电视台",["综合广播"]],
+    ["福建","宁德广播电视台",["综合广播"]],
+    ["江西","南昌广播电视台",["综合广播","交通音乐广播"]],
+    ["江西","景德镇广播电视台",["新闻综合广播"]],
+    ["江西","萍乡广播电视台",["新闻综合广播"]],
+    ["江西","九江广播电视台",["综合广播","交通音乐广播","文化旅游广播"]],
+    ["江西","新余广播电视台",["综合广播","经济交通广播"]],
+    ["江西","鹰潭广播电视台",["综合广播","交通音乐广播"]],
+    ["江西","赣州广播电视台",["综合广播","交通音乐广播"]],
+    ["江西","吉安广播电视台",["综合广播"]],
+    ["江西","宜春广播电视台",["新闻综合广播","交通音乐广播"]],
+    ["江西","抚州广播电视台",["新闻综合广播","交通音乐广播"]],
+    ["江西","上饶广播电视台",["新闻综合广播","交通音乐广播"]],
+    ["山东","济南广播电视台",["新闻综合广播","经济广播","交通广播","音乐广播","文艺广播","故事广播","都市广播"]],
+    ["山东","青岛广播电视台",["新闻综合广播","经济广播","交通广播","音乐体育广播","故事广播"]],
+    ["山东","淄博广播电视台",["综合广播","经济广播","交通音乐广播"]],
+    ["山东","枣庄广播电视台",["综合广播","经济生活广播","交通文艺广播"]],
+    ["山东","东营广播电视台",["综合广播","交通音乐广播","生活广播"]],
+    ["山东","烟台广播电视台",["综合广播","音乐广播","交通广播"]],
+    ["山东","潍坊广播电视台",["新闻广播","经济广播","交通广播"]],
+    ["山东","济宁广播电视台",["综合广播","交通文艺广播","生活广播"]],
+    ["山东","泰安广播电视台",["综合广播","交通广播"]],
+    ["山东","威海广播电视台",["新闻综合广播","音乐广播","交通广播"]],
+    ["山东","日照广播电视台",["综合广播","交通生活广播","音乐广播"]],
+    ["山东","临沂广播电视台",["综合广播","经济广播","交通旅游广播"]],
+    ["山东","德州广播电视台",["综合广播","文艺广播","交通音乐广播"]],
+    ["山东","聊城广播电视台",["综合广播","经济广播","交通广播"]],
+    ["山东","滨州广播电视台",["综合广播","交通音乐广播","文艺广播"]],
+    ["山东","菏泽广播电视台",["新闻广播","交通广播"]],
+    ["河南","郑州广播电视台",["新闻综合广播","经济生活广播","音乐广播","交通广播","文体旅游广播"]],
+    ["河南","开封广播电视台",["综合广播","音乐广播","交通旅游广播"]],
+    ["河南","洛阳广播电视台",["综合广播","音乐广播","交通广播"]],
+    ["河南","平顶山广播电视台",["综合广播","交通广播"]],
+    ["河南","安阳广播电视台",["新闻综合广播","交通广播","生活广播"]],
+    ["河南","鹤壁广播电视台",["综合广播","交通广播"]],
+    ["河南","新乡广播电视台",["综合广播","交通广播"]],
+    ["河南","焦作广播电视台",["新闻综合广播","交通旅游广播"]],
+    ["河南","濮阳广播电视台",["综合广播","交通广播"]],
+    ["河南","许昌广播电视台",["综合广播","交通广播"]],
+    ["河南","漯河广播电视台",["综合广播","交通广播"]],
+    ["河南","三门峡广播电视台",["综合广播","交通文艺广播"]],
+    ["河南","南阳广播电视台",["综合广播","交通音乐广播"]],
+    ["河南","商丘广播电视台",["综合广播","交通广播","文旅音乐广播"]],
+    ["河南","信阳广播电视台",["综合广播","交通广播"]],
+    ["河南","周口广播电视台",["综合广播","交通广播"]],
+    ["河南","驻马店广播电视台",["综合广播","交通广播"]],
+    ["湖北","武汉广播电视台",["综合广播","音乐广播","经济广播","交通广播"]],
+    ["湖北","黄石广播电视台",["综合广播","经济广播"]],
+    ["湖北","十堰广播电视台",["综合广播","交通音乐广播"]],
+    ["湖北","宜昌人民广播电台",["新闻综合广播","音乐生活广播","交通广播"]],
+    ["湖北","襄阳广播电视台",["综合广播","交通音乐广播","文化教育广播"]],
+    ["湖北","鄂州广播电视台",["综合广播"]],
+    ["湖北","荆门广播电视台",["综合广播"]],
+    ["湖北","孝感广播电视台",["综合广播","交通音乐广播"]],
+    ["湖北","荆州广播电视台",["综合广播","交通广播"]],
+    ["湖北","黄冈广播电视台",["新闻综合广播","交通音乐广播"]],
+    ["湖北","咸宁广播电视台",["综合广播","交通音乐广播"]],
+    ["湖北","随州广播电视台",["综合广播","交通经济广播"]],
+    ["湖北","恩施土家族苗族自治州广播电视台",["综合广播","交通音乐广播"]],
+    ["湖南","长沙广播电视台",["新闻广播","交通广播"]],
+    ["湖南","株洲广播电视台",["交通广播"]],
+    ["湖南","湘潭广播电视台",["新闻综合广播","交通广播"]],
+    ["湖南","衡阳广播电视台",["综合广播","交通经济广播"]],
+    ["湖南","邵阳广播电视台",["综合广播","经济广播"]],
+    ["湖南","岳阳广播电视台",["综合广播","经济广播","交通广播"]],
+    ["湖南","常德广播电视台",["综合广播","交通广播"]],
+    ["湖南","张家界广播电视台",["新闻综合广播"]],
+    ["湖南","益阳广播电视台",["综合广播","交通广播"]],
+    ["湖南","郴州广播电视台",["综合广播","交通广播"]],
+    ["湖南","永州广播电视台",["新闻综合广播"]],
+    ["湖南","怀化广播电视台",["综合广播","交通文艺广播"]],
+    ["湖南","娄底广播电视台",["综合广播","交通广播"]],
+    ["湖南","湘西土家族苗族自治州广播电视台",["综合广播"]],
+    ["广东","广州广播电视台",["新闻资讯广播","金曲音乐广播","经济交通广播","青少年广播"]],
+    ["广东","深圳人民广播电台",["新闻广播","音乐广播","交通广播","生活广播","青工广播"]],
+    ["广东","珠海广播电视台",["综合广播","环保经济广播"]],
+    ["广东","汕头广播电视台",["综合广播","音乐广播"]],
+    ["广东","佛山人民广播电台",["综合广播","南海广播","顺德广播"]],
+    ["广东","韶关广播电视台",["综合广播"]],
+    ["广东","湛江广播电视台",["综合广播"]],
+    ["广东","肇庆广播电视台",["综合广播"]],
+    ["广东","江门广播电视台",["综合广播","旅游之声"]],
+    ["广东","茂名广播电视台",["综合广播"]],
+    ["广东","惠州广播电视台",["综合广播","音乐广播"]],
+    ["广东","梅州广播电视台",["综合广播"]],
+    ["广东","汕尾广播电视台",["综合广播"]],
+    ["广东","河源广播电视台",["综合广播","旅游广播"]],
+    ["广东","阳江广播电视台",["综合广播"]],
+    ["广东","清远广播电视台",["综合广播"]],
+    ["广东","东莞广播电视台",["综合广播","交通音乐广播"]],
+    ["广东","中山广播电视台",["综合广播","环保旅游之声"]],
+    ["广东","潮州广播电视台",["综合广播","戏曲广播","交通音乐广播"]],
+    ["广东","揭阳广播电视台",["综合广播"]],
+    ["广东","云浮广播电视台",["综合广播"]],
+    ["广西","南宁广播电视台",["综合广播","交通音乐广播"]],
+    ["广西","柳州广播电视台",["综合广播","交通广播"]],
+    ["广西","桂林广播电视台",["综合广播","旅游音乐广播"]],
+    ["广西","梧州广播电视台",["综合广播","交通音乐之声"]],
+    ["广西","北海广播电视台",["新闻综合广播","交通音乐广播"]],
+    ["广西","防城港广播电视台",["综合广播"]],
+    ["广西","钦州广播电视台",["综合广播","音乐广播"]],
+    ["广西","贵港广播电视台",["综合广播"]],
+    ["广西","玉林广播电视台",["综合广播"]],
+    ["广西","百色广播电视台",["综合广播","音乐广播"]],
+    ["广西","贺州广播电视台",["综合广播"]],
+    ["广西","河池广播电视台",["综合广播"]],
+    ["广西","来宾广播电视台",["综合广播"]],
+    ["广西","崇左广播电视台",["综合广播"]],
+    ["海南","海口广播电视台",["综合广播","旅游交通广播","音乐广播","生活广播"]],
+    ["海南","三亚广播电视台",["新闻综合广播","旅游广播"]],
+    ["海南","儋州广播电视台",["综合广播"]],
+    ["重庆","万州区广播电视台",["综合广播","交通广播"]],
+    ["重庆","涪陵区人民广播电台",["综合广播"]],
+    ["重庆","黔江区人民广播电台",["综合广播"]],
+    ["四川","成都广播电视台",["新闻广播","经济广播","交通·文艺广播","文化休闲广播"]],
+    ["四川","自贡广播电视台",["综合广播"]],
+    ["四川","攀枝花广播电视台",["综合广播","交通音乐广播"]],
+    ["四川","泸州广播电视台",["综合广播","交通音乐广播"]],
+    ["四川","德阳广播电视台",["综合广播","经济生活广播"]],
+    ["四川","绵阳广播电视台",["综合广播","交通音乐广播"]],
+    ["四川","广元广播电视台",["综合广播","交通旅游广播"]],
+    ["四川","遂宁广播电视台",["综合广播","交通旅游广播"]],
+    ["四川","内江广播电视台",["综合广播"]],
+    ["四川","乐山广播电视台",["综合广播","音乐交通广播"]],
+    ["四川","南充广播电视台",["综合广播","交通音乐广播"]],
+    ["四川","眉山广播电视台",["综合广播","交通音乐广播"]],
+    ["四川","宜宾广播电视台",["综合广播","文化旅游广播"]],
+    ["四川","广安广播电视台",["综合广播"]],
+    ["四川","达州广播电视台",["综合广播"]],
+    ["四川","雅安广播电视台",["综合广播","交通旅游广播"]],
+    ["四川","巴中广播电视台",["综合广播","交通旅游广播"]],
+    ["四川","资阳广播电视台",["综合广播"]],
+    ["四川","阿坝藏族羌族自治州广播电视台",["安多藏语综合广播"]],
+    ["四川","甘孜藏族自治州广播电视台",["康巴藏语综合广播"]],
+    ["四川","凉山彝族自治州广播电视台",["综合广播"]],
+    ["贵州","贵阳广播电视台",["综合广播"]],
+    ["贵州","六盘水广播电视台",["综合广播"]],
+    ["贵州","遵义广播电视台",["综合广播"]],
+    ["贵州","安顺广播电视台",["综合广播"]],
+    ["贵州","毕节广播电视台",["交通音乐广播"]],
+    ["贵州","铜仁广播电视台",["综合广播"]],
+    ["贵州","黔西南布依族苗族自治州广播电视台",["综合广播"]],
+    ["贵州","黔东南苗族侗族自治州广播电视台",["综合广播"]],
+    ["贵州","黔南布依族苗族自治州广播电视台",["综合广播"]],
+    ["云南","昆明广播电视台",["综合广播","交通音乐广播","老年广播"]],
+    ["云南","曲靖广播电视台",["综合广播","交通旅游广播"]],
+    ["云南","玉溪广播电视台",["新闻综合广播","交通旅游广播"]],
+    ["云南","保山广播电视台",["综合广播"]],
+    ["云南","昭通广播电视台",["新闻综合广播"]],
+    ["云南","丽江广播电视台",["新闻综合广播","旅游交通广播"]],
+    ["云南","普洱广播电视台",["综合广播"]],
+    ["云南","临沧广播电视台",["综合广播"]],
+    ["云南","楚雄彝族自治州广播电视台",["综合广播"]],
+    ["云南","红河哈尼族彝族自治州广播电视台",["红河之声"]],
+    ["云南","文山壮族苗族自治州广播电视台",["综合广播","交通广播"]],
+    ["云南","西双版纳傣族自治州广播电视台",["汉语综合广播","综合广播（傣语·哈尼语）"]],
+    ["云南","大理白族自治州广播电视台",["综合广播"]],
+    ["云南","德宏傣族景颇族自治州广播电视台",["综合广播","综合广播（民族语）"]],
+    ["云南","怒江傈僳族自治州广播电视台",["综合广播"]],
+    ["云南","迪庆藏族自治州广播电视台",["综合广播","藏语广播（康巴藏语）"]],
+    ["西藏","拉萨广播电视台",["综合广播"]],
+    ["西藏","日喀则广播电视台",["综合广播"]],
+    ["西藏","昌都广播电视台",["康巴藏语综合广播"]],
+    ["西藏","林芝广播电视台",["综合广播"]],
+    ["西藏","山南广播电视台",["综合广播"]],
+    ["西藏","那曲广播电视台",["综合广播"]],
+    ["西藏","阿里地区广播电视台",["综合广播（汉语·藏语）"]],
+    ["陕西","西安广播电视台",["新闻广播","交通旅游广播","音乐广播","综艺广播"]],
+    ["陕西","铜川广播电视台",["综合广播"]],
+    ["陕西","宝鸡广播电视台",["综合广播","交通旅游广播"]],
+    ["陕西","咸阳广播电视台",["综合广播"]],
+    ["陕西","渭南广播电视台",["综合广播","音乐广播"]],
+    ["陕西","延安广播电视台",["综合广播","交通音乐广播"]],
+    ["陕西","汉中广播电视台",["综合广播","交通旅游广播"]],
+    ["陕西","榆林广播电视台",["综合广播","交通文艺广播","生活资讯广播"]],
+    ["陕西","安康广播电视台",["综合广播","交通旅游音乐广播"]],
+    ["陕西","商洛广播电视台",["综合广播"]],
+    ["甘肃","兰州广播电视台",["综合广播","交通音乐广播","生活文艺广播"]],
+    ["甘肃","嘉峪关广播电视台",["综合广播","交通广播"]],
+    ["甘肃","金昌广播电视台",["综合广播","交通音乐广播"]],
+    ["甘肃","白银广播电视台",["新闻综合广播"]],
+    ["甘肃","天水广播电视台",["综合广播"]],
+    ["甘肃","武威广播电视台",["新闻综合广播"]],
+    ["甘肃","张掖广播电视台",["新闻综合广播"]],
+    ["甘肃","平凉广播电视台",["综合广播","交通广播"]],
+    ["甘肃","酒泉广播电视台",["综合广播"]],
+    ["甘肃","庆阳广播电视台",["新闻综合广播"]],
+    ["甘肃","定西广播电视台",["新闻综合广播","交通广播"]],
+    ["甘肃","陇南广播电视台",["综合广播"]],
+    ["甘肃","临夏回族自治州广播电视台",["综合广播"]],
+    ["甘肃","甘南藏族自治州广播电视台",["综合广播","藏语广播"]],
+    ["青海","西宁广播电视台",["新闻综合广播","交通文艺广播"]],
+    ["青海","海东广播电视台",["新闻综合广播"]],
+    ["青海","海北藏族自治州广播电视台",["新闻综合广播"]],
+    ["青海","黄南藏族自治州广播电视台",["新闻综合广播"]],
+    ["青海","海南藏族自治州广播电视台",["新闻综合广播"]],
+    ["青海","玉树藏族自治州广播电视台",["康巴藏语综合广播"]],
+    ["青海","海西蒙古族藏族自治州广播电视台",["新闻综合广播"]],
+    ["宁夏","银川广播电视台",["综合广播","交通音乐广播","都市经济广播"]],
+    ["宁夏","石嘴山广播电视台",["综合广播"]],
+    ["宁夏","吴忠广播电视台",["综合广播"]],
+    ["宁夏","固原广播电视台",["综合广播"]],
+    ["宁夏","中卫广播电视台",["综合广播","交通音乐广播"]],
+    ["新疆","乌鲁木齐广播电视台",["综合广播","交通广播","维吾尔语广播","旅游音乐广播","新闻广播","维吾尔语交通文艺广播"]],
+    ["新疆","克拉玛依广播电视台",["汉语综合广播","维吾尔语综合广播","音乐广播"]],
+    ["新疆","吐鲁番广播电视台",["汉语综合广播","维语综合广播"]],
+    ["新疆","哈密广播电视台",["汉语综合广播","维吾尔语综合广播","交通文艺广播"]],
+    ["新疆","昌吉回族自治州广播电视台",["综合广播"]],
+    ["新疆","博尔塔拉蒙古自治州广播电视台",["汉语综合广播","蒙语综合广播"]],
+    ["新疆","巴音郭楞蒙古自治州广播电视台",["汉语综合广播","蒙语综合广播","维语综合广播","交通文艺广播"]],
+    ["新疆","阿克苏地区广播电视台",["汉语综合广播","维语综合广播"]],
+    ["新疆","克孜勒苏柯尔克孜自治州广播电视台",["汉语综合广播"]],
+    ["新疆","喀什地区广播电视台",["综合广播（汉语）"]],
+    ["新疆","和田地区广播电视台",["汉语综合广播","维语综合广播"]],
+    ["新疆","伊犁哈萨克自治州广播电视台",["汉语综合广播","哈语综合广播","维语综合广播","交通音乐广播"]],
+    ["新疆","塔城地区广播电视台",["汉语综合广播","哈萨克语综合广播"]],
+    ["新疆","阿勒泰地区广播电视台",["哈萨克语综合广播","汉语综合广播"]]
+  ],
+
+  "网络电台": [],
+  "XG": [],
+  "AM": [],
+  "TW": [],
+  "HW": []
+};
+
+/* =========================================================
+   二、基础工具
+   ========================================================= */
+const STORAGE_KEY = 'radio_stations_v1';
+const THEME_KEY   = 'radio_theme_v1';
+const LAST_KEY    = 'radio_last_channel_v1';
+
+let idSeq = 1;
+const nid = () => 'c' + (idSeq++) + '_' + Math.random().toString(36).slice(2, 7);
+
+const esc = s => String(s).replace(/[&<>"']/g, m =>
+  ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m]));
+
+function buildDefault() {
+  const arr = [];
+  for (const cat in DATA) {
+    for (const row of DATA[cat]) {
+      const [province, station, chans] = row;
+      arr.push({
+        id: nid(),
+        cat,
+        province,
+        station,
+        channels: chans.map(n => ({ id: nid(), name: n, freq: '', desc: '', url: '' }))
+      });
+    }
+  }
+  return arr;
+}
+
+function loadStations() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const arr = JSON.parse(raw);
+      if (Array.isArray(arr) && arr.length) {
+        arr.forEach(s => {
+          if (!s.id) s.id = nid();
+          if (!Array.isArray(s.channels)) s.channels = [];
+          s.channels.forEach(c => {
+            if (!c.id) c.id = nid();
+            if (typeof c.url  !== 'string') c.url  = '';
+            if (typeof c.freq !== 'string') c.freq = '';
+            if (typeof c.desc !== 'string') c.desc = '';
+          });
+        });
+        return arr;
+      }
+    }
+  } catch (e) {}
+  return buildDefault();
+}
+
+function persist() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(stations)); } catch (e) {}
+}
+
+/* =========================================================
+   三、全局状态
+   ========================================================= */
+let stations    = loadStations();
+let currentCat  = '地市级';
+let keyword     = '';
+let currentId   = null;
+let currentStation = null;
+let currentChannel = null;
+let playing     = false;
+let modalCtx    = null;
+let editLocked  = true;
+
+const badUrls   = new Set();
+let   activeUrl = null;
+
+const ALL_CATS   = Object.keys(DATA);
+const RIGHT_CATS = ['XG', 'AM', 'TW', 'HW'];
+const LEFT_CATS  = ALL_CATS.filter(c => RIGHT_CATS.indexOf(c) === -1);
+
+/* =========================================================
+   四、元素引用
+   ========================================================= */
+const $list      = document.getElementById('list');
+const $tabs      = document.getElementById('tabs');
+const $tabsRight = document.getElementById('tabsRight');
+const $search    = document.getElementById('search');
+const $toTop     = document.getElementById('toTop');
+const $modal     = document.getElementById('modal');
+const $mName     = document.getElementById('mName');
+const $mFreq     = document.getElementById('mFreq');
+const $mDesc     = document.getElementById('mDesc');
+const $mUrl      = document.getElementById('mUrl');
+const $mDel      = document.getElementById('mDel');
+const $mStation  = document.getElementById('mStation');
+const $mStationWrap = document.getElementById('mStationWrap');
+const $pName     = document.getElementById('pName');
+const $pSub      = document.getElementById('pSub');
+const $pFreq     = document.getElementById('pFreq');
+const $pPlay     = document.getElementById('pPlay');
+const $pUrlRow   = document.getElementById('pUrlRow');
+const $pUrl      = document.getElementById('pUrl');
+const $pCopy     = document.getElementById('pCopy');
+const $pUrlInput  = document.getElementById('pUrlInput');
+const $pFreqInput = document.getElementById('pFreqInput');
+const $toast     = document.getElementById('toast');
+const $vol       = document.getElementById('vol');
+const $lockBtn   = document.getElementById('lockBtn');
+const $player    = document.getElementById('player');
+
+const $nowName   = document.getElementById('nowName');
+const $nowSub    = document.getElementById('nowSub');
+const $nowFreq   = document.getElementById('nowFreq');
+const $nowDesc   = document.getElementById('nowDesc');
+
+const $stModal   = document.getElementById('stModal');
+const $sProvince = document.getElementById('sProvince');
+const $sStation  = document.getElementById('sStation');
+const $sDel      = document.getElementById('sDel');
+
+let urlEditing  = false;
+let freqEditing = false;
+
+const audio = document.getElementById('audio');
+audio.volume = 1;
+
+/* =========================================================
+   五、时钟
+   ========================================================= */
+const WEEK = ['日','一','二','三','四','五','六'];
+function tickClock() {
+  const d = new Date();
+  const p = n => String(n).padStart(2, '0');
+  document.getElementById('clockTime').textContent =
+    p(d.getHours()) + ':' + p(d.getMinutes()) + ':' + p(d.getSeconds());
+  document.getElementById('clockDate').textContent =
+    d.getFullYear() + '年' + (d.getMonth() + 1) + '月' + d.getDate() + '日 星期' + WEEK[d.getDay()];
+}
+tickClock();
+setInterval(tickClock, 1000);
+
+/* =========================================================
+   六、主题切换
+   ========================================================= */
+const themeDots = document.querySelectorAll('.theme-dot');
+function applyTheme(name) {
+  document.documentElement.setAttribute('data-theme', name);
+  themeDots.forEach(d => d.classList.toggle('on', d.dataset.theme === name));
+  try { localStorage.setItem(THEME_KEY, name); } catch (e) {}
+}
+themeDots.forEach(dot => {
+  dot.addEventListener('click', () => applyTheme(dot.dataset.theme));
+});
+(function initTheme() {
+  let saved = null;
+  try { saved = localStorage.getItem(THEME_KEY); } catch (e) {}
+  applyTheme(saved || 'night');
+})();
+
+/* =========================================================
+   七、编辑锁
+   ========================================================= */
+const ICON_LOCK_CLOSED = `
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="4" y="10.5" width="16" height="10" rx="2.5"></rect>
+    <path d="M7.8 10.5V7.4a4.2 4.2 0 0 1 8.4 0v3.1"></path>
+    <path d="M12 14.6v2.2"></path>
+  </svg>`;
+
+const ICON_LOCK_OPEN = `
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="4" y="10.5" width="16" height="10" rx="2.5"></rect>
+    <path d="M7.8 10.5V7.4a4.2 4.2 0 0 1 7.9-1.6"></path>
+    <path d="M12 14.6v2.2"></path>
+  </svg>`;
+
+function applyLockUI() {
+  document.body.classList.toggle('locked', editLocked);
+  $lockBtn.innerHTML = editLocked ? ICON_LOCK_CLOSED : ICON_LOCK_OPEN;
+  $lockBtn.classList.toggle('locked', editLocked);
+  $lockBtn.title = editLocked ? '编辑已锁定，点击解锁' : '编辑已解锁，点击锁定';
+}
+
+$lockBtn.addEventListener('click', () => {
+  if (urlEditing)  finishUrlEdit(false);
+  if (freqEditing) finishFreqEdit(false);
+  editLocked = !editLocked;
+  applyLockUI();
+  updatePlayerUI();
+  toast(editLocked ? '编辑已锁定，点击图标可解锁' : '编辑已解锁，现在可以编辑频道了');
+});
+
+(function initLock() {
+  editLocked = true;
+  applyLockUI();
+})();
+
+/* =========================================================
+   八、分类标签
+   ========================================================= */
+function renderTabs() {
+  const mk = c =>
+    `<button class="tab${c === currentCat ? ' on' : ''}" data-cat="${esc(c)}">${esc(c)}</button>`;
+  $tabs.innerHTML      = LEFT_CATS.map(mk).join('');
+  $tabsRight.innerHTML = RIGHT_CATS.map(mk).join('');
+  updateTopbarHeight();
+}
+
+function handleTabClick(e) {
+  const btn = e.target.closest('.tab');
+  if (!btn) return;
+  currentCat = btn.dataset.cat;
+  // 切换分类时清空搜索
+  keyword = '';
+  $search.value = '';
+  renderTabs();
+  render();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+$tabs.addEventListener('click', handleTabClick);
+$tabsRight.addEventListener('click', handleTabClick);
+
+/* =========================================================
+   九、流地址灯泡
+   ========================================================= */
+function bulbHtml(url) {
+  const bad = badUrls.has(url);
+  return `<i class="bulb${bad ? ' bad' : ''}" title="${bad ? '流地址可能已失效' : '流地址有效'}"></i>`;
+}
+
+function refreshBulbs(url) {
+  const bad = badUrls.has(url);
+  const ids = new Set();
+  for (const s of stations) {
+    for (const c of s.channels) if (c.url === url) ids.add(c.id);
+  }
+  if (!ids.size) return;
+  document.querySelectorAll('.channel').forEach(el => {
+    if (!ids.has(el.dataset.cid)) return;
+    const bulb = el.querySelector('.bulb');
+    if (!bulb) return;
+    bulb.classList.toggle('bad', bad);
+    bulb.title = bad ? '流地址可能已失效' : '流地址有效';
+  });
+}
+
+function setBulbState(url, bad) {
+  if (!url) return;
+  const changed = bad ? !badUrls.has(url) : badUrls.has(url);
+  if (!changed) return;
+  if (bad) badUrls.add(url); else badUrls.delete(url);
+  refreshBulbs(url);
+}
+
+function syncChannelBulb(ch) {
+  const el = document.querySelector('.channel[data-cid="' + ch.id + '"]');
+  if (!el) return;
+  const cname = el.querySelector('.cname');
+  if (!cname) return;
+  let bulb = cname.querySelector('.bulb');
+  const url = (ch.url || '').trim();
+  if (!url) { if (bulb) bulb.remove(); return; }
+  if (!bulb) {
+    bulb = document.createElement('i');
+    bulb.className = 'bulb';
+    cname.appendChild(bulb);
+  }
+  const bad = badUrls.has(url);
+  bulb.classList.toggle('bad', bad);
+  bulb.title = bad ? '流地址可能已失效' : '流地址有效';
+}
+
+/* =========================================================
+   十、频道排序
+   ========================================================= */
+const SORT_LABEL = {
+  'name-asc':  '名称 A→Z',
+  'name-desc': '名称 Z→A',
+  'freq-asc':  '频率 低→高',
+  'freq-desc': '频率 高→低'
+};
+
+const zhCollator = new Intl.Collator('zh-Hans-CN', { numeric: true, sensitivity: 'base' });
+
+function freqNum(str) {
+  const m = String(str || '').match(/\d+(?:\.\d+)?/);
+  return m ? parseFloat(m[0]) : null;
+}
+
+function closeSortMenus() {
+  document.querySelectorAll('.sort-wrap.open').forEach(el => el.classList.remove('open'));
+}
+
+function applySort(station, mode) {
+  if (!station) return;
+  if (!station.channels.length) { toast('该电台暂无频道'); return; }
+  if (!SORT_LABEL[mode]) return;
+
+  const sign = (mode === 'name-desc' || mode === 'freq-desc') ? -1 : 1;
+
+  station.channels.sort((a, b) => {
+    if (mode === 'name-asc' || mode === 'name-desc') {
+      return sign * zhCollator.compare(a.name || '', b.name || '');
+    }
+    const fa = freqNum(a.freq), fb = freqNum(b.freq);
+    if (fa === null && fb === null) return zhCollator.compare(a.name || '', b.name || '');
+    if (fa === null) return 1;
+    if (fb === null) return -1;
+    if (fa !== fb) return sign * (fa - fb);
+    return zhCollator.compare(a.name || '', b.name || '');
+  });
+
+  persist();
+  render();
+  toast('已按「' + SORT_LABEL[mode] + '」排序');
+}
+
+/* =========================================================
+   十一、列表渲染
+   ========================================================= */
+function playIcoHtml(active) {
+  return active && playing
+    ? '<span class="eq"><i></i><i></i><i></i></span>'
+    : '▶';
+}
+
+function render() {
+  const q = keyword.trim().toLowerCase();
+  const pool = stations.filter(s => s.cat === currentCat);
+
+  let html = '';
+  let stationCount = 0;
+  let channelCount = 0;
+
+  for (const s of pool) {
+    const matched = s.channels.filter(c =>
+      !q ||
+      c.name.toLowerCase().includes(q) ||
+      (c.freq || '').toLowerCase().includes(q) ||
+      (c.desc || '').toLowerCase().includes(q) ||
+      s.station.toLowerCase().includes(q) ||
+      s.province.toLowerCase().includes(q)
+    );
+    if (q && matched.length === 0) continue;
+
+    stationCount++;
+    channelCount += matched.length;
+
+    html += `
+      <section class="station" data-sid="${esc(s.id)}">
+        <div class="station-head">
+          <span class="tag">${esc(s.province)}</span>
+          <h3>${esc(s.station)}</h3>
+          <span class="cnt">${s.channels.length} 个频率</span>
+          <div class="st-head-actions">
+            <div class="sort-wrap">
+              <button class="btn-sort" data-act="sort-toggle" title="频道排序">⇅ 排序</button>
+              <div class="sort-menu">
+                <button data-act="sort" data-sort="name-asc">名称 A→Z</button>
+                <button data-act="sort" data-sort="name-desc">名称 Z→A</button>
+                <button data-act="sort" data-sort="freq-asc">频率 低→高</button>
+                <button data-act="sort" data-sort="freq-desc">频率 高→低</button>
+              </div>
+            </div>
+            <button class="btn-edit-st" data-act="edit-station" title="编辑电台名称 / 标签">✎ 编辑电台</button>
+            <button class="btn-add" data-act="add">＋ 添加频道</button>
+          </div>
+        </div>
+        <div class="channels">
+          ${matched.length ? matched.map(c => {
+            const active = c.id === currentId;
+            return `
+            <div class="channel${active ? ' active' : ''}" data-cid="${esc(c.id)}"
+                 role="button" tabindex="0" aria-label="${esc(c.name)}">
+              <span class="play-ico">${playIcoHtml(active)}</span>
+              <span class="cname"><span class="ctxt">${esc(c.name)}</span>${c.url ? bulbHtml(c.url) : ''}</span>
+              <span class="cactions">
+                <button data-act="edit" title="编辑">✎</button>
+              </span>
+            </div>`;
+          }).join('') : `<div style="grid-column:1/-1;font-size:14px;color:var(--text-2);padding:4px 2px;">该电台下暂无频道，点击右上角「＋ 添加频道」</div>`}
+        </div>
+      </section>`;
+  }
+
+  const head = `
+    <div class="list-head">
+      <span class="list-head-title">${esc(currentCat)} · 共 ${stationCount} 个电台 · ${channelCount} 个广播频率</span>
+      <button class="btn-add-station" data-add-station>＋ 添加电台</button>
+    </div>`;
+
+  if (!html) {
+    html = q
+      ? `<div class="empty">未找到匹配的电台或频道<small><br>试试切换上方分类，或更换关键词<br><br><button type="button" class="btn-clear-search">✕ 清除搜索</button></small></div>`
+      : `<div class="empty">该板块暂无电台<small><br>点击上方「＋ 添加电台」开始添加</small></div>`;
+  }
+
+  $list.innerHTML = head + html;
+}
+
+/* =========================================================
+   十二、列表交互
+   ========================================================= */
+$list.addEventListener('click', e => {
+  // 清除搜索按钮（必须在最前面拦截）
+  if (e.target.closest('.btn-clear-search')) {
+    keyword = '';
+    $search.value = '';
+    render();
+    return;
+  }
+
+  const sortToggle = e.target.closest('[data-act="sort-toggle"]');
+  if (sortToggle) {
+    if (editLocked) { toast('编辑已锁定，请点击右上角 🔒 解锁'); return; }
+    const wrap = sortToggle.closest('.sort-wrap');
+    const wasOpen = wrap.classList.contains('open');
+    closeSortMenus();
+    if (!wasOpen) wrap.classList.add('open');
+    return;
+  }
+
+  const sortOpt = e.target.closest('[data-act="sort"]');
+  if (sortOpt) {
+    const stEl = sortOpt.closest('.station');
+    const st = stEl && stations.find(s => s.id === stEl.dataset.sid);
+    if (st) applySort(st, sortOpt.dataset.sort);
+    closeSortMenus();
+    return;
+  }
+
+  if (e.target.closest('[data-add-station]')) {
+    openStationModal('add', null);
+    return;
+  }
+
+  const stationEl = e.target.closest('.station');
+  if (!stationEl) return;
+  const station = stations.find(s => s.id === stationEl.dataset.sid);
+  if (!station) return;
+
+  const actBtn = e.target.closest('[data-act]');
+  if (actBtn) {
+    const act = actBtn.dataset.act;
+    if (act === 'add') { openModal('add', station, null); return; }
+    if (act === 'edit-station') { openStationModal('edit', station); return; }
+    const chEl = e.target.closest('.channel');
+    if (!chEl) return;
+    const ch = station.channels.find(c => c.id === chEl.dataset.cid);
+    if (!ch) return;
+    if (act === 'edit') { 
+    if (editLocked) { toast('编辑已锁定，请点击右上角图标解锁'); return; }
+    openModal('edit', station, ch); return; 
+  }
+  }
+
+  const chEl = e.target.closest('.channel');
+  if (chEl) {
+    const ch = station.channels.find(c => c.id === chEl.dataset.cid);
+    if (ch) playChannel(station, ch);
+  }
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('.sort-wrap')) closeSortMenus();
+});
+
+$list.addEventListener('keydown', e => {
+  if (e.key !== 'Enter' && e.key !== ' ' && e.key !== 'Spacebar') return;
+  const chEl = e.target.closest('.channel');
+  if (!chEl || e.target !== chEl) return;
+  e.preventDefault();
+  chEl.click();
+});
+
+/* =========================================================
+   十三、添加 / 编辑电台
+   ========================================================= */
+let stModalCtx = null;
+
+function openStationModal(mode, station) {
+  if (editLocked) { toast('编辑已锁定，请点击右上角图标解锁编辑模式'); return; }
+  // 先关闭已有弹窗
+  closeStationModal();
+  const editing = (mode === 'edit') && !!station;
+  stModalCtx = { mode: editing ? 'edit' : 'add', station: editing ? station : null };
+  document.getElementById('stModalTitle').textContent = editing ? '编辑电台' : '添加电台';
+  $sProvince.value = editing ? (station ? station.province : currentCat) : currentCat;
+  $sStation.value  = editing ? (station ? station.station : '') : '';
+  $sDel.classList.toggle('hide', !editing);
+  $stModal.classList.add('show');
+  setTimeout(() => $sStation.focus(), 60);
+}
+
+function closeStationModal() {
+  $stModal.classList.remove('show');
+  stModalCtx = null;
+}
+
+function saveStationModal() {
+  const province = $sProvince.value.trim() || currentCat;
+  const station  = $sStation.value.trim();
+  if (!station) { toast('请填写电台名称'); return; }
+
+  if (stModalCtx && stModalCtx.mode === 'edit' && stModalCtx.station) {
+    const t = stModalCtx.station;
+    t.province = province;
+    t.station  = station;
+    persist();
+    closeStationModal();
+    render();
+    updatePlayerUI();
+    toast('已保存电台');
+    return;
+  }
+
+  stations.push({ id: nid(), cat: currentCat, province, station, channels: [] });
+  persist();
+  closeStationModal();
+  render();
+  toast('已添加电台');
+}
+
+function deleteStationModal() {
+  if (!stModalCtx || stModalCtx.mode !== 'edit' || !stModalCtx.station) return;
+  const t = stModalCtx.station;
+  const n = t.channels.length;
+  const msg = n ? '确定删除电台「' + t.station + '」及其下 ' + n + ' 个频道吗？'
+                : '确定删除电台「' + t.station + '」吗？';
+  if (!confirm(msg)) return;
+
+  const playingHere = currentStation === t;
+  if (playingHere) {
+    audio.pause();
+    audio.removeAttribute('src');
+    currentId = null; currentStation = null; currentChannel = null; playing = false;
+    clearLast();
+  }
+  stations = stations.filter(s => s.id !== t.id);
+  persist();
+  closeStationModal();
+  render();
+  if (playingHere) updatePlayerUI();
+  toast('已删除电台');
+}
+
+document.getElementById('sOk').addEventListener('click', saveStationModal);
+document.getElementById('sCancel').addEventListener('click', closeStationModal);
+$sDel.addEventListener('click', deleteStationModal);
+$stModal.addEventListener('click', e => { if (e.target === $stModal) closeStationModal(); });
+
+/* =========================================================
+   十四、播放
+   ========================================================= */
+function rememberLast(id) { try { localStorage.setItem(LAST_KEY, id); } catch (e) {} }
+function clearLast()      { try { localStorage.removeItem(LAST_KEY); } catch (e) {} }
+
+function playChannel(station, ch) {
+  if (currentId === ch.id && audio.src) {
+    if (audio.paused) audio.play().catch(() => {});
+    else audio.pause();
+    return;
+  }
+
+  if (!ch.url) {
+    if (editLocked) toast('该频道尚未设置流地址，请先解锁编辑');
+    else { toast('该频道尚未设置流地址，请点击 ✎ 填写'); openModal('edit', station, ch); }
+    return;
+  }
+
+  currentId = ch.id;
+  currentStation = station;
+  currentChannel = ch;
+  rememberLast(ch.id);
+
+  activeUrl = ch.url;
+  audio.src = ch.url;
+  audio.play().then(() => { toast('正在播放：' + ch.name); }).catch(err => {
+    if (err && err.name === 'NotSupportedError') setBulbState(activeUrl, true);
+    toast('播放失败，请检查流地址是否有效');
+    playing = false;
+    updatePlayerUI();
+    refreshActive();
+  });
+
+  updatePlayerUI();
+  refreshActive();
+}
+
+audio.addEventListener('play',  () => { playing = true;  updatePlayerUI(); refreshActive(); });
+audio.addEventListener('pause', () => { playing = false; updatePlayerUI(); refreshActive(); });
+
+audio.addEventListener('playing', () => {
+  if (activeUrl) setBulbState(activeUrl, false);
+});
+
+audio.addEventListener('error', () => {
+  if (!audio.getAttribute('src')) return;
+  if (activeUrl) setBulbState(activeUrl, true);
+  playing = false;
+  updatePlayerUI();
+  refreshActive();
+  toast('音频加载失败，请检查流地址');
+});
+
+function refreshActive() {
+  document.querySelectorAll('.channel').forEach(el => {
+    const active = el.dataset.cid === currentId;
+    el.classList.toggle('active', active);
+    const ico = el.querySelector('.play-ico');
+    if (ico) ico.innerHTML = playIcoHtml(active);
+  });
+}
+
+/* =========================================================
+   十五、播放器 UI
+   ========================================================= */
+function updatePlayerUI() {
+  const url = currentChannel ? (currentChannel.url || '').trim() : '';
+
+  if (currentChannel) {
+    $pName.textContent = currentChannel.name;
+    $pSub.textContent  = currentStation.station + ' · ' + currentStation.province;
+
+    const freq = (currentChannel.freq || '').trim();
+    if (!freqEditing) {
+      if (editLocked) {
+        $pFreq.textContent = freq;
+        $pFreq.classList.toggle('hide', !freq);
+        $pFreq.classList.remove('editable');
+        $pFreq.title = '';
+      } else {
+        $pFreq.textContent = freq || '＋ 频率';
+        $pFreq.classList.remove('hide');
+        $pFreq.classList.add('editable');
+        $pFreq.title = '点击修改频率';
+      }
+    }
+
+    $pPlay.textContent = playing ? '❚❚' : '▶';
+  } else {
+    $pName.textContent = '未选择频道';
+    $pSub.textContent  = '点击任意频道开始收听';
+    $pFreq.textContent = '';
+    $pFreq.classList.add('hide');
+    $pFreq.classList.remove('editable');
+    $pFreq.title = '';
+    $pPlay.textContent = '▶';
+  }
+
+  $player.classList.toggle('playing', !!currentChannel && playing);
+
+  if (!urlEditing) {
+    const canEdit    = !editLocked && !!currentChannel;
+    const showUrlRow = !!currentChannel && (!!url || canEdit);
+    $pUrl.textContent = url || (canEdit ? '点击设置流地址' : '');
+    $pUrl.title       = url;
+    $pUrl.classList.toggle('editable', canEdit);
+    $pUrlRow.classList.toggle('hide', !showUrlRow);
+  }
+  $pCopy.classList.remove('done');
+
+  if (currentChannel) {
+    $nowName.textContent = currentChannel.name;
+    $nowSub.textContent  = currentStation
+      ? (currentStation.station + ' · ' + currentStation.province)
+      : '';
+    const f = (currentChannel.freq || '').trim();
+    $nowFreq.textContent = f;
+    $nowFreq.classList.toggle('hide', !f);
+    const d = (currentChannel.desc || '').trim();
+    $nowDesc.textContent = d || '该频道暂无简介';
+    $nowDesc.classList.toggle('muted', !d);
+  } else {
+    $nowName.textContent = '未选择频道';
+    $nowSub.textContent  = '点击任意频道开始收听';
+    $nowFreq.textContent = '';
+    $nowFreq.classList.add('hide');
+    $nowDesc.textContent = '频道简介将在这里显示';
+    $nowDesc.classList.add('muted');
+  }
+}
+
+/* =========================================================
+   十六、播放器内联编辑：流地址 / 频率
+   ========================================================= */
+function startUrlEdit() {
+  if (editLocked) { toast('编辑已锁定，请先解锁'); return; }
+  if (!currentChannel) { toast('请先选择一个频道'); return; }
+  if (urlEditing) return;
+  if (freqEditing) finishFreqEdit(true);
+
+  urlEditing = true;
+  $pUrlInput.value = currentChannel.url || '';
+  $pUrl.classList.add('hide');
+  $pCopy.classList.add('hide');
+  $pUrlInput.classList.remove('hide');
+  $pUrlInput.focus();
+  $pUrlInput.select();
+}
+
+function finishUrlEdit(save) {
+  if (!urlEditing) return;
+  urlEditing = false;
+  $pUrlInput.classList.add('hide');
+  $pUrl.classList.remove('hide');
+  $pCopy.classList.remove('hide');
+
+  if (!currentChannel || !save) { updatePlayerUI(); return; }
+
+  const v = $pUrlInput.value.trim();
+  if (v && !/^https?:\/\//i.test(v)) {
+    toast('流地址需以 http:// 或 https:// 开头');
+    updatePlayerUI();
+    return;
+  }
+
+  const old = (currentChannel.url || '').trim();
+  if (v === old) { updatePlayerUI(); return; }
+
+  const wasPlaying = playing;
+  currentChannel.url = v;
+
+  if (!v) {
+    audio.pause();
+    audio.removeAttribute('src');
+    activeUrl = null;
+    playing = false;
+  } else {
+    activeUrl = v;
+    audio.src = v;
+    if (wasPlaying) audio.play().catch(() => {});
+  }
+
+  persist();
+  syncChannelBulb(currentChannel);
+  updatePlayerUI();
+  refreshActive();
+  toast(v ? '流地址已更新' : '已清除流地址');
+}
+
+function startFreqEdit() {
+  if (editLocked) { toast('编辑已锁定，请先解锁'); return; }
+  if (!currentChannel) { toast('请先选择一个频道'); return; }
+  if (freqEditing) return;
+  if (urlEditing) finishUrlEdit(true);
+
+  freqEditing = true;
+  $pFreqInput.value = currentChannel.freq || '';
+  $pFreq.classList.add('hide');
+  $pFreqInput.classList.remove('hide');
+  $pFreqInput.focus();
+  $pFreqInput.select();
+}
+
+function finishFreqEdit(save) {
+  if (!freqEditing) return;
+  freqEditing = false;
+  $pFreqInput.classList.add('hide');
+  $pFreq.classList.remove('hide');
+
+  if (!currentChannel || !save) { updatePlayerUI(); return; }
+
+  const v = $pFreqInput.value.trim();
+  const old = (currentChannel.freq || '').trim();
+  if (v === old) { updatePlayerUI(); return; }
+
+  currentChannel.freq = v;
+  persist();
+  updatePlayerUI();
+  toast(v ? '频率已更新' : '已清除频率');
+}
+
+$pUrl.addEventListener('click', startUrlEdit);
+$pFreq.addEventListener('click', startFreqEdit);
+
+$pUrlInput.addEventListener('keydown', e => {
+  if (e.key === 'Enter')  { e.preventDefault(); finishUrlEdit(true); }
+  else if (e.key === 'Escape') { e.preventDefault(); finishUrlEdit(false); }
+});
+$pUrlInput.addEventListener('blur', () => finishUrlEdit(true));
+
+$pFreqInput.addEventListener('keydown', e => {
+  if (e.key === 'Enter')  { e.preventDefault(); finishFreqEdit(true); }
+  else if (e.key === 'Escape') { e.preventDefault(); finishFreqEdit(false); }
+});
+$pFreqInput.addEventListener('blur', () => finishFreqEdit(true));
+
+$pPlay.addEventListener('click', () => {
+  if (!currentChannel) { toast('请先选择一个频道'); return; }
+  if (!audio.src) { toast('请先设置该频道的流地址'); return; }
+  if (audio.paused) audio.play().catch(() => toast('播放失败'));
+  else audio.pause();
+});
+
+$vol.addEventListener('input', e => { audio.volume = parseFloat(e.target.value); });
+
+/* =========================================================
+   十七、复制流地址
+   ========================================================= */
+function fallbackCopy(text, done) {
+  try {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.top = '-9999px';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    ta.setSelectionRange(0, ta.value.length);
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    done();
+  } catch (e) {
+    toast('复制失败，请手动复制');
+  }
+}
+
+function copyText(text) {
+  const done = () => {
+    toast('已复制流地址');
+    $pCopy.classList.add('done');
+    setTimeout(() => $pCopy.classList.remove('done'), 1200);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done));
+  } else {
+    fallbackCopy(text, done);
+  }
+}
+
+$pCopy.addEventListener('click', () => {
+  const url = currentChannel ? (currentChannel.url || '').trim() : '';
+  if (!url) { toast('暂无流地址'); return; }
+  copyText(url);
+});
+
+/* =========================================================
+   十八、编辑频道弹窗（含 FM 前缀）
+   ========================================================= */
+function fillStationSelect(selectedId) {
+  const sel = $mStation;
+  sel.innerHTML = '';
+  const cats = [];
+  stations.forEach(s => { if (cats.indexOf(s.cat) === -1) cats.push(s.cat); });
+
+  for (const cat of cats) {
+    const pool = stations.filter(s => s.cat === cat);
+    if (!pool.length) continue;
+    const og = document.createElement('optgroup');
+    og.label = cat;
+    for (const s of pool) {
+      const opt = document.createElement('option');
+      opt.value = s.id;
+      opt.textContent = (s.province ? s.province + ' · ' : '') + s.station;
+      og.appendChild(opt);
+    }
+    sel.appendChild(og);
+  }
+  if (selectedId) sel.value = selectedId;
+}
+
+function openModal(mode, station, channel) {
+  if (editLocked) { toast('编辑已锁定，请点击右上角图标解锁编辑模式'); return; }
+  // 先关闭已有弹窗，防止重复弹窗
+  closeModal();
+  modalCtx = { mode, station, channel };
+  const editing = mode === 'edit';
+  document.getElementById('modalTitle').textContent = editing ? '编辑频道' : '添加频道';
+  $mName.value = editing ? (channel ? channel.name : '') : '';
+  $mFreq.value = editing ? (channel ? (channel.freq || '') : '') : '';
+  if (!$mFreq.value.trim()) $mFreq.value = 'FM ';
+  $mDesc.value = editing ? (channel ? (channel.desc || '') : '') : '';
+  $mUrl.value  = editing ? (channel ? (channel.url || '') : '') : '';
+  $mStationWrap.style.display = editing ? '' : 'none';
+  if (editing && station) fillStationSelect(station.id);
+  $mDel.classList.toggle('hide', !editing);
+  $modal.classList.add('show');
+  setTimeout(() => $mName.focus(), 60);
+}
+
+function closeModal() {
+  $modal.classList.remove('show');
+  modalCtx = null;
+}
+
+function saveModal() {
+  if (!modalCtx) return;
+  const name = $mName.value.trim();
+  let freq = $mFreq.value.trim();
+  if (/^FM$/i.test(freq)) freq = '';
+  const desc = $mDesc.value.trim();
+  const url  = $mUrl.value.trim();
+
+  if (!name) { toast('请填写频道名称'); return; }
+  if (url && !/^https?:\/\//i.test(url)) { toast('流地址需以 http:// 或 https:// 开头'); return; }
+
+  const { mode, station, channel } = modalCtx;
+
+  if (mode === 'edit') {
+    const oldUrl = channel.url;
+    channel.name = name;
+    channel.freq = freq;
+    channel.desc = desc;
+    channel.url  = url;
+    if (oldUrl !== url) badUrls.delete(url);
+
+    const targetId = $mStation.value;
+    if (targetId && targetId !== station.id) {
+      const target = stations.find(s => s.id === targetId);
+      if (target) {
+        station.channels = station.channels.filter(c => c.id !== channel.id);
+        target.channels.push(channel);
+        if (currentChannel === channel) currentStation = target;
+        toast('已保存，频道已移动至「' + target.station + '」');
+      } else {
+        toast('已保存');
+      }
+    } else {
+      toast('已保存');
+    }
+
+    if (currentChannel === channel) updatePlayerUI();
+  } else {
+    station.channels.push({ id: nid(), name, freq, desc, url });
+    toast('已添加频道');
+  }
+
+  persist();
+  closeModal();
+  render();
+}
+
+/* 频率输入框：始终以 "FM " 开头，删不掉前缀 */
+$mFreq.addEventListener('input', () => {
+  const v = $mFreq.value;
+  if (!/^FM\s/i.test(v)) {
+    const rest = v.replace(/^\s*FM\s*/i, '');
+    $mFreq.value = 'FM ' + rest;
+    const pos = $mFreq.value.length;
+    try { $mFreq.setSelectionRange(pos, pos); } catch (e) {}
+  }
+});
+$mFreq.addEventListener('focus', () => {
+  if ($mFreq.value === 'FM ') {
+    setTimeout(() => {
+      const pos = $mFreq.value.length;
+      try { $mFreq.setSelectionRange(pos, pos); } catch (e) {}
+    }, 0);
+  }
+});
+
+$mDel.addEventListener('click', () => {
+  if (!modalCtx || modalCtx.mode !== 'edit') return;
+  const { station, channel } = modalCtx;
+  if (!confirm('确定删除频道「' + channel.name + '」吗？')) return;
+
+  station.channels = station.channels.filter(c => c.id !== channel.id);
+
+  if (currentId === channel.id) {
+    audio.pause();
+    audio.removeAttribute('src');
+    currentId = null; currentStation = null; currentChannel = null; playing = false;
+    clearLast();
+    updatePlayerUI();
+  }
+
+  persist();
+  closeModal();
+  render();
+  toast('已删除频道');
+});
+
+document.getElementById('mOk').addEventListener('click', saveModal);
+document.getElementById('mCancel').addEventListener('click', closeModal);
+$modal.addEventListener('click', e => { if (e.target === $modal) closeModal(); });
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeSortMenus();
+
+  if ($stModal.classList.contains('show')) {
+    if (e.key === 'Escape') closeStationModal();
+    if (e.key === 'Enter') saveStationModal();
+    return;
+  }
+  if (!$modal.classList.contains('show')) return;
+  if (e.key === 'Escape') closeModal();
+  if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') saveModal();
+});
+
+/* =========================================================
+   十九、搜索
+   ========================================================= */
+let searchTimer = null;
+$search.addEventListener('input', e => {
+  keyword = e.target.value;
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(render, 160);
+});
+$search.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    e.target.value = '';
+    keyword = '';
+    render();
+  }
+});
+
+/* =========================================================
+   二十、回到顶部
+   ========================================================= */
+window.addEventListener('scroll', () => {
+  $toTop.classList.toggle('show', window.scrollY > 280);
+}, { passive: true });
+$toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+/* =========================================================
+   二十一、提示条
+   ========================================================= */
+let toastTimer = null;
+function toast(msg) {
+  $toast.textContent = msg;
+  $toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => $toast.classList.remove('show'), 2200);
+}
+
+/* =========================================================
+   二十二、顶栏高度同步
+   ========================================================= */
+function updateTopbarHeight() {
+  const topbar = document.querySelector('.topbar');
+  if (!topbar) return;
+  const h = topbar.getBoundingClientRect().height;
+  document.documentElement.style.setProperty('--topbar-h', h + 'px');
+}
+window.addEventListener('resize', updateTopbarHeight, { passive: true });
+if (window.ResizeObserver) {
+  try {
+    new ResizeObserver(updateTopbarHeight).observe(document.querySelector('.topbar'));
+  } catch (e) {}
+}
+
+/* =========================================================
+   二十三、恢复上次播放的频道（只恢复状态，不自动播放）
+   ========================================================= */
+function restoreLast() {
+  let lastId = null;
+  try { lastId = localStorage.getItem(LAST_KEY); } catch (e) {}
+  if (!lastId) return;
+  for (const s of stations) {
+    const ch = s.channels.find(c => c.id === lastId);
+    if (ch) {
+      currentId      = ch.id;
+      currentStation = s;
+      currentChannel = ch;
+      return;
+    }
+  }
+  clearLast();
+}
+
+/* =========================================================
+   二十四、自动定位到正在播放频道所在的卡片
+   ========================================================= */
+function scrollToActiveCard() {
+  if (!currentId) return;
+  const chEl = document.querySelector('.channel[data-cid="' + currentId + '"]');
+  if (!chEl) return;
+  const stEl = chEl.closest('.station') || chEl;
+  const topbar = document.querySelector('.topbar');
+  const th = topbar ? topbar.getBoundingClientRect().height : 0;
+  const rect = stEl.getBoundingClientRect();
+  const y = rect.top + window.scrollY - th - 12;
+  window.scrollTo({ top: Math.max(0, y), behavior: 'auto' });
+}
+
+/* =========================================================
+   二十五、自动播放（浏览器阻止时等首次交互）
+   ========================================================= */
+let autoResumeBound = false;
+function setupFirstInteractionResume() {
+  if (autoResumeBound) return;
+  autoResumeBound = true;
+  toast('浏览器已阻止自动播放，点击任意处继续收听');
+  const resume = () => {
+    document.removeEventListener('pointerdown', resume, true);
+    document.removeEventListener('keydown', resume, true);
+    document.removeEventListener('touchstart', resume, true);
+    autoResumeBound = false;
+    if (audio.getAttribute('src')) audio.play().catch(() => {});
+  };
+  document.addEventListener('pointerdown', resume, true);
+  document.addEventListener('keydown', resume, true);
+  document.addEventListener('touchstart', resume, true);
+}
+
+function autoPlayLast() {
+  if (!currentChannel) return;
+  const url = (currentChannel.url || '').trim();
+  if (!url) return;
+
+  activeUrl = url;
+  audio.src = url;
+
+  const p = audio.play();
+  if (p && typeof p.then === 'function') {
+    p.catch(err => {
+      if (err && err.name === 'NotAllowedError') {
+        setupFirstInteractionResume();
+      } else if (err && err.name === 'NotSupportedError') {
+        setBulbState(activeUrl, true);
+        toast('音频地址可能已失效');
+      }
+    });
+  }
+}
+
+/* =========================================================
+   二十六、键盘快捷键：空格播放/暂停
+   ========================================================= */
+document.addEventListener('keydown', e => {
+  const tag = document.activeElement && document.activeElement.tagName;
+  if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+  if (e.code === 'Space' && currentChannel) {
+    e.preventDefault();
+    if (!audio.src) { toast('请先设置该频道的流地址'); return; }
+    if (audio.paused) audio.play().catch(() => toast('播放失败'));
+    else audio.pause();
+  }
+});
+
+/* =========================================================
+   二十七、启动
+   ========================================================= */
+// 页面加载时提示用户解锁编辑模式
+(function showInitHint() {
+  try {
+    const hintShown = localStorage.getItem('radio_edit_hint_v1');
+    if (!hintShown) {
+      setTimeout(() => toast('提示：请点击右上角 🔒 图标解锁编辑模式，解锁后可编辑频道'), 800);
+      localStorage.setItem('radio_edit_hint_v1', '1');
+    }
+  } catch(e) {}
+})();
+renderTabs();
+restoreLast();
+
+/* 若上次频道所在的分类不是当前分类，自动切过去，保证卡片可见 */
+if (currentChannel && currentStation && currentStation.cat !== currentCat) {
+  currentCat = currentStation.cat;
+  renderTabs();
+}
+
+render();
+updatePlayerUI();
+updateTopbarHeight();
+
+/* 定位卡片 + 自动播放（延后 80ms 等布局稳定） */
+if (currentChannel) {
+  setTimeout(() => {
+    scrollToActiveCard();
+    autoPlayLast();
+  }, 80);
+}
+</script>
+
+</body></html>
