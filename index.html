@@ -1171,6 +1171,7 @@ body,.brand h1,.station-head h3,.ctxt,.now-name,.p-name{
       <p>杜绝加密 倾情打造</p>
     </div>
     <div class="topbar-right">
+      <button onclick="exportData()" style="background:#4f8cff;color:white;border:none;padding:6px 12px;border-radius:6px;cursor:pointer;font-size:12px;margin-right:8px;">导出数据</button>
       <button class="lock-btn locked" id="lockBtn" title="编辑已锁定，点击解锁">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <rect x="4" y="10.5" width="16" height="10" rx="2.5"></rect>
@@ -1876,6 +1877,193 @@ const STORAGE_KEY = 'radio_stations_v1';
 const THEME_KEY   = 'radio_theme_v1';
 const LAST_KEY    = 'radio_last_channel_v1';
 
+// 内置默认电台数据（包含完整流地址）
+const DEFAULT_STATIONS = [
+  {id:"c1337_lgje1",cat:"国家",province:"中央",station:"中央广播电视总台",channels:[
+    {id:"c1338_k4p8z",name:"中国之声",url:"https://ngcdn001.cnr.cn/live/zgzs/index.m3u8",freq:"FM 106.1 / AM 639",desc:"中央人民广播电台中国之声"},
+    {id:"c1339_yxuig",name:"经济之声",url:"http://ngcdn002.cnr.cn/live/jjzs/index.m3u8",freq:"FM 96.6 / AM 630",desc:"中央人民广播电台经济之声"},
+    {id:"c1340_0wj2i",name:"音乐之声",url:"https://ngcdn001.cnr.cn/live/yyzs/index.m3u8",freq:"FM 90.0",desc:"MusicRadio音乐之声"},
+    {id:"c1341_qm8rf",name:"经典音乐广播",url:"https://ngcdn001.cnr.cn/live/dszs/index.m3u8",freq:"FM 101.8",desc:"中央人民广播电台经典音乐广播"},
+    {id:"c1342_ap153",name:"台海之声",url:"https://ngcdn001.cnr.cn/live/zhzs/index.m3u8",freq:"FM102.3",desc:"中央广播电视总台台海之声"},
+    {id:"c1343_5xrb3",name:"神州之声",url:"https://ngcdn001.cnr.cn/live/szzs/index.m3u8",freq:"FM106.2",desc:"中央人民广播电台神州之声"},
+    {id:"c1344_ao8ga",name:"粤港澳大湾区之声",url:"https://ngcdn001.cnr.cn/live/hxzs/index.m3u8",freq:"FM 101.2",desc:"中央广播电视总台粤港澳大湾区之声"},
+    {id:"c1345_dypp4",name:"民族之声",url:"https://ngcdn001.cnr.cn/live/mzzs/index.m3u8",freq:"FM 104.9",desc:"中央人民广播电台民族之声"},
+    {id:"c1346_7hk4a",name:"文艺之声",url:"https://ngcdn001.cnr.cn/live/wyzs/index.m3u8",freq:"FM 106.6 / AM 747",desc:"中央人民广播电台文艺之声"},
+    {id:"c1347_7uaim",name:"老年之声",url:"https://ngcdn001.cnr.cn/live/lnzs/index.m3u8",freq:"AM 1053",desc:"老年之声"},
+    {id:"c1348_qeba0",name:"藏语广播",url:"https://ngcdn001.cnr.cn/live/zygb/index.m3u8",freq:"FM 89.2",desc:"中央人民广播电台藏语广播"},
+    {id:"c1349_ndpvn",name:"维吾尔语广播",url:"https://ngcdn001.cnr.cn/live/wygb/index.m3u8",freq:"FM 88.7",desc:"中央人民广播电台维吾尔语广播"},
+    {id:"c1350_brczq",name:"香港之声",url:"https://ngcdn001.cnr.cn/live/xgzs/index.m3u8",freq:"FM 102.8",desc:"中央人民广播电台香港之声"},
+    {id:"c1351_5vvkb",name:"中国交通广播",url:"https://ngcdn001.cnr.cn/live/gsgljtgb/index.m3u8",freq:"FM 90.5",desc:"中央人民广播电台中国交通广播"},
+    {id:"c1352_ddp00",name:"乡村之声",url:"https://ngcdn001.cnr.cn/live/xczs/index.m3u8",freq:"AM 720",desc:"中央人民广播电台中国乡村之声"},
+    {id:"c1353_6mbgq",name:"哈萨克语广播",url:"https://ngcdn001.cnr.cn/live/hygb/index.m3u8",freq:"FM 92.4",desc:"中央人民广播电台哈萨克语广播"},
+    {id:"c1354_749jq",name:"环球资讯广播",url:"https://sk.cri.cn/905.m3u8",freq:"FM 90.5",desc:"中央广播电视总台环球资讯广播"},
+    {id:"c1355_35vjl",name:"英语资讯广播",url:"https://sk.cri.cn/am846.m3u8",freq:"FM 91.5",desc:"CGTN Radio"},
+    {id:"c1356_4xrqi",name:"南海之声广播",url:"https://sk.cri.cn/nhzs.m3u8",freq:"FM 101MHz",desc:"中央广播电视总台南海之声"}
+  ]},
+  {id:"c1357_9x6bo",cat:"直辖市省级",province:"北京",station:"北京广播电视台",channels:[
+    {id:"c1358_tz6md",name:"新闻广播",url:"https://lhttp.qtfm.cn/live/339/64k.mp3",freq:"FM 94.5 / AM 828",desc:""},
+    {id:"c1359_i2rbi",name:"城市广播",url:"https://lhttp-hw.qtfm.cn/live/345/64k.mp3",freq:"FM 107.3",desc:""},
+    {id:"c1360_6lsp2",name:"音乐广播",url:"https://lhttp-hw.qtfm.cn/live/336/64k.mp3",freq:"FM 97.4",desc:""},
+    {id:"c1361_zfpwl",name:"文艺广播",url:"https://lhttp-hw.qtfm.cn/live/333/64k.mp3",freq:"FM 87.6",desc:""},
+    {id:"c1362_ecboy",name:"交通广播",url:"https://lhttp-hw.qtfm.cn/live/336/64k.mp3",freq:"FM 103.9",desc:""},
+    {id:"c1363_64h44",name:"京津冀之声",url:"https://lhttp-hw.qtfm.cn/live/5022463/64k.mp3",freq:"FM 100.6",desc:""}
+  ]},
+  {id:"c1375_b72ci",cat:"直辖市省级",province:"河北",station:"河北广播电视台",channels:[
+    {id:"c1376_6wmm7",name:"综合广播",url:"https://radio.pull.hebtv.com/live/hebzh.m3u8",freq:"FM 104.3 / AM 783",desc:""},
+    {id:"c1377_jxa7y",name:"交通广播",url:"https://radio.pull.hebtv.com/live/hebjt.m3u8",freq:"FM 99.2",desc:""},
+    {id:"c1378_auquc",name:"生活广播",url:"https://radio.pull.hebtv.com/live/hebshzx.m3u8",freq:"FM 107.9",desc:""},
+    {id:"c1379_45t0v",name:"音乐广播",url:"https://radio.pull.hebtv.com/live/hebyy.m3u8",freq:"FM 102.4",desc:""},
+    {id:"c1380_ly199",name:"三农广播",url:"https://radio.pull.hebtv.com/live/hebnczx.m3u8",freq:"FM 105.8",desc:""},
+    {id:"c1381_z44jv",name:"旅游文化广播",url:"https://radio.pull.hebtv.com/live/hebly.m3u8",freq:"FM 106.7",desc:""},
+    {id:"c1382_6ppwz",name:"新闻广播",url:"https://radio.pull.hebtv.com/live/hebxw.m3u8",freq:"FM 104.3",desc:""}
+  ]},
+  {id:"c1383_kqi18",cat:"直辖市省级",province:"山西",station:"山西广播电视台",channels:[
+    {id:"c1384_5kbci",name:"综合广播",url:"https://livehhhttps.sxrtv.com/lsdream/LZirMiy/400/e2vhZsr.m3u8",freq:"FM 90.4 / AM 819",desc:""},
+    {id:"c1385_06klz",name:"经济广播",url:"https://livehhhttps.sxrtv.com/lsdream/ShhImpz/400/p1kihsI.m3u8",freq:"FM 95.8",desc:""},
+    {id:"c1386_aa61l",name:"文艺广播",url:"https://livehhhttps.sxrtv.com/lsdream/fSd88q5/400/930hSs8.m3u8",freq:"FM 101.5",desc:""},
+    {id:"c1387_7unaj",name:"交通广播",url:"https://livehhhttps.sxrtv.com/lsdream/E0fzoNN/400/m3ng0sz.m3u8",freq:"FM 88.0",desc:""},
+    {id:"c1388_txo7g",name:"健康之声",url:"https://livehhhttps.sxrtv.com/lsdream/ZXd18m6/400/346gXs1.m3u8",freq:"FM 105.9",desc:""},
+    {id:"c1389_nzupe",name:"农村广播",url:"https://livehhhttps.sxrtv.com/lsdream/b76X89S/64/762e7sX.m3u8",freq:"FM 100.9",desc:""},
+    {id:"c1390_qiagy",name:"音乐广播",url:"https://livehhhttps.sxrtv.com/lsdream/B69dQ5S/300/079d6sm.m3u8",freq:"FM 94.0",desc:""},
+    {id:"c1391_j6hxx",name:"故事广播",url:"https://livehhhttps.sxrtv.com/lsdream/2qcOq3f/400/u4ffqsO.m3u8",freq:"FM 101.5",desc:""}
+  ]},
+  {id:"c1409_4ep6y",cat:"直辖市省级",province:"吉林",station:"吉林广播电视台",channels:[
+    {id:"c1410_vdn75",name:"新闻综合广播",url:"https://live-jlr.jlntv.cn//live/am738.m3u8",freq:"FM 91.6 / AM 738",desc:""},
+    {id:"c1411_j5h2y",name:"经济广播",url:"https://live-jlr.jlntv.cn/live/fm953.m3u8",freq:"FM 95.3",desc:""},
+    {id:"c1412_721o3",name:"音乐广播",url:"https://live-jlr.jlntv.cn/live/fm927.m3u8",freq:"FM 92.7",desc:""},
+    {id:"c1413_ys9sm",name:"交通广播",url:"https://live-jlr.jlntv.cn/live/fm1038.m3u8",freq:"FM 103.8",desc:""},
+    {id:"c1414_0e6vm",name:"健康娱乐广播",url:"https://live-jlr.jlntv.cn/live/fm1019.m3u8",freq:"FM 101.0",desc:""},
+    {id:"c1415_b47j0",name:"资讯广播",url:"https://live-jlr.jlntv.cn/live/fm1001.m3u8",freq:"FM 100.1",desc:""},
+    {id:"c1416_dwsmp",name:"乡村广播",url:"https://live-jlr.jlntv.cn/live/fm976.m3u8",freq:"FM 97.6",desc:""},
+    {id:"c1417_5nhsw",name:"旅游广播",url:"https://live-jlr.jlntv.cn//live/fm1033.m3u8",freq:"FM 88.0",desc:""}
+  ]},
+  {id:"c1427_b37eb",cat:"直辖市省级",province:"上海",station:"上海广播电视台",channels:[
+    {id:"c1428_0fs27",name:"新闻广播",url:"https://lhttp-hw.qtfm.cn/live/270/64k.mp3",freq:"FM 93.4 / AM 990",desc:""},
+    {id:"c1429_v80d1",name:"交通广播",url:"https://lhttp-hw.qtfm.cn/live/266/64k.mp3",freq:"FM 105.7",desc:""},
+    {id:"c1430_5t6y8",name:"戏剧曲艺广播",url:"https://lhttp-hw.qtfm.cn/live/269/64k.mp3",freq:"FM 97.2",desc:""},
+    {id:"c1431_l4c6f",name:"长三角之声广播",url:"https://lhttp-hw.qtfm.cn/live/275/64k.mp3",freq:"FM 89.9",desc:""},
+    {id:"c1432_zmvnh",name:"流行音乐广播",url:"https://lhttp-hw.qtfm.cn/live/274/64k.mp3",freq:"FM 101.7",desc:""},
+    {id:"c1433_a8it7",name:"第一财经",url:"https://lhttp-hw.qtfm.cn/live/276/64k.mp3",freq:"FM 90.9",desc:""},
+    {id:"c1434_27m7c",name:"经典音乐广播",url:"https://lhttp-hw.qtfm.cn/live/267/64k.mp3",freq:"FM 94.7",desc:""},
+    {id:"c1435_g6qvp",name:"经典金曲广播",url:"https://lhttp-hw.qtfm.cn/live/273/64k.mp3",freq:"FM 103.7",desc:""}
+  ]},
+  {id:"c1436_gtv62",cat:"直辖市省级",province:"江苏",station:"江苏人民广播电台",channels:[
+    {id:"c1437_m4vto",name:"新闻综合广播",url:"https://lzlive.vojs.cn/rTyLc36/92/live.m3u8",freq:"AM 702",desc:""},
+    {id:"c1438_cmfy5",name:"新闻广播",url:"https://lzlive.vojs.cn/5Fo8mMX/92/live.m3u8",freq:"FM 93.7",desc:""},
+    {id:"c1439_hymgk",name:"金陵之声",url:"https://lzlive.vojs.cn/Hd2hIgM/92/live.m3u8",freq:"FM 99.7",desc:""},
+    {id:"c1440_sxvpg",name:"交通广播网",url:"https://lzlive.vojs.cn/4TaHTeL/92/live.m3u8",freq:"FM 101.1",desc:""},
+    {id:"c1441_8um44",name:"经典流行音乐广播",url:"https://lzlive.vojs.cn/2wtSfrS/92/live.m3u8",freq:"FM 97.5",desc:""},
+    {id:"c1442_cqkqe",name:"音乐广播",url:"https://lzlive.vojs.cn/jAmO6Ng/92/live.m3u8",freq:"FM 89.7",desc:""},
+    {id:"c1443_6fbwf",name:"故事广播",url:"https://lzlive.vojs.cn/rWjyus9/92/live.m3u8",freq:"FM104.9",desc:""},
+    {id:"c1444_7qget",name:"健康广播",url:"https://lzlive.vojs.cn/EWpb5Ov/92/live.m3u8",freq:"FM100.5",desc:""},
+    {id:"c1445_mdaax",name:"文艺广播",url:"https://lzlive.vojs.cn/pL6NkZo/92/live.m3u8",freq:"FM91.4",desc:""},
+    {id:"c1446_fis7a",name:"财经广播",url:"https://lzlive.vojs.cn/caijing/92/live.m3u8",freq:"FM95.2",desc:""}
+  ]},
+  {id:"c1456_e0m0q",cat:"直辖市省级",province:"安徽",station:"安徽广播电视台",channels:[
+    {id:"c1457_v3q9z",name:"综合广播",url:"https://lhttp-hw.qtfm.cn/live/4919/64k.mp3",freq:"FM 103.6 / AM 936",desc:""},
+    {id:"c1458_mgptd",name:"经济广播",url:"https://lhttp-hw.qtfm.cn/live/4916/64k.mp3",freq:"FM 97.1",desc:""},
+    {id:"c1459_24nxf",name:"音乐广播",url:"https://lhttp-hw.qtfm.cn/live/1947/64k.mp3",freq:"FM 89.5",desc:""},
+    {id:"c1460_5xfwv",name:"生活广播",url:"https://lhttp-hw.qtfm.cn/live/1948/64k.mp3",freq:"FM 105.5",desc:""},
+    {id:"c1461_zai8a",name:"交通广播",url:"https://lhttp-hw.qtfm.cn/live/1949/64k.mp3",freq:"FM 90.8",desc:""},
+    {id:"c1462_gup0f",name:"农村广播",url:"https://lhttp-hw.qtfm.cn/live/1950/64k.mp3",freq:"FM 98.8",desc:""},
+    {id:"c1463_o9ls2",name:"老年广播",url:"https://lhttp-hw.qtfm.cn/live/1951/64k.mp3",freq:"FM 101.8",desc:""},
+    {id:"c1464_taor8",name:"戏曲广播",url:"https://lhttp-hw.qtfm.cn/live/1952/64k.mp3",freq:"FM 102.8",desc:""},
+    {id:"c1465_n6sr3",name:"旅游广播",url:"https://lhttp-hw.qtfm.cn/live/15318219/64k.mp3",freq:"FM 106.5",desc:""}
+  ]},
+  {id:"c1466_vtg1f",cat:"直辖市省级",province:"福建",station:"福建人民广播电台",channels:[
+    {id:"c1467_yzinj",name:"新闻综合广播",url:"https://live3-fuyun.fjtv.net/xwgb/hd/live.m3u8",freq:"FM 103.6 / AM 882",desc:""},
+    {id:"c1468_kn91o",name:"经济广播",url:"https://live3-fuyun.fjtv.net/jjgb/hd/live.m3u8",freq:"FM 96.1",desc:""},
+    {id:"c1469_09a3h",name:"交通广播",url:"https://live3-fuyun.fjtv.net/jtgb/hd/live.m3u8",freq:"FM 100.7",desc:""},
+    {id:"c1470_yhllo",name:"东南广播公司",url:"https://live3-fuyun.fjtv.net/dngb/hd/live.m3u8",freq:"FM 107.1",desc:""},
+    {id:"c1471_7rixm",name:"都市生活广播",url:"https://live3-fuyun.fjtv.net/dsgb/hd/live.m3u8",freq:"FM 98.7",desc:""}
+  ]},
+  {id:"c1479_sv65z",cat:"直辖市省级",province:"山东",station:"山东广播电视台",channels:[
+    {id:"c1480_22c8w",name:"综合广播",url:"https://lhttp-hw.qtfm.cn/live/20234/64k.mp3",freq:"FM 97.1 / AM 918",desc:""},
+    {id:"c1481_fubpz",name:"经济广播",url:"https://lhttp-hw.qtfm.cn/live/20236/64k.mp3",freq:"FM 96.0",desc:""},
+    {id:"c1482_lr3ig",name:"文艺广播",url:"https://lhttp-hw.qtfm.cn/live/20238/64k.mp3",freq:"FM 104.4",desc:""},
+    {id:"c1483_lsrpu",name:"经典音乐广播",url:"https://lhttp-hw.qtfm.cn/live/20240/64k.mp3",freq:"FM 99.1",desc:""},
+    {id:"c1485_uol85",name:"音乐广播",url:"https://lhttp-hw.qtfm.cn/live/1665/64k.mp3",freq:"FM 93.6",desc:""}
+  ]},
+  {id:"c1486_4xg76",cat:"直辖市省级",province:"河南",station:"河南广播电视台",channels:[
+    {id:"c1487_hpth8",name:"新闻广播",url:"https://stream.hndt.com/live/xinwen/playlist.m3u8",freq:"FM 95.4 / AM 657",desc:""},
+    {id:"c1488_fosjk",name:"经济广播",url:"https://stream.hndt.com/live/jingji/playlist.m3u8",freq:"FM 103.2",desc:""},
+    {id:"c1489_5q46g",name:"交通广播",url:"https://stream.hndt.com/live/jiaotong/playlist.m3u8",freq:"FM 104.1",desc:""},
+    {id:"c1490_s33k0",name:"戏曲广播",url:"https://stream.hndt.com/live/yule/playlist.m3u8",freq:"FM 97.6",desc:""},
+    {id:"c1491_bl6s7",name:"信息广播",url:"https://stream.hndt.com/live/leling/playlist.m3u8",freq:"FM 105.6",desc:""},
+    {id:"c1493_bf6ar",name:"音乐广播",url:"https://stream.hndt.com/live/yingshi/playlist.m3u8",freq:"FM 90.0",desc:""},
+    {id:"c1494_euobb",name:"旅游广播",url:"https://stream.hndt.com/live/sijiache/playlist.m3u8",freq:"FM 99.9",desc:""},
+    {id:"c1496_hpxl9",name:"教育广播",url:"https://stream.hndt.com/live/jiaoyu/playlist.m3u8",freq:"FM 106.6",desc:""}
+  ]},
+  {id:"c1497_ifbj8",cat:"直辖市省级",province:"湖北",station:"湖北广播电视台",channels:[
+    {id:"c1498_ydmqu",name:"新闻综合广播",url:"https://lhttp-hw.qtfm.cn/live/1303/64k.mp3",freq:"FM 104.6 / AM 774",desc:""},
+    {id:"c1499_8b5kk",name:"经济广播",url:"https://lhttp-hw.qtfm.cn/live/1295/64k.mp3",freq:"FM 99.8",desc:""},
+    {id:"c1500_a9287",name:"经典音乐广播",url:"https://lhttp-hw.qtfm.cn/live/1296/64k.mp3",freq:"FM 103.8",desc:""},
+    {id:"c1501_jmo23",name:"楚天交通广播",url:"https://lhttp-hw.qtfm.cn/live/1291/64k.mp3",freq:"FM 92.7",desc:""}
+  ]},
+  {id:"c1509_p5m77",cat:"直辖市省级",province:"广东",station:"广东广播电视台",channels:[
+    {id:"c1510_om0g0",name:"新闻广播",url:"https://lhttp-hw.qtfm.cn/live/1254/64k.mp3",freq:"FM 91.4 / AM 648",desc:""},
+    {id:"c1511_2tptg",name:"珠江经济台",url:"https://lhttp-hw.qtfm.cn/live/1259/64k.mp3",freq:"FM 97.4 / AM 1062",desc:""},
+    {id:"c1512_y8nxs",name:"音乐之声",url:"https://lhttp-hw.qtfm.cn/live/1260/64k.mp3",freq:"FM 93.9",desc:""},
+    {id:"c1513_z6xz8",name:"南方生活广播",url:"https://lhttp-hw.qtfm.cn/live/468/64k.mp3",freq:"FM 93.6",desc:""},
+    {id:"c1514_8qrga",name:"交通之声",url:"https://lhttp-hw.qtfm.cn/live/1262/64k.mp3",freq:"FM 105.2",desc:""},
+    {id:"c1515_5ocl2",name:"文体广播",url:"https://lhttp-hw.qtfm.cn/live/471/64k.mp3",freq:"FM 107.6",desc:""},
+    {id:"c1516_y2dbf",name:"股市广播",url:"https://lhttp-hw.qtfm.cn/live/4847/64k.mp3",freq:"FM 95.3",desc:""},
+    {id:"c1517_ohzhu",name:"珠江之声",url:"https://lhttp-hw.qtfm.cn/live/470/64k.mp3",freq:"FM 103.6",desc:""}
+  ]},
+  {id:"c1531_70m9m",cat:"直辖市省级",province:"重庆",station:"重庆人民广播电台",channels:[
+    {id:"c1532_vafzn",name:"综合广播",url:"https://lhttp-hw.qtfm.cn/live/1498/64k.mp3",freq:"FM 96.8 / AM 1314",desc:""},
+    {id:"c1533_dpm1r",name:"交通广播",url:"https://lhttp-hw.qtfm.cn/live/1500/64k.mp3",freq:"FM 95.5",desc:""},
+    {id:"c1534_yv5tc",name:"音乐广播",url:"https://lhttp-hw.qtfm.cn/live/647/64k.mp3",freq:"FM 88.1",desc:""},
+    {id:"c1535_gsf6o",name:"都市广播",url:"https://lhttp-hw.qtfm.cn/live/1502/64k.mp3",freq:"FM 93.8",desc:""}
+  ]},
+  {id:"c1536_98dxf",cat:"直辖市省级",province:"四川",station:"四川广播电视台",channels:[
+    {id:"c1537_f2kap",name:"综合广播",url:"https://lhttp-hw.qtfm.cn/live/20207767/64k.mp3",freq:"FM 98.1 / AM 1116",desc:""},
+    {id:"c1538_knlkl",name:"民族广播",url:"https://lhttp-hw.qtfm.cn/live/1115/64k.mp3",freq:"FM 90.0",desc:""},
+    {id:"c1539_30zed",name:"音乐广播",url:"https://lhttp-hw.qtfm.cn/live/1110/64k.mp3",freq:"FM 95.5",desc:""},
+    {id:"c1540_9soov",name:"交通广播",url:"https://lhttp-hw.qtfm.cn/live/4886/64k.mp3",freq:"FM 101.7",desc:""},
+    {id:"c1541_suc3w",name:"新闻广播",url:"https://lhttp-hw.qtfm.cn/live/4906/64k.mp3",freq:"FM 106.1",desc:""}
+  ]},
+  {id:"c1547_sxdkk",cat:"直辖市省级",province:"云南",station:"云南广播电视台",channels:[
+    {id:"c1548_ldxhb",name:"新闻广播",url:"https://gbw.ynradio.cn/radio/xwgb.stream/chunklist.m3u8",freq:"FM 105.8 / AM 576",desc:""},
+    {id:"c1549_364pk",name:"经济广播",url:"https://gbw.ynradio.cn/radio/jjgb.stream/chunklist.m3u8",freq:"FM 88.7",desc:""},
+    {id:"c1550_vv2bp",name:"国际广播",url:"https://gbw.ynradio.cn/radio/gjgb.stream/chunklist.m3u8",freq:"FM 101.7",desc:""},
+    {id:"c1551_2ld0d",name:"音乐广播",url:"https://gbw.ynradio.cn/radio/yygb.stream/chunklist.m3u8",freq:"FM 97.0",desc:""},
+    {id:"c1552_bt4u9",name:"交通之声",url:"https://gbw.ynradio.cn/radio/jtgb.stream/chunklist.m3u8",freq:"FM 91.8",desc:""},
+    {id:"c1553_ap1oq",name:"民族广播",url:"https://gbw.ynradio.cn/radio/mzgb.stream/chunklist.m3u8",freq:"FM 92.4",desc:""}
+  ]},
+  {id:"c1_djdoe",cat:"XG",province:"香港",station:"香港电台",channels:[
+    {id:"c2_20zoj",name:"香港电台第1台",url:"https://rthkradio1-live.akamaized.net/hls/live/2035313/radio1/index_64_a.m3u8",freq:"FM 92.6-94.4",desc:"香港电台第一台"},
+    {id:"c3_muzgm",name:"香港电台第2台",url:"https://rthkradio2-live.akamaized.net/hls/live/2040078/radio2/index_64_a.m3u8",freq:"FM 94.8-96.9",desc:"香港电台第二台"},
+    {id:"c4_rhzhj",name:"香港电台第3台",url:"https://rthkradio3-live.akamaized.net/hls/live/2040079/radio3/index_64_a.m3u8",freq:"AM 567",desc:"香港电台第三台"},
+    {id:"c5_zqilr",name:"香港电台第4台",url:"https://rthkradio4-live.akamaized.net/hls/live/2040080/radio4/index_64_a.m3u8",freq:"FM 97.6-98.9",desc:"香港电台第四台"},
+    {id:"c6_21dts",name:"香港电台第5台",url:"https://rthkradio5-live.akamaized.net/hls/live/2040081/radio5/index_64_a.m3u8",freq:"AM 783",desc:"香港电台第五台"},
+    {id:"c7_wzzrc",name:"香港电台普通话台",url:"https://rthkradiopth-live.akamaized.net/hls/live/2040082/radiopth/index_64_a.m3u8",freq:"AM 621",desc:"香港电台普通话台"}
+  ]},
+  {id:"c1_asmju",cat:"网络电台",province:"网络电台",station:"网络音乐台",channels:[
+    {id:"c2_vrks8",name:"891线上音乐台",url:"https://lhttp-hw.qtfm.cn/live/20500215/64k.mp3",freq:"",desc:""},
+    {id:"c9_6srma",name:"动听音乐台",url:"https://lhttp-hw.qtfm.cn/live/5022107/64k.mp3",freq:"",desc:""},
+    {id:"c5_mgm14",name:"怀集音乐之声",url:"https://lhttp-hw.qtfm.cn/live/4804/64k.mp3",freq:"",desc:""},
+    {id:"c4_6pkzd",name:"两广之声音乐台",url:"https://lhttp-hw.qtfm.cn/live/20500149/64k.mp3",freq:"",desc:""},
+    {id:"c6_pg5tj",name:"清晨音乐台",url:"https://lhttp-hw.qtfm.cn/live/4915/64k.mp3",freq:"",desc:""},
+    {id:"c8_2319o",name:"顺德音乐之声",url:"https://lhttp-hw.qtfm.cn/live/20500150/64k.mp3",freq:"",desc:""},
+    {id:"c3_cqgdz",name:"湾区音乐台",url:"https://lhttp-hw.qtfm.cn/live/20500163/64k.mp3",freq:"",desc:""},
+    {id:"c10_37l75",name:"星河音乐台",url:"https://lhttp-hw.qtfm.cn/live/20210755/64k.mp3",freq:"",desc:""}
+  ]}
+];
+
+function exportData() {
+  try {
+    const data = localStorage.getItem(STORAGE_KEY) || '[]';
+    navigator.clipboard.writeText(data).then(() => {
+      alert('数据已复制到剪贴板！请粘贴发给我。\n\n数据长度：' + data.length + ' 字符');
+    }).catch(() => {
+      prompt('请复制下面的数据：', data);
+    });
+  } catch(e) {
+    alert('导出失败：' + e.message);
+  }
+}
+
 let idSeq = 1;
 const nid = () => 'c' + (idSeq++) + '_' + Math.random().toString(36).slice(2, 7);
 
@@ -1919,7 +2107,8 @@ function loadStations() {
       }
     }
   } catch (e) {}
-  return buildDefault();
+  // 如果 localStorage 没有数据，使用内置的完整默认电台数据
+  return JSON.parse(JSON.stringify(DEFAULT_STATIONS));
 }
 
 function persist() {
