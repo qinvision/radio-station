@@ -2107,8 +2107,25 @@ function loadStations() {
       }
     }
   } catch (e) {}
-  // 如果 localStorage 没有数据，使用内置的完整默认电台数据
-  return JSON.parse(JSON.stringify(DEFAULT_STATIONS));
+  // 如果 localStorage 没有数据，先生成完整默认电台列表，再用内置的流地址数据更新
+  const base = buildDefault();
+  // 用 DEFAULT_STATIONS 里的数据覆盖有流地址的频道
+  DEFAULT_STATIONS.forEach(extraStation => {
+    const existing = base.find(s => s.id === extraStation.id);
+    if (existing) {
+      extraStation.channels.forEach(extraChan => {
+        if (extraChan.url) {
+          const chan = existing.channels.find(c => c.id === extraChan.id);
+          if (chan) {
+            chan.url = extraChan.url;
+            if (extraChan.freq) chan.freq = extraChan.freq;
+            if (extraChan.desc) chan.desc = extraChan.desc;
+          }
+        }
+      });
+    }
+  });
+  return base;
 }
 
 function persist() {
