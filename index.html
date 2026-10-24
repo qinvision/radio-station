@@ -291,6 +291,7 @@ html[data-theme="violet"]{ --text-strong:#f7f2ff; --text:#e2daf7; --text-2:#aa9f
 .search::placeholder, .modal input::placeholder, .modal textarea::placeholder{ color:var(--text-3); }
 body,.brand h1,.station-head h3,.ctxt,.p-name{ transition:color .3s,background .3s,-webkit-text-fill-color .3s; }
 </style>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@1/dist/hls.min.js"></script>
 </head>
 <body class="locked">
 <div class="deco-orb deco-orb-1"></div>
@@ -548,6 +549,7 @@ let urlEditing  = false;
 let freqEditing = false;
 const audio = document.getElementById('audio');
 audio.volume = 1;
+let hls = null;  // m3u8 播放实例
 
 /* =========================================================
    四、时钟
@@ -947,6 +949,7 @@ function deleteStationModal() {
   const playingHere = currentStation === t;
   if (playingHere) {
     audio.pause(); audio.removeAttribute('src');
+    if (hls) { try { hls.destroy(); } catch(e){} hls = null; }
     currentId = null; currentStation = null; currentChannel = null; playing = false;
     clearLast();
   }
@@ -980,14 +983,37 @@ function playChannel(station, ch) {
   currentChannel = ch;
   rememberLast(ch.id);
   activeUrl = ch.url;
-  audio.src = ch.url;
-  audio.play().then(() => { toast('正在播放：' + ch.name); }).catch(err => {
-    if (err && err.name === 'NotSupportedError') setBulbState(activeUrl, true);
-    toast('播放失败，请检查流地址是否有效');
-    playing = false;
-    updatePlayerUI();
-    refreshActive();
-  });
+  // 销毁旧的 hls 实例
+  if (hls) { try { hls.destroy(); } catch(e){} hls = null; }
+  audio.removeAttribute('src');
+  audio.pause();
+  const isM3u8 = /\.m3u8(\?|$)/i.test(ch.url);
+  if (isM3u8 && window.Hls && Hls.isSupported()) {
+    hls = new Hls({ liveSyncDurationCount: 3 });
+    hls.loadSource(ch.url);
+    hls.attachMedia(audio);
+    hls.on(Hls.Events.MANIFEST_PARSED, () => {
+      audio.play().then(() => toast('正在播放：' + ch.name)).catch(err => {
+        toast('播放失败，请检查流地址是否有效');
+        playing = false; updatePlayerUI(); refreshActive();
+      });
+    });
+    hls.on(Hls.Events.ERROR, (evt, data) => {
+      if (data.fatal) {
+        toast('播放失败，请检查流地址是否有效');
+        playing = false; updatePlayerUI(); refreshActive();
+      }
+    });
+  } else {
+    audio.src = ch.url;
+    audio.play().then(() => { toast('正在播放：' + ch.name); }).catch(err => {
+      if (err && err.name === 'NotSupportedError') setBulbState(activeUrl, true);
+      toast('播放失败，请检查流地址是否有效');
+      playing = false;
+      updatePlayerUI();
+      refreshActive();
+    });
+  }
   updatePlayerUI();
   refreshActive();
 }
