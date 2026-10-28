@@ -495,7 +495,7 @@ function persist() {
    二、全局状态
    ========================================================= */
 let stations       = loadStations();
-let currentCat     = '地市级';
+let currentCat     = '国家';
 let keyword        = '';
 let currentId      = null;
 let currentStation = null;
@@ -1509,10 +1509,7 @@ document.getElementById('exportBtn').addEventListener('click', exportHtml);
 
 renderTabs();
 restoreLast();
-if (currentChannel && currentStation && currentStation.cat !== currentCat) {
-  currentCat = currentStation.cat;
-  renderTabs();
-}
+/* 启动固定落在「国家」分类；上次收听的频道仅恢复到播放器，不切换分类界面 */
 render();
 updatePlayerUI();
 updateTopbarHeight();
