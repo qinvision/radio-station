@@ -45,12 +45,12 @@ body{ margin:0; min-height:100vh; background:var(--bg); color:var(--text); font-
 .tab{ padding:8px 16px; border-radius:10px; border:none; background:transparent; color:var(--text-2); font-size:16px; cursor:pointer; font-family:inherit; white-space:nowrap; transition:all .2s; }
 .tab:hover{ color:var(--text); }
 .tab.on{ background:var(--accent); color:#fff; font-weight:600; }
-.search{ flex:0 1 220px; min-width:120px; padding:10px 16px; border-radius:12px; border:1px solid var(--border); background:var(--card); color:var(--text); font-size:16px; outline:none; font-family:inherit; transition:border-color .2s; }
-.search:focus{ border-color:var(--accent); }
-.search::placeholder{ color:var(--text-2); }
+.freq-btn{ flex:0 0 auto; margin:0 auto; padding:7px 14px; border-radius:10px; border:1px solid var(--border); background:var(--card-2); color:var(--accent); font-size:15px; font-weight:600; font-family:inherit; white-space:nowrap; text-decoration:none; display:inline-flex; align-items:center; transition:all .2s cubic-bezier(.4,0,.2,1); }
+.freq-btn:hover{ border-color:var(--accent); filter:brightness(1.12); transform:translateY(-1px); box-shadow:0 4px 12px var(--accent-soft); }
+.freq-btn:active{ transform:scale(.96); }
 .topbar-row-2 .tabs{ padding:4px; border-radius:12px; }
 .topbar-row-2 .tab{ padding:6px 14px; font-size:15px; border-radius:8px; }
-.topbar-row-2 .search{ padding:8px 14px; font-size:15px; border-radius:10px; }
+.topbar-row-2 .freq-btn{ padding:6px 14px; font-size:15px; }
 body.locked .btn-add, body.locked .btn-add-station, body.locked .btn-edit-st, body.locked .sort-wrap, body.locked .cactions{ opacity:.35; filter:grayscale(1); }
 body.locked .btn-add, body.locked .btn-add-station, body.locked .btn-edit-st, body.locked .btn-sort, body.locked .cactions button{ cursor:not-allowed !important; }
 body.locked .cactions button:hover{ color:var(--text-2) !important; background:transparent !important; transform:none !important; }
@@ -116,8 +116,6 @@ body.locked .p-copy{ display:none !important; }
 .cactions button:hover{ color:var(--accent); background:var(--accent-soft); }
 .empty{ text-align:center; padding:60px 20px; color:var(--text-2); font-size:16px; line-height:2; }
 .empty small{ font-size:14px; opacity:.85; }
-.btn-clear-search{ margin-top:4px; padding:6px 16px; border-radius:8px; border:1px solid var(--accent); background:var(--accent-soft); color:var(--accent); font-size:14px; font-family:inherit; cursor:pointer; transition:all .2s; }
-.btn-clear-search:hover{ filter:brightness(1.1); transform:translateY(-1px); }
 .player{ position:fixed; left:0; right:0; bottom:0; z-index:80; display:flex; align-items:center; gap:12px; padding:10px 18px; padding-bottom:calc(10px + env(safe-area-inset-bottom)); background:var(--glass); border-top:1px solid var(--border); box-shadow:0 -6px 24px rgba(0,0,0,.18); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); }
 .p-ico{ width:38px; height:38px; flex:none; border-radius:50%; display:flex; align-items:center; justify-content:center; background:var(--accent-soft); color:var(--accent); font-size:18px; }
 .player.playing .p-ico{ animation:picoPulse 1.8s ease-in-out infinite; }
@@ -172,7 +170,7 @@ body.locked .p-copy{ display:none !important; }
 .toast{ position:fixed; left:50%; bottom:130px; z-index:300; transform:translateX(-50%) translateY(12px); padding:10px 20px; border-radius:999px; font-size:15px; max-width:90vw; background:var(--card); color:var(--text); border:1px solid var(--border); box-shadow:var(--shadow); opacity:0; pointer-events:none; transition:all .25s; text-align:center; }
 .toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
 @media (max-width:900px){ .layout{ grid-template-columns:minmax(0,1fr); align-items:start; } .layout.with-side{ grid-template-columns:minmax(0,1fr); } .quick-nav.show{ display:flex; align-items:center; gap:6px; position:sticky; top:calc(var(--topbar-h) + 8px); max-height:none; overflow-x:auto; overflow-y:hidden; padding:7px 8px; border-radius:14px; z-index:60; } .quick-nav .qn-title{ display:none; } .quick-nav .qn-item{ width:auto; flex:none; margin:0; padding:6px 12px; font-size:13px; white-space:nowrap; } }
-@media (max-width:640px){ .topbar-row{ padding:6px 12px; gap:8px; } .topbar-row-1{ padding-bottom:4px; } .topbar-row-2{ padding-top:6px; padding-bottom:8px; gap:6px; } .brand h1{ font-size:15px; letter-spacing:1px; } .brand p{ display:none; } .clock{ gap:6px; } .clock-time{ font-size:16px; } .clock-date{ display:none; } .topbar-right{ gap:6px; } .lock-btn{ width:30px; height:30px; border-radius:9px; } .lock-btn svg{ width:14px; height:14px; } .export-btn{ font-size:12px; padding:6px 9px; border-radius:9px; } .theme-switch{ padding:5px 8px; gap:5px; } .theme-dot{ width:14px; height:14px; } .topbar-row-2 .tab{ padding:5px 10px; font-size:13px; } .topbar-row-2 .search{ flex:1 1 100%; padding:7px 12px; font-size:14px; } .tabs-right{ margin-left:0; } .wrap{ padding:calc(var(--topbar-h) + 16px) 12px 140px; } .channels{ grid-template-columns:1fr 1fr; } #vol{ display:none; } .to-top{ bottom:112px; right:12px; } }
+@media (max-width:640px){ .topbar-row{ padding:6px 12px; gap:8px; } .topbar-row-1{ padding-bottom:4px; } .topbar-row-2{ padding-top:6px; padding-bottom:8px; gap:6px; } .brand h1{ font-size:15px; letter-spacing:1px; } .brand p{ display:none; } .clock{ gap:6px; } .clock-time{ font-size:16px; } .clock-date{ display:none; } .topbar-right{ gap:6px; } .lock-btn{ width:30px; height:30px; border-radius:9px; } .lock-btn svg{ width:14px; height:14px; } .export-btn{ font-size:12px; padding:6px 9px; border-radius:9px; } .theme-switch{ padding:5px 8px; gap:5px; } .theme-dot{ width:14px; height:14px; } .topbar-row-2 .tab{ padding:5px 10px; font-size:13px; } .topbar-row-2 .freq-btn{ flex:0 0 auto; padding:6px 11px; font-size:13px; } .tabs-right{ margin-left:0; } .wrap{ padding:calc(var(--topbar-h) + 16px) 12px 140px; } .channels{ grid-template-columns:1fr 1fr; } #vol{ display:none; } .to-top{ bottom:112px; right:12px; } }
 @media (max-width:420px){ .clock-date{ display:none; } }
 body::before{ content:''; position:fixed; inset:0; z-index:-2; background:radial-gradient(ellipse at 20% 20%,var(--accent-soft) 0%,transparent 50%),radial-gradient(ellipse at 80% 80%,var(--accent-soft) 0%,transparent 50%),radial-gradient(ellipse at 50% 50%,var(--accent-soft) 0%,transparent 70%); opacity:.5; animation:bgShift 20s ease-in-out infinite alternate; pointer-events:none; }
 @keyframes bgShift{ 0%{ transform:scale(1) rotate(0deg); } 33%{ transform:scale(1.1) rotate(2deg); } 66%{ transform:scale(.95) rotate(-2deg); } 100%{ transform:scale(1.05) rotate(1deg); } }
@@ -184,8 +182,6 @@ html[data-theme="day"] .topbar, html[data-theme="green"] .topbar{ border-bottom-
 .theme-dot{ box-shadow:inset 0 1px 2px rgba(0,0,0,.2),0 2px 4px rgba(0,0,0,.1); transition:transform .25s cubic-bezier(.34,1.56,.64,1),border-color .2s; }
 .theme-dot:hover{ transform:scale(1.25); }
 .theme-dot.on{ border-color:var(--accent); transform:scale(1.15); box-shadow:0 0 12px var(--accent-soft),inset 0 1px 2px rgba(0,0,0,.2); }
-.search{ background:var(--card); box-shadow:inset 0 2px 4px rgba(0,0,0,.06),0 2px 8px rgba(0,0,0,.04); transition:all .3s cubic-bezier(.4,0,.2,1); }
-.search:focus{ border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft),inset 0 2px 4px rgba(0,0,0,.06); transform:translateY(-1px); }
 .tab{ position:relative; overflow:hidden; transition:all .25s cubic-bezier(.4,0,.2,1); }
 .tab::after{ content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(255,255,255,.1) 0%,transparent 100%); opacity:0; transition:opacity .2s; }
 .tab:hover::after{ opacity:1; }
@@ -288,7 +284,7 @@ html[data-theme="violet"]{ --text-strong:#f7f2ff; --text:#e2daf7; --text-2:#aa9f
 .modal h3{ color:var(--text-strong); }
 .modal label{ color:var(--text-2); }
 .toast{ color:var(--text); }
-.search::placeholder, .modal input::placeholder, .modal textarea::placeholder{ color:var(--text-3); }
+.modal input::placeholder, .modal textarea::placeholder{ color:var(--text-3); }
 body,.brand h1,.station-head h3,.ctxt,.p-name{ transition:color .3s,background .3s,-webkit-text-fill-color .3s; }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.13/dist/hls.min.js"></script>
@@ -323,7 +319,7 @@ body,.brand h1,.station-head h3,.ctxt,.p-name{ transition:color .3s,background .
   </div>
   <div class="topbar-row topbar-row-2">
     <div class="tabs" id="tabs"><button class="tab on" data-cat="国家">国家</button><button class="tab" data-cat="直辖市省级">直辖市省级</button><button class="tab" data-cat="地市级">地市级</button><button class="tab" data-cat="网络电台">网络电台</button></div>
-    <input class="search" id="search" type="text" placeholder="搜索电台或频道…">
+    <a class="freq-btn" href="sw-b26.html" target="_blank" rel="noopener" title="B26 主流国际电台对华短波广播频率表">短波频率</a>
     <div class="tabs tabs-right" id="tabsRight"><button class="tab" data-cat="XG">香港</button><button class="tab" data-cat="AM">澳门</button><button class="tab" data-cat="TW">台湾</button><button class="tab" data-cat="HW">海外</button></div>
   </div>
 </header>
@@ -496,7 +492,6 @@ function persist() {
    ========================================================= */
 let stations       = loadStations();
 let currentCat     = '国家';
-let keyword        = '';
 let currentId      = null;
 let currentStation = null;
 let currentChannel = null;
@@ -516,7 +511,6 @@ let qnLockUntil = 0;
 const $list      = document.getElementById('list');
 const $tabs      = document.getElementById('tabs');
 const $tabsRight = document.getElementById('tabsRight');
-const $search    = document.getElementById('search');
 const $toTop     = document.getElementById('toTop');
 const $modal     = document.getElementById('modal');
 const $mName     = document.getElementById('mName');
@@ -660,8 +654,6 @@ function handleTabClick(e) {
   const btn = e.target.closest('.tab');
   if (!btn) return;
   currentCat = btn.dataset.cat;
-  keyword = '';
-  $search.value = '';
   renderTabs();
   render();
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -812,7 +804,6 @@ function playIcoHtml(active) {
   return active && playing ? '<span class="eq"><i></i><i></i><i></i></span>' : '▶';
 }
 function render() {
-  const q = keyword.trim().toLowerCase();
   const pool = stations.filter(s => s.cat === currentCat);
   let html = '';
   let stationCount = 0;
@@ -821,15 +812,7 @@ function render() {
   const navMap = new Map();
 
   for (const s of pool) {
-    const matched = s.channels.filter(c =>
-      !q ||
-      (c.name || '').toLowerCase().includes(q) ||
-      (c.freq || '').toLowerCase().includes(q) ||
-      (c.desc || '').toLowerCase().includes(q) ||
-      (s.station || '').toLowerCase().includes(q) ||
-      (s.province || '').toLowerCase().includes(q)
-    );
-    if (q && matched.length === 0) continue;
+    const matched = s.channels;
     stationCount++;
     channelCount += matched.length;
 
@@ -884,9 +867,7 @@ function render() {
     </div>`;
 
   if (!html) {
-    html = q
-      ? `<div class="empty">未找到匹配的电台或频道<small><br>试试切换上方分类，或更换关键词<br><br><button type="button" class="btn-clear-search">✕ 清除搜索</button></small></div>`
-      : `<div class="empty">该板块暂无电台<small><br>点击上方「＋ 添加电台」开始添加</small></div>`;
+    html = `<div class="empty">该板块暂无电台<small><br>点击上方「＋ 添加电台」开始添加</small></div>`;
   }
   $list.innerHTML = head + html;
 
@@ -898,12 +879,6 @@ function render() {
    十一、列表交互
    ========================================================= */
 $list.addEventListener('click', e => {
-  if (e.target.closest('.btn-clear-search')) {
-    keyword = '';
-    $search.value = '';
-    render();
-    return;
-  }
   const sortToggle = e.target.closest('[data-act="sort-toggle"]');
   if (sortToggle) {
     if (editLocked) { toast('编辑已锁定，请点击右上角 🔒 解锁'); return; }
@@ -1335,19 +1310,6 @@ document.addEventListener('keydown', e => {
   if (!$modal.classList.contains('show')) return;
   if (e.key === 'Escape') closeModal();
   if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') saveModal();
-});
-
-/* =========================================================
-   十八、搜索
-   ========================================================= */
-let searchTimer = null;
-$search.addEventListener('input', e => {
-  keyword = e.target.value;
-  clearTimeout(searchTimer);
-  searchTimer = setTimeout(render, 160);
-});
-$search.addEventListener('keydown', e => {
-  if (e.key === 'Escape') { e.target.value = ''; keyword = ''; render(); }
 });
 
 /* =========================================================
