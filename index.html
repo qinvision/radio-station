@@ -289,7 +289,7 @@ body,.brand h1,.station-head h3,.ctxt,.p-name{ transition:color .3s,background .
 </style>
 <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.13/dist/hls.min.js"></script>
 </head>
-<body class="locked" data-inspector-id="html:f84d5675:1">
+<body class="" data-inspector-id="html:f84d5675:1">
 <div class="deco-orb deco-orb-1" data-inspector-id="html:f84d5675:2"></div>
 <div class="deco-orb deco-orb-2" data-inspector-id="html:f84d5675:3"></div>
 <div class="deco-orb deco-orb-3" data-inspector-id="html:f84d5675:4"></div>
@@ -497,7 +497,7 @@ let currentStation = null;
 let currentChannel = null;
 let playing        = false;
 let modalCtx       = null;
-let editLocked     = true;
+let editLocked     = false;
 const badUrls   = new Set();
 let   activeUrl = null;
 
@@ -627,7 +627,7 @@ $lockBtn.addEventListener('click', () => {
   updatePlayerUI();
   toast(editLocked ? '编辑已锁定' : '编辑已解锁，现在可以编辑频道了');
 });
-(function initLock() { editLocked = false; applyLockUI(); })();
+(function initLock() { editLocked = true; applyLockUI(); })();
 
 /* =========================================================
    七、分类标签
